@@ -1,99 +1,109 @@
 # CLAUDE.md
 
-This file provides concise, Claude-specific guidance. For comprehensive agent documentation, see [AGENTS.md](./AGENTS.md).
+This file provides guidance for Claude when working with the Flabbergasted AI Skills repository.
 
-## Project Overview
+## What This Repo Is
 
-A library of 200+ AI skills for Claude Code - modular packages extending Claude's capabilities across scientific research, software development, and creative work.
-
-## Quick Reference
-
-| Resource | Purpose |
-|----------|---------|
-| [README.md](./README.md) | Full skill catalog (15 categories,200+ skills) |
-| [README_zh.md](./README_zh.md) | 中文版技能目录 |
-| [AGENTS.md](./AGENTS.md) | Comprehensive agent guide |
-
-## Skill Discovery
-
-When user asks about something that might have a skill:
-
-1. Check [README.md](./README.md) category list
-2. Use `find-skills` skill: `/find-skills query="..."`
-3. Grep for keywords: `grep -l "keyword" public/*/SKILL.md`
-
-## Skill Invocation
-
-Use the Skill tool to invoke skills:
-```
-/<skill-name> [args]
-```
-
-Example: `/pubmed-database query="CRISPR efficiency"`
+A collection of 200+ AI skill packages under `public/`. Each skill is a self-contained directory with a `SKILL.md` and optional supporting files that extend Claude's capabilities in specific domains.
 
 ## Key Commands
 
 ```bash
-# Initialize new skill
-python public/skill-creator/scripts/init_skill.py <name> --path public/
+# List all skills
+ls public/
 
-# Validate skill structure
-python public/skill-creator/scripts/quick_validate.py public/<name>
+# Read a skill's instructions
+cat public/<skill-name>/SKILL.md
 
-# Package for distribution
-python public/skill-creator/scripts/package_skill.py public/<name>
+# Count total skills
+ls public/ | wc -l
 ```
 
-## Skill Structure
+## Skill Authoring Guide
 
-```
-public/<skill-name>/
-├── SKILL.md        # Required: YAML frontmatter + markdown
-├── scripts/        # Optional: executable code
-├── references/     # Optional: detailed docs
-└── assets/         # Optional: templates, fonts
-```
+### Creating a New Skill
 
-## Skill Frontmatter (Required)
+1. **Create the directory**: `public/<skill-name>/` (kebab-case)
+2. **Write `SKILL.md`** with frontmatter and instructions:
 
 ```yaml
 ---
-name: skill-name           # Unique, lowercase, hyphenated
-description: |            # Primary trigger - be specific
-  When to use this skill. Include all relevant contexts.
-  Mention related skills for differentiation.
-user-invokable: true # Set true if slash command is useful
+name: my-skill
+description: What the skill does. When to use it — include specific triggers like file types, user phrases, or task contexts.
 ---
 ```
 
-## Key Principles
+3. **Add supporting files** as needed:
+   - `references/` — Documentation loaded on demand (API docs, schemas, examples)
+   - `scripts/` — Executable code for deterministic tasks
+   - `assets/` — Templates, images, fonts used in output
 
-- **Progressive disclosure**: Essential info in SKILL.md, details in `references/`
-- **Description is trigger**: Include all "when to use" contexts naturally
-- **Test scripts**: Run them before committing
-- **No duplicates**: Check for existing skills covering the same purpose
+4. **Update catalogs** — Add entry to both `README.md` and `README_zh.md` in the appropriate category table
 
-## Coding Conventions
+### SKILL.md Best Practices
 
-- Use `skill-creator` skill when creating new skills
-- Keep SKILL.md under 500 lines
-- Follow naming conventions:
-  - Database: `{name}-database` (e.g., `pubmed-database`)
-  - ML/Analysis: library name (e.g., `scanpy`)
-  - Task-based: verb-object (e.g., `literature-review`)
-  - Design: adjective (e.g., `polish`, `harden`)
+**Frontmatter description is critical** — it's the primary mechanism for skill discovery and triggering. Include:
+- What the skill does
+- Specific contexts/phrases that should activate it
+- File types or domains it covers
 
-## Common Workflows
+**Body guidelines:**
+- Keep under 500 lines; split to `references/` files when approaching this limit
+- Use imperative form ("Query the API", not "This skill queries the API")
+- Only include information Claude wouldn't already know
+- Prefer concise examples over verbose explanations
+- Reference bundled files with clear guidance on when to read them
 
+**Progressive disclosure:**
+- Level 1: Frontmatter (always visible, ~100 words)
+- Level 2: SKILL.md body (loaded on trigger, <5k words)
+- Level 3: References/scripts (loaded as needed by Claude)
+
+### Common Patterns
+
+**Database access skill:**
 ```
-# Research → Writing
-/literature-review → /scientific-writing → /peer-review
-
-# Drug Discovery
-/pubchem-database → /deepchem → /diffdock → /zinc-database
-
-# Web Development
-/brainstorming → /frontend-design → /webapp-testing → /polish → /vercel-deploy-claimable
+public/example-database/
+├── SKILL.md          # API endpoints, auth, query patterns
+└── references/
+    └── api_reference.md   # Full endpoint documentation
 ```
 
-**Read when**: New session, creating/modifying skills, unsure which skill to use.
+**Tool/library skill:**
+```
+public/example-tool/
+├── SKILL.md          # Quick start, core usage, best practices
+└── references/
+    ├── api.md        # Method signatures and parameters
+    └── examples.md   # Common usage patterns
+```
+
+**Integration skill:**
+```
+public/example-integration/
+├── SKILL.md          # Setup, auth, workflow overview
+└── references/
+    ├── authentication.md
+    ├── api_endpoints.md
+    └── sdk_reference.md
+```
+
+### What NOT to Include
+
+- README.md, CHANGELOG.md, or other meta-documentation within skill directories
+- Information Claude already knows (basic language features, well-known algorithms)
+- Setup/installation guides for the skill itself
+- User-facing documentation — skills are for Claude, not humans
+
+## Editing Existing Skills
+
+- Preserve the existing structure and style
+- Keep frontmatter `name` and `description` fields — never remove them
+- When adding content that pushes SKILL.md past 500 lines, extract to a reference file
+- Test scripts by running them if modified
+
+## Commit Conventions
+
+- Separate commits by function (don't mix unrelated skill changes)
+- Prefix commit messages with the skill name when modifying a single skill
+- Group README updates with the corresponding skill change
