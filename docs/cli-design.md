@@ -10,16 +10,16 @@
 
 ## 技术选型
 
-| 组件 | 选择 | 理由 |
-|------|------|------|
-| 运行时 | Node.js ≥ 18 | `npx` 零安装体验、JSON 处理天然优势 |
-| CLI 框架 | Commander.js | 轻量、成熟、无额外依赖 |
-| 搜索 | Fuse.js | 轻量 fuzzy search，无需外部服务 |
-| 配置 | cosmiconfig | 标准配置文件发现（支持 yaml/json/rc） |
-| 输出美化 | chalk + ora | 彩色输出 + spinner |
-| 文件操作 | fs-extra | cp/rm 递归操作 |
-| 远程索引 | node-fetch (或内置 fetch) | 从 GitHub 获取 index.json |
-| 打包格式 | archiver / adm-zip | .skill 文件打包（zip 格式） |
+| 组件     | 选择                      | 理由                                  |
+| -------- | ------------------------- | ------------------------------------- |
+| 运行时   | Node.js ≥ 18              | `npx` 零安装体验、JSON 处理天然优势   |
+| CLI 框架 | Commander.js              | 轻量、成熟、无额外依赖                |
+| 搜索     | Fuse.js                   | 轻量 fuzzy search，无需外部服务       |
+| 配置     | cosmiconfig               | 标准配置文件发现（支持 yaml/json/rc） |
+| 输出美化 | chalk + ora               | 彩色输出 + spinner                    |
+| 文件操作 | fs-extra                  | cp/rm 递归操作                        |
+| 远程索引 | node-fetch (或内置 fetch) | 从 GitHub 获取 index.json             |
+| 打包格式 | archiver / adm-zip        | .skill 文件打包（zip 格式）           |
 
 ---
 
@@ -91,16 +91,16 @@ skills index build --output <path>       # 指定输出路径
 
 ### 内置目标
 
-| Target ID | 路径 | 说明 |
-|-----------|------|------|
-| `claude` | `~/.claude/skills/` | Claude Code 全局 skills |
-| `cursor` | `~/.cursor/skills/` | Cursor 全局 skills |
-| `agents` | `~/.agents/skills/` | 通用 Agent skills 目录 |
-| `codex` | `~/.codex/skills/` | OpenAI Codex CLI |
-| `aider` | `~/.aider/skills/` | Aider |
-| `continue` | `~/.continue/skills/` | Continue.dev |
-| `project` | `${cwd}/.claude/skills/` | 项目级 Claude |
-| `cursor-project` | `${cwd}/.cursor/skills/` | 项目级 Cursor |
+| Target ID        | 路径                     | 说明                    |
+| ---------------- | ------------------------ | ----------------------- |
+| `claude`         | `~/.claude/skills/`      | Claude Code 全局 skills |
+| `cursor`         | `~/.cursor/skills/`      | Cursor 全局 skills      |
+| `agents`         | `~/.agents/skills/`      | 通用 Agent skills 目录  |
+| `codex`          | `~/.codex/skills/`       | OpenAI Codex CLI        |
+| `aider`          | `~/.aider/skills/`       | Aider                   |
+| `continue`       | `~/.continue/skills/`    | Continue.dev            |
+| `project`        | `${cwd}/.claude/skills/` | 项目级 Claude           |
+| `cursor-project` | `${cwd}/.cursor/skills/` | 项目级 Cursor           |
 
 ### 自动检测
 
@@ -363,7 +363,7 @@ jobs:
       - run: npx tsx scripts/build-index.ts
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: rebuild index.json"
+          commit_message: 'chore: rebuild index.json'
           file_pattern: index.json
 ```
 
@@ -390,6 +390,52 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
+
+### 发布操作步骤
+
+1. **更新版本号**
+
+```bash
+cd cli
+npm version patch   # 或 minor / major
+cd ..
+```
+
+2. **提交版本变更**
+
+```bash
+git add cli/package.json
+git commit -m "chore: bump version to x.y.z"
+```
+
+3. **打 tag 并推送**
+
+```bash
+git tag v$(node -p "require('./cli/package.json').version")
+git push origin main --tags
+```
+
+4. **自动发布** — 推送 tag 后 GitHub Actions 自动执行：
+   - `npm ci` 安装依赖
+   - `npm run build` 构建 dist/
+   - `npm run build-index` 重建 index.json
+   - `npm publish --access public --provenance` 发布到 npm
+
+5. **验证发布**
+
+```bash
+# 确认 npm 包已发布
+npm info @flabbergasted-ai/skills
+
+# 测试 npx 使用
+npx @flabbergasted-ai/skills --version
+```
+
+### 前置要求
+
+- 在 GitHub repo 的 Settings → Secrets → Actions 中添加 `NPM_TOKEN`
+- npm token 需要 publish 权限：`npm token create --read-only=false`
+- package.json 中的 `name` 字段需要是你有发布权限的 scope
 
 ---
 
