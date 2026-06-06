@@ -1,0 +1,2492 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-06-06T15:01:25.262Z",
+  "skills": [
+    {
+      "name": "adapt",
+      "description": "Adapt designs to work across different screen sizes, devices, contexts, or platforms. Ensures consistent experience across varied environments.",
+      "category": "design-art",
+      "tags": [],
+      "path": "public/adapt",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "adaptyv",
+      "description": "Cloud laboratory platform for automated protein testing and validation. Use when designing proteins and needing experimental validation including binding assays, expression testing, thermostability measurements, enzyme activity assays, or protein sequence optimization. Also use for submitting experiments via API, tracking experiment status, downloading results, optimizing protein sequences for better expression using computational tools (NetSolP, SoluProt, SolubleMPNN, ESM), or managing protein design workflows with wet-lab validation.",
+      "category": "bioinformatics",
+      "tags": [
+        "api",
+        "protein",
+        "workflow"
+      ],
+      "path": "public/adaptyv",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "aeon",
+      "description": "This skill should be used for time series machine learning tasks including classification, regression, clustering, forecasting, anomaly detection, segmentation, and similarity search. Use when working with temporal data, sequential patterns, or time-indexed observations requiring specialized algorithms beyond standard ML approaches. Particularly suited for univariate and multivariate time series analysis with scikit-learn compatible APIs.",
+      "category": "machine-learning",
+      "tags": [
+        "api",
+        "ml"
+      ],
+      "path": "public/aeon",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "algorithmic-art",
+      "description": "Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations.",
+      "category": "design-art",
+      "tags": [],
+      "path": "public/algorithmic-art",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "alphafold-database",
+      "description": "Access AlphaFold 200M+ AI-predicted protein structures. Retrieve structures by UniProt ID, download PDB/mmCIF files, analyze confidence metrics (pLDDT, PAE), for drug discovery and structural biology.",
+      "category": "scientific-databases",
+      "tags": [
+        "database",
+        "protein",
+        "drug"
+      ],
+      "path": "public/alphafold-database",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "amap-jsapi-skill |",
+      "description": "高德地图 JSAPI v2.0 (WebGL) 开发技能。涵盖地图生命周期管理、强制安全配置、3D 视图控制、覆盖物绘制及 LBS 服务集成。 |",
+      "category": "frontend-web",
+      "tags": [
+        "api"
+      ],
+      "path": "public/amap-jsapi-skill",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "animate",
+      "description": "Review a feature and enhance it with purposeful animations, micro-interactions, and motion effects that improve usability and delight.",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/animate",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "anndata",
+      "description": "Data structure for annotated matrices in single-cell analysis. Use when working with .h5ad files or integrating with the scverse ecosystem. This is the data format skill—for analysis workflows use scanpy; for probabilistic models use scvi-tools; for population-scale queries use cellxgene-census.",
+      "category": "bioinformatics",
+      "tags": [
+        "single-cell",
+        "workflow"
+      ],
+      "path": "public/anndata",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "arboreto",
+      "description": "Infer gene regulatory networks (GRNs) from gene expression data using scalable algorithms (GRNBoost2, GENIE3). Use when analyzing transcriptomics data (bulk RNA-seq, single-cell RNA-seq) to identify transcription factor-target gene relationships and regulatory interactions. Supports distributed computation for large-scale datasets.",
+      "category": "bioinformatics",
+      "tags": [
+        "rna",
+        "single-cell"
+      ],
+      "path": "public/arboreto",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "astropy",
+      "description": "Comprehensive Python library for astronomy and astrophysics. This skill should be used when working with astronomical data including celestial coordinates, physical units, FITS files, cosmological calculations, time systems, tables, world coordinate systems (WCS), and astronomical data analysis. Use when tasks involve coordinate transformations, unit conversions, FITS file manipulation, cosmological distance calculations, time scale conversions, or astronomical data processing.",
+      "category": "agent-workflow",
+      "tags": [
+        "python"
+      ],
+      "path": "public/astropy",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "audit",
+      "description": "Perform comprehensive audit of interface quality across accessibility, performance, theming, and responsive design. Generates detailed report of issues with severity ratings and recommendations.",
+      "category": "design-art",
+      "tags": [],
+      "path": "public/audit",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "benchling-integration",
+      "description": "Benchling R&D platform integration. Access registry (DNA, proteins), inventory, ELN entries, workflows via API, build Benchling Apps, query Data Warehouse, for lab data management automation.",
+      "category": "scientific-databases",
+      "tags": [
+        "api",
+        "protein",
+        "workflow"
+      ],
+      "path": "public/benchling-integration",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "biomni",
+      "description": "Autonomous biomedical AI agent framework for executing complex research tasks across genomics, drug discovery, molecular biology, and clinical analysis. Use this skill when conducting multi-step biomedical research including CRISPR screening design, single-cell RNA-seq analysis, ADMET prediction, GWAS interpretation, rare disease diagnosis, or lab protocol optimization. Leverages LLM reasoning with code execution and integrated biomedical databases.",
+      "category": "bioinformatics",
+      "tags": [
+        "database",
+        "genomics",
+        "rna",
+        "single-cell",
+        "drug"
+      ],
+      "path": "public/biomni",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "biopython",
+      "description": "Comprehensive molecular biology toolkit. Use for sequence manipulation, file parsing (FASTA/GenBank/PDB), phylogenetics, and programmatic NCBI/PubMed access (Bio.Entrez). Best for batch processing, custom bioinformatics pipelines, BLAST automation. For quick lookups use gget; for multi-service integration use bioservices.",
+      "category": "bioinformatics",
+      "tags": [
+        "python"
+      ],
+      "path": "public/biopython",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "biorxiv-database",
+      "description": "Efficient database search tool for bioRxiv preprint server. Use this skill when searching for life sciences preprints by keywords, authors, date ranges, or categories, retrieving paper metadata, downloading PDFs, or conducting literature reviews.",
+      "category": "scientific-databases",
+      "tags": [
+        "database"
+      ],
+      "path": "public/biorxiv-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "bioservices",
+      "description": "Unified Python interface to 40+ bioinformatics services. Use when querying multiple databases (UniProt, KEGG, ChEMBL, Reactome) in a single workflow with consistent API. Best for cross-database analysis, ID mapping across services. For quick single-database lookups use gget; for sequence/file manipulation use biopython.",
+      "category": "scientific-databases",
+      "tags": [
+        "python",
+        "api",
+        "database",
+        "react",
+        "workflow"
+      ],
+      "path": "public/bioservices",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "bolder",
+      "description": "Amplify safe or boring designs to make them more visually interesting and stimulating. Increases impact while maintaining usability.",
+      "category": "design-art",
+      "tags": [
+        "rest"
+      ],
+      "path": "public/bolder",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "brainstorming",
+      "description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/brainstorming",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "brand-guidelines",
+      "description": "Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/brand-guidelines",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "brenda-database",
+      "description": "Access BRENDA enzyme database via SOAP API. Retrieve kinetic parameters (Km, kcat), reaction equations, organism data, and substrate-specific enzyme information for biochemical research and metabolic pathway analysis.",
+      "category": "scientific-databases",
+      "tags": [
+        "api",
+        "database",
+        "react"
+      ],
+      "path": "public/brenda-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "canvas-design",
+      "description": "Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.",
+      "category": "design-art",
+      "tags": [],
+      "path": "public/canvas-design",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "cellxgene-census",
+      "description": "Query the CELLxGENE Census (61M+ cells) programmatically. Use when you need expression data across tissues, diseases, or cell types from the largest curated single-cell atlas. Best for population-scale queries, reference atlas comparisons. For analyzing your own data use scanpy or scvi-tools.",
+      "category": "scientific-databases",
+      "tags": [
+        "single-cell"
+      ],
+      "path": "public/cellxgene-census",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "chembl-database",
+      "description": "Query ChEMBL bioactive molecules and drug discovery data. Search compounds by structure/properties, retrieve bioactivity data (IC50, Ki), find inhibitors, perform SAR studies, for medicinal chemistry.",
+      "category": "scientific-databases",
+      "tags": [
+        "database",
+        "drug",
+        "molecule"
+      ],
+      "path": "public/chembl-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "cirq",
+      "description": "Google quantum computing framework. Use when targeting Google Quantum AI hardware, designing noise-aware circuits, or running quantum characterization experiments. Best for Google hardware, noise modeling, and low-level circuit design. For IBM hardware use qiskit; for quantum ML with autodiff use pennylane; for physics simulations use qutip.",
+      "category": "quantum-computing",
+      "tags": [
+        "ml",
+        "quantum"
+      ],
+      "path": "public/cirq",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "citation-management",
+      "description": "Comprehensive citation management for academic research. Search Google Scholar and PubMed for papers, extract accurate metadata, validate citations, and generate properly formatted BibTeX entries. This skill should be used when you need to find papers, verify citation information, convert DOIs to BibTeX, or ensure reference accuracy in scientific writing.",
+      "category": "scientific-writing",
+      "tags": [],
+      "path": "public/citation-management",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "clarify",
+      "description": "Improve unclear UX copy, error messages, microcopy, labels, and instructions. Makes interfaces easier to understand and use.",
+      "category": "lab-automation",
+      "tags": [],
+      "path": "public/clarify",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "clinical-decision-support",
+      "description": "Generate professional clinical decision support (CDS) documents for pharmaceutical and clinical research settings, including patient cohort analyses (biomarker-stratified with outcomes) and treatment recommendation reports (evidence-based guidelines with decision algorithms). Supports GRADE evidence grading, statistical analysis (hazard ratios, survival curves, waterfall plots), biomarker integration, and regulatory compliance. Outputs publication-ready LaTeX/PDF format optimized for drug development, clinical research, and evidence synthesis.",
+      "category": "drug-discovery",
+      "tags": [
+        "drug"
+      ],
+      "path": "public/clinical-decision-support",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "clinical-reports",
+      "description": "Write comprehensive clinical reports including case reports (CARE guidelines), diagnostic reports (radiology/pathology/lab), clinical trial reports (ICH-E3, SAE, CSR), and patient documentation (SOAP, H&P, discharge summaries). Full support with templates, regulatory compliance (HIPAA, FDA, ICH-GCP), and validation tools.",
+      "category": "clinical-medical",
+      "tags": [],
+      "path": "public/clinical-reports",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "clinicaltrials-database",
+      "description": "Query ClinicalTrials.gov via API v2. Search trials by condition, drug, location, status, or phase. Retrieve trial details by NCT ID, export data, for clinical research and patient matching.",
+      "category": "scientific-databases",
+      "tags": [
+        "api",
+        "database",
+        "drug"
+      ],
+      "path": "public/clinicaltrials-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "clinpgx-database",
+      "description": "Access ClinPGx pharmacogenomics data (successor to PharmGKB). Query gene-drug interactions, CPIC guidelines, allele functions, for precision medicine and genotype-guided dosing decisions.",
+      "category": "scientific-databases",
+      "tags": [
+        "database",
+        "genomics",
+        "drug"
+      ],
+      "path": "public/clinpgx-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "clinvar-database",
+      "description": "Query NCBI ClinVar for variant clinical significance. Search by gene/position, interpret pathogenicity classifications, access via E-utilities API or FTP, annotate VCFs, for genomic medicine.",
+      "category": "scientific-databases",
+      "tags": [
+        "api",
+        "database"
+      ],
+      "path": "public/clinvar-database",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "cobrapy",
+      "description": "Constraint-based metabolic modeling (COBRA). FBA, FVA, gene knockouts, flux sampling, SBML models, for systems biology and metabolic engineering analysis.",
+      "category": "agent-workflow",
+      "tags": [
+        "ml"
+      ],
+      "path": "public/cobrapy",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "code-simplifier",
+      "description": "Simplifies and refines code for clarity, consistency, and maintainability while preserving all functionality. Focuses on recently modified code unless instructed otherwise.",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/code-simplifier",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "colorize",
+      "description": "Add strategic color to features that are too monochromatic or lack visual interest. Makes interfaces more engaging and expressive.",
+      "category": "design-art",
+      "tags": [
+        "rest"
+      ],
+      "path": "public/colorize",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "context-compression",
+      "description": "This skill should be used when the user asks to \"compress context\", \"summarize conversation history\", \"implement compaction\", \"reduce token usage\", or mentions context compression, structured summarization, tokens-per-task optimization, or long-running agent sessions exceeding context limits.",
+      "category": "context-engineering",
+      "tags": [],
+      "path": "public/context-compression",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "context-degradation",
+      "description": "This skill should be used when the user asks to \"diagnose context problems\", \"fix lost-in-middle issues\", \"debug agent failures\", \"understand context poisoning\", or mentions context degradation, attention patterns, context clash, context confusion, or agent performance degradation. Provides patterns for recognizing and mitigating context failures.",
+      "category": "context-engineering",
+      "tags": [],
+      "path": "public/context-degradation",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "context-fundamentals",
+      "description": "This skill should be used when the user asks to \"understand context\", \"explain context windows\", \"design agent architecture\", \"debug context issues\", \"optimize context usage\", or discusses context components, attention mechanics, progressive disclosure, or context budgeting. Provides foundational understanding of context engineering for AI agent systems.",
+      "category": "design-art",
+      "tags": [],
+      "path": "public/context-fundamentals",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "context-optimization",
+      "description": "This skill should be used when the user asks to \"optimize context\", \"reduce token costs\", \"improve context efficiency\", \"implement KV-cache optimization\", \"partition context\", or mentions context limits, observation masking, context budgeting, or extending effective context capacity.",
+      "category": "design-art",
+      "tags": [],
+      "path": "public/context-optimization",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "cosmic-database",
+      "description": "Access COSMIC cancer mutation database. Query somatic mutations, Cancer Gene Census, mutational signatures, gene fusions, for cancer research and precision oncology. Requires authentication.",
+      "category": "scientific-databases",
+      "tags": [
+        "database"
+      ],
+      "path": "public/cosmic-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "critique",
+      "description": "Evaluate design effectiveness from a UX perspective. Assesses visual hierarchy, information architecture, emotional resonance, and overall design quality with actionable feedback.",
+      "category": "design-art",
+      "tags": [],
+      "path": "public/critique",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "dask",
+      "description": "Distributed computing for larger-than-RAM pandas/NumPy workflows. Use when you need to scale existing pandas/NumPy code beyond memory or across clusters. Best for parallel file processing, distributed ML, integration with existing pandas code. For out-of-core analytics on single machine use vaex; for in-memory speed use polars.",
+      "category": "agent-workflow",
+      "tags": [
+        "ml",
+        "workflow"
+      ],
+      "path": "public/dask",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "datacommons-client",
+      "description": "Work with Data Commons, a platform providing programmatic access to public statistical data from global sources. Use this skill when working with demographic data, economic indicators, health statistics, environmental data, or any public datasets available through Data Commons. Applicable for querying population statistics, GDP figures, unemployment rates, disease prevalence, geographic entity resolution, and exploring relationships between statistical entities.",
+      "category": "scientific-databases",
+      "tags": [],
+      "path": "public/datacommons-client",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "datamol",
+      "description": "Pythonic wrapper around RDKit with simplified interface and sensible defaults. Preferred for standard drug discovery including SMILES parsing, standardization, descriptors, fingerprints, clustering, 3D conformers, parallel processing. Returns native rdkit.Chem.Mol objects. For advanced control or custom parameters, use rdkit directly.",
+      "category": "drug-discovery",
+      "tags": [
+        "python",
+        "drug"
+      ],
+      "path": "public/datamol",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "deepchem",
+      "description": "Molecular ML with diverse featurizers and pre-built datasets. Use for property prediction (ADMET, toxicity) with traditional ML or GNNs when you want extensive featurization options and MoleculeNet benchmarks. Best for quick experiments with pre-trained models, diverse molecular representations. For graph-first PyTorch workflows use torchdrug; for benchmark datasets use pytdc.",
+      "category": "drug-discovery",
+      "tags": [
+        "drug",
+        "molecule",
+        "ml",
+        "workflow"
+      ],
+      "path": "public/deepchem",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "deeptools",
+      "description": "NGS analysis toolkit. BAM to bigWig conversion, QC (correlation, PCA, fingerprints), heatmaps/profiles (TSS, peaks), for ChIP-seq, RNA-seq, ATAC-seq visualization.",
+      "category": "data-visualization",
+      "tags": [
+        "rna",
+        "visualization"
+      ],
+      "path": "public/deeptools",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "delight",
+      "description": "Add moments of joy, personality, and unexpected touches that make interfaces memorable and enjoyable to use. Elevates functional to delightful.",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/delight",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "denario",
+      "description": "Multiagent AI system for scientific research assistance that automates research workflows from data analysis to publication. This skill should be used when generating research ideas from datasets, developing research methodologies, executing computational experiments, performing literature searches, or generating publication-ready papers in LaTeX format. Supports end-to-end research pipelines with customizable agent orchestration.",
+      "category": "scientific-writing",
+      "tags": [
+        "workflow"
+      ],
+      "path": "public/denario",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "design-principles",
+      "description": "Applies 10 proven design principles to evaluate, critique, or build user interfaces. Use when: (1) reviewing UI/UX decisions, (2) building or modifying frontends, (3) asking for design feedback, (4) assessing visual hierarchy, layout, accessibility, or interaction patterns, (5) creating or editing React or components, (6) writing HTML/CSS/Tailwind. Triggers on keywords like design, UI, UX, interface, layout, accessibility, typography, hierarchy, responsive.",
+      "category": "scientific-writing",
+      "tags": [
+        "ml",
+        "react"
+      ],
+      "path": "public/design-principles",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "diffdock",
+      "description": "Diffusion-based molecular docking. Predict protein-ligand binding poses from PDB/SMILES, confidence scores, virtual screening, for structure-based drug design. Not for affinity prediction.",
+      "category": "drug-discovery",
+      "tags": [
+        "protein",
+        "drug"
+      ],
+      "path": "public/diffdock",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "dispatching-parallel-agents",
+      "description": "Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/dispatching-parallel-agents",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "distill",
+      "description": "Strip designs to their essence by removing unnecessary complexity. Great design is simple, powerful, and clean.",
+      "category": "design-art",
+      "tags": [],
+      "path": "public/distill",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "dnanexus-integration",
+      "description": "DNAnexus cloud genomics platform. Build apps/applets, manage data (upload/download), dxpy Python SDK, run workflows, FASTQ/BAM/VCF, for genomics pipeline development and execution.",
+      "category": "frontend-web",
+      "tags": [
+        "python",
+        "genomics",
+        "workflow"
+      ],
+      "path": "public/dnanexus-integration",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "doc-coauthoring",
+      "description": "Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks.",
+      "category": "scientific-writing",
+      "tags": [
+        "workflow"
+      ],
+      "path": "public/doc-coauthoring",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "docx",
+      "description": "Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction. When Claude needs to work with professional documents (.docx files) for: (1) Creating new documents, (2) Modifying or editing content, (3) Working with tracked changes, (4) Adding comments, or any other document tasks",
+      "category": "document-processing",
+      "tags": [],
+      "path": "public/docx",
+      "hasReferences": false,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "drugbank-database",
+      "description": "Access and analyze comprehensive drug information from the DrugBank database including drug properties, interactions, targets, pathways, chemical structures, and pharmacology data. This skill should be used when working with pharmaceutical data, drug discovery research, pharmacology studies, drug-drug interaction analysis, target identification, chemical similarity searches, ADMET predictions, or any task requiring detailed drug and drug target information from DrugBank.",
+      "category": "scientific-databases",
+      "tags": [
+        "database",
+        "drug"
+      ],
+      "path": "public/drugbank-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "ena-database",
+      "description": "Access European Nucleotide Archive via API/FTP. Retrieve DNA/RNA sequences, raw reads (FASTQ), genome assemblies by accession, for genomics and bioinformatics pipelines. Supports multiple formats.",
+      "category": "scientific-databases",
+      "tags": [
+        "api",
+        "database",
+        "genomics",
+        "rna"
+      ],
+      "path": "public/ena-database",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "ensembl-database",
+      "description": "Query Ensembl genome database REST API for 250+ species. Gene lookups, sequence retrieval, variant analysis, comparative genomics, orthologs, VEP predictions, for genomic research.",
+      "category": "scientific-databases",
+      "tags": [
+        "api",
+        "rest",
+        "database",
+        "genomics"
+      ],
+      "path": "public/ensembl-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "esm",
+      "description": "Comprehensive toolkit for protein language models including ESM3 (generative multimodal protein design across sequence, structure, and function) and ESM C (efficient protein embeddings and representations). Use this skill when working with protein sequences, structures, or function prediction; designing novel proteins; generating protein embeddings; performing inverse folding; or conducting protein engineering tasks. Supports both local model usage and cloud-based Forge API for scalable inference.",
+      "category": "bioinformatics",
+      "tags": [
+        "api",
+        "protein"
+      ],
+      "path": "public/esm",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "etetoolkit",
+      "description": "Phylogenetic tree toolkit (ETE). Tree manipulation (Newick/NHX), evolutionary event detection, orthology/paralogy, NCBI taxonomy, visualization (PDF/SVG), for phylogenomics.",
+      "category": "data-visualization",
+      "tags": [
+        "genomics",
+        "visualization"
+      ],
+      "path": "public/etetoolkit",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "executing-plans",
+      "description": "Use when you have a written implementation plan to execute in a separate session with review checkpoints",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/executing-plans",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "exploratory-data-analysis",
+      "description": "Perform comprehensive exploratory data analysis on scientific data files across 200+ file formats. This skill should be used when analyzing any scientific data file to understand its structure, content, quality, and characteristics. Automatically detects file type and generates detailed markdown reports with format-specific analysis, quality metrics, and downstream analysis recommendations. Covers chemistry, bioinformatics, microscopy, spectroscopy, proteomics, metabolomics, and general scientific data formats.",
+      "category": "bioinformatics",
+      "tags": [],
+      "path": "public/exploratory-data-analysis",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "extract",
+      "description": "Extract and consolidate reusable components, design tokens, and patterns into your design system. Identifies opportunities for systematic reuse and enriches your component library.",
+      "category": "design-art",
+      "tags": [],
+      "path": "public/extract",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "fda-database",
+      "description": "Query openFDA API for drugs, devices, adverse events, recalls, regulatory submissions (510k, PMA), substance identification (UNII), for FDA regulatory data analysis and safety research.",
+      "category": "scientific-databases",
+      "tags": [
+        "api",
+        "database",
+        "drug"
+      ],
+      "path": "public/fda-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "find-skills",
+      "description": "Helps users discover and install agent skills when they ask questions like \"how do I do X\", \"find a skill for X\", \"is there a skill that can...\", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill.",
+      "category": "lab-automation",
+      "tags": [
+        "rest"
+      ],
+      "path": "public/find-skills",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "finishing-a-development-branch",
+      "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/finishing-a-development-branch",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "flowio",
+      "description": "Parse FCS (Flow Cytometry Standard) files v2.0-3.1. Extract events as NumPy arrays, read metadata/channels, convert to CSV/DataFrame, for flow cytometry data preprocessing.",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/flowio",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "fluidsim",
+      "description": "Framework for computational fluid dynamics simulations using Python. Use when running fluid dynamics simulations including Navier-Stokes equations (2D/3D), shallow water equations, stratified flows, or when analyzing turbulence, vortex dynamics, or geophysical flows. Provides pseudospectral methods with FFT, HPC support, and comprehensive output analysis.",
+      "category": "frontend-web",
+      "tags": [
+        "python"
+      ],
+      "path": "public/fluidsim",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "frontend-design",
+      "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.",
+      "category": "frontend-web",
+      "tags": [
+        "ml",
+        "react"
+      ],
+      "path": "public/frontend-design",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "gene-database",
+      "description": "Query NCBI Gene via E-utilities/Datasets API. Search by symbol/ID, retrieve gene info (RefSeqs, GO, locations, phenotypes), batch lookups, for gene annotation and functional analysis.",
+      "category": "scientific-databases",
+      "tags": [
+        "api",
+        "database"
+      ],
+      "path": "public/gene-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "generate-image",
+      "description": "Generate or edit images using AI models (FLUX, Gemini). Use for general-purpose image generation including photos, illustrations, artwork, visual assets, concept art, and any image that is not a technical diagram or schematic. For flowcharts, circuits, pathways, and technical diagrams, use the scientific-schematics skill instead.",
+      "category": "drug-discovery",
+      "tags": [],
+      "path": "public/generate-image",
+      "hasReferences": false,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "geniml",
+      "description": "This skill should be used when working with genomic interval data (BED files) for machine learning tasks. Use for training region embeddings (Region2Vec, BEDspace), single-cell ATAC-seq analysis (scEmbed), building consensus peaks (universes), or any ML-based analysis of genomic regions. Applies to BED file collections, scATAC-seq data, chromatin accessibility datasets, and region-based genomic feature learning.",
+      "category": "bioinformatics",
+      "tags": [
+        "single-cell",
+        "ml"
+      ],
+      "path": "public/geniml",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "geo-database",
+      "description": "Access NCBI GEO for gene expression/genomics data. Search/download microarray and RNA-seq datasets (GSE, GSM, GPL), retrieve SOFT/Matrix files, for transcriptomics and expression analysis.",
+      "category": "scientific-databases",
+      "tags": [
+        "database",
+        "genomics",
+        "rna"
+      ],
+      "path": "public/geo-database",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "geopandas",
+      "description": "Python library for working with geospatial vector data including shapefiles, GeoJSON, and GeoPackage files. Use when working with geographic data for spatial analysis, geometric operations, coordinate transformations, spatial joins, overlay operations, choropleth mapping, or any task involving reading/writing/analyzing vector geographic data. Supports PostGIS databases, interactive maps, and integration with matplotlib/folium/cartopy. Use for tasks like buffer analysis, spatial joins between datasets, dissolving boundaries, clipping data, calculating areas/distances, reprojecting coordinate systems, creating maps, or converting between spatial file formats.",
+      "category": "data-visualization",
+      "tags": [
+        "python",
+        "database"
+      ],
+      "path": "public/geopandas",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "get-available-resources",
+      "description": "This skill should be used at the start of any computationally intensive scientific task to detect and report available system resources (CPU cores, GPUs, memory, disk space). It creates a JSON file with resource information and strategic recommendations that inform computational approach decisions such as whether to use parallel processing (joblib, multiprocessing), out-of-core computing (Dask, Zarr), GPU acceleration (PyTorch, JAX), or memory-efficient strategies. Use this skill before running analyses, training models, processing large datasets, or any task where resource constraints matter.",
+      "category": "lab-automation",
+      "tags": [],
+      "path": "public/get-available-resources",
+      "hasReferences": false,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "gget",
+      "description": "Fast CLI/Python queries to 20+ bioinformatics databases. Use for quick lookups: gene info, BLAST searches, AlphaFold structures, enrichment analysis. Best for interactive exploration, simple queries. For batch processing or advanced BLAST use biopython; for multi-database Python workflows use bioservices.",
+      "category": "bioinformatics",
+      "tags": [
+        "python",
+        "database",
+        "workflow"
+      ],
+      "path": "public/gget",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "git-commit",
+      "description": "Execute git commit with conventional commit message analysis, intelligent staging, and message generation. Use when user asks to commit changes, create a git commit, or mentions \"/commit\". Supports: (1) Auto-detecting type and scope from changes, (2) Generating conventional commit messages from diff, (3) Interactive commit with optional type/scope/description overrides, (4) Intelligent file staging for logical grouping",
+      "category": "agent-workflow",
+      "tags": [
+        "git"
+      ],
+      "path": "public/git-commit",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "git-release",
+      "description": "Create consistent releases and changelogs",
+      "category": "agent-workflow",
+      "tags": [
+        "git"
+      ],
+      "path": "public/git-release",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "gtars",
+      "description": "High-performance toolkit for genomic interval analysis in Rust with Python bindings. Use when working with genomic regions, BED files, coverage tracks, overlap detection, tokenization for ML models, or fragment analysis in computational genomics and machine learning applications.",
+      "category": "machine-learning",
+      "tags": [
+        "python",
+        "genomics",
+        "ml"
+      ],
+      "path": "public/gtars",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "gwas-database",
+      "description": "Query NHGRI-EBI GWAS Catalog for SNP-trait associations. Search variants by rs ID, disease/trait, gene, retrieve p-values and summary statistics, for genetic epidemiology and polygenic risk scores.",
+      "category": "scientific-databases",
+      "tags": [
+        "database"
+      ],
+      "path": "public/gwas-database",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "harden",
+      "description": "Improve interface resilience through better error handling, i18n support, text overflow handling, and edge case management. Makes interfaces robust and production-ready.",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/harden",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "histolab",
+      "description": "Lightweight WSI tile extraction and preprocessing. Use for basic slide processing tissue detection, tile extraction, stain normalization for H&E images. Best for simple pipelines, dataset preparation, quick tile-based analysis. For advanced spatial proteomics, multiplexed imaging, or deep learning pipelines use pathml.",
+      "category": "machine-learning",
+      "tags": [
+        "ml"
+      ],
+      "path": "public/histolab",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "hmdb-database",
+      "description": "Access Human Metabolome Database (220K+ metabolites). Search by name/ID/structure, retrieve chemical properties, biomarker data, NMR/MS spectra, pathways, for metabolomics and identification.",
+      "category": "scientific-databases",
+      "tags": [
+        "database"
+      ],
+      "path": "public/hmdb-database",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "hypogenic",
+      "description": "Automated LLM-driven hypothesis generation and testing on tabular datasets. Use when you want to systematically explore hypotheses about patterns in empirical data (e.g., deception detection, content analysis). Combines literature insights with data-driven hypothesis testing. For manual hypothesis formulation use hypothesis-generation; for creative ideation use scientific-brainstorming.",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/hypogenic",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "hypothesis-generation",
+      "description": "Structured hypothesis formulation from observations. Use when you have experimental observations or data and need to formulate testable hypotheses with predictions, propose mechanisms, and design experiments to test them. Follows scientific method framework. For open-ended ideation use scientific-brainstorming; for automated LLM-driven hypothesis testing on datasets use hypogenic.",
+      "category": "design-art",
+      "tags": [],
+      "path": "public/hypothesis-generation",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": true
+    },
+    {
+      "name": "internal-comms",
+      "description": "A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).",
+      "category": "agent-workflow",
+      "tags": [
+        "rna"
+      ],
+      "path": "public/internal-comms",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "iso-13485-certification",
+      "description": "Comprehensive toolkit for preparing ISO 13485 certification documentation for medical device Quality Management Systems. Use when users need help with ISO 13485 QMS documentation, including (1) conducting gap analysis of existing documentation, (2) creating Quality Manuals, (3) developing required procedures and work instructions, (4) preparing Medical Device Files, (5) understanding ISO 13485 requirements, or (6) identifying missing documentation for medical device certification. Also use when users mention medical device regulations, QMS certification, FDA QMSR, EU MDR, or need help with quality system documentation.",
+      "category": "clinical-medical",
+      "tags": [],
+      "path": "public/iso-13485-certification",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "json-canvas",
+      "description": "Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use when working with .canvas files, creating visual canvases, mind maps, flowcharts, or when the user mentions Canvas files in Obsidian.",
+      "category": "data-visualization",
+      "tags": [],
+      "path": "public/json-canvas",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "kegg-database",
+      "description": "Direct REST API access to KEGG (academic use only). Pathway analysis, gene-pathway mapping, metabolic pathways, drug interactions, ID conversion. For Python workflows with multiple databases, prefer bioservices. Use this for direct HTTP/REST work or KEGG-specific control.",
+      "category": "scientific-databases",
+      "tags": [
+        "python",
+        "api",
+        "rest",
+        "database",
+        "drug"
+      ],
+      "path": "public/kegg-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "labarchive-integration",
+      "description": "Electronic lab notebook API integration. Access notebooks, manage entries/attachments, backup notebooks, integrate with Protocols.io/Jupyter/REDCap, for programmatic ELN workflows.",
+      "category": "lab-automation",
+      "tags": [
+        "api",
+        "workflow"
+      ],
+      "path": "public/labarchive-integration",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "lamindb",
+      "description": "This skill should be used when working with LaminDB, an open-source data framework for biology that makes data queryable, traceable, reproducible, and FAIR. Use when managing biological datasets (scRNA-seq, spatial, flow cytometry, etc.), tracking computational workflows, curating and validating data with biological ontologies, building data lakehouses, or ensuring data lineage and reproducibility in biological research. Covers data management, annotation, ontologies (genes, cell types, diseases, tissues), schema validation, integrations with workflow managers (Nextflow, Snakemake) and MLOps platforms (W&B, MLflow), and deployment strategies.",
+      "category": "scientific-databases",
+      "tags": [
+        "rna",
+        "ml",
+        "workflow"
+      ],
+      "path": "public/lamindb",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "latchbio-integration",
+      "description": "Latch platform for bioinformatics workflows. Build pipelines with Latch SDK, @workflow/@task decorators, deploy serverless workflows, LatchFile/LatchDir, Nextflow/Snakemake integration.",
+      "category": "bioinformatics",
+      "tags": [
+        "workflow"
+      ],
+      "path": "public/latchbio-integration",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "latex-posters",
+      "description": "Create professional research posters in LaTeX using beamerposter, tikzposter, or baposter. Support for conference presentations, academic posters, and scientific communication. Includes layout design, color schemes, multi-column formats, figure integration, and poster-specific best practices for visual communication.",
+      "category": "drug-discovery",
+      "tags": [],
+      "path": "public/latex-posters",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "literature-review",
+      "description": "Conduct comprehensive, systematic literature reviews using multiple academic databases (PubMed, arXiv, bioRxiv, Semantic Scholar, etc.). This skill should be used when conducting systematic literature reviews, meta-analyses, research synthesis, or comprehensive literature searches across biomedical, scientific, and technical domains. Creates professionally formatted markdown documents and PDFs with verified citations in multiple citation styles (APA, Nature, Vancouver, etc.).",
+      "category": "clinical-medical",
+      "tags": [
+        "database"
+      ],
+      "path": "public/literature-review",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "market-research-reports",
+      "description": "Generate comprehensive market research reports (50+ pages) in the style of top consulting firms (McKinsey, BCG, Gartner). Features professional LaTeX formatting, extensive visual generation with scientific-schematics and generate-image, deep integration with research-lookup for data gathering, and multi-framework strategic analysis including Porter Five Forces, PESTLE, SWOT, TAM/SAM/SOM, and BCG Matrix.",
+      "category": "drug-discovery",
+      "tags": [],
+      "path": "public/market-research-reports",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "markitdown",
+      "description": "Convert files and office documents to Markdown. Supports PDF, DOCX, PPTX, XLSX, images (with OCR), audio (with transcription), HTML, CSV, JSON, XML, ZIP, YouTube URLs, EPubs and more.",
+      "category": "document-processing",
+      "tags": [
+        "ml"
+      ],
+      "path": "public/markitdown",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "matchms",
+      "description": "Spectral similarity and compound identification for metabolomics. Use for comparing mass spectra, computing similarity scores (cosine, modified cosine), and identifying unknown compounds from spectral libraries. Best for metabolite identification, spectral matching, library searching. For full LC-MS/MS proteomics pipelines use pyopenms.",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/matchms",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "matlab",
+      "description": "MATLAB and GNU Octave numerical computing for matrix operations, data analysis, visualization, and scientific computing. Use when writing MATLAB/Octave scripts for linear algebra, signal processing, image processing, differential equations, optimization, statistics, or creating scientific visualizations. Also use when the user needs help with MATLAB syntax, functions, or wants to convert between MATLAB and Python code. Scripts can be executed with MATLAB or the open-source GNU Octave interpreter.",
+      "category": "data-visualization",
+      "tags": [
+        "python",
+        "visualization"
+      ],
+      "path": "public/matlab",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "matplotlib",
+      "description": "Low-level plotting library for full customization. Use when you need fine-grained control over every plot element, creating novel plot types, or integrating with specific scientific workflows. Export to PNG/PDF/SVG for publication. For quick statistical plots use seaborn; for interactive plots use plotly; for publication-ready multi-panel figures with journal styling, use scientific-visualization.",
+      "category": "data-visualization",
+      "tags": [
+        "rna",
+        "visualization",
+        "workflow"
+      ],
+      "path": "public/matplotlib",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "mcp-builder",
+      "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).",
+      "category": "lab-automation",
+      "tags": [
+        "python",
+        "api",
+        "rna",
+        "typescript"
+      ],
+      "path": "public/mcp-builder",
+      "hasReferences": false,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "medchem",
+      "description": "Medicinal chemistry filters. Apply drug-likeness rules (Lipinski, Veber), PAINS filters, structural alerts, complexity metrics, for compound prioritization and library filtering.",
+      "category": "drug-discovery",
+      "tags": [
+        "drug"
+      ],
+      "path": "public/medchem",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "metabolomics-workbench-database",
+      "description": "Access NIH Metabolomics Workbench via REST API (4,200+ studies). Query metabolites, RefMet nomenclature, MS/NMR data, m/z searches, study metadata, for metabolomics and biomarker discovery.",
+      "category": "scientific-databases",
+      "tags": [
+        "api",
+        "rest",
+        "database"
+      ],
+      "path": "public/metabolomics-workbench-database",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "modal",
+      "description": "Run Python code in the cloud with serverless containers, GPUs, and autoscaling. Use when deploying ML models, running batch processing jobs, scheduling compute-intensive tasks, or serving APIs that require GPU acceleration or dynamic scaling.",
+      "category": "frontend-web",
+      "tags": [
+        "python",
+        "api",
+        "ml"
+      ],
+      "path": "public/modal",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "molfeat",
+      "description": "Molecular featurization for ML (100+ featurizers). ECFP, MACCS, descriptors, pretrained models (ChemBERTa), convert SMILES to features, for QSAR and molecular ML.",
+      "category": "drug-discovery",
+      "tags": [
+        "ml"
+      ],
+      "path": "public/molfeat",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "networkx",
+      "description": "Comprehensive toolkit for creating, analyzing, and visualizing complex networks and graphs in Python. Use when working with network/graph data structures, analyzing relationships between entities, computing graph algorithms (shortest paths, centrality, clustering), detecting communities, generating synthetic networks, or visualizing network topologies. Applicable to social networks, biological networks, transportation systems, citation networks, and any domain involving pairwise relationships.",
+      "category": "data-visualization",
+      "tags": [
+        "python"
+      ],
+      "path": "public/networkx",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "neurokit2",
+      "description": "Comprehensive biosignal processing toolkit for analyzing physiological data including ECG, EEG, EDA, RSP, PPG, EMG, and EOG signals. Use this skill when processing cardiovascular signals, brain activity, electrodermal responses, respiratory patterns, muscle activity, or eye movements. Applicable for heart rate variability analysis, event-related potentials, complexity measures, autonomic nervous system assessment, psychophysiology research, and multi-modal physiological signal integration.",
+      "category": "design-art",
+      "tags": [],
+      "path": "public/neurokit2",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "neuropixels-analysis",
+      "description": "Neuropixels neural recording analysis. Load SpikeGLX/OpenEphys data, preprocess, motion correction, Kilosort4 spike sorting, quality metrics, Allen/IBL curation, AI-assisted visual analysis, for Neuropixels 1.0/2.0 extracellular electrophysiology. Use when working with neural recordings, spike sorting, extracellular electrophysiology, or when the user mentions Neuropixels, SpikeGLX, Open Ephys, Kilosort, quality metrics, or unit curation.",
+      "category": "machine-learning",
+      "tags": [],
+      "path": "public/neuropixels-analysis",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "normalize",
+      "description": "Normalize design to match your design system and ensure consistency",
+      "category": "design-art",
+      "tags": [],
+      "path": "public/normalize",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "obsidian-bases",
+      "description": "Create and edit Obsidian Bases (.base files) with views, filters, formulas, and summaries. Use when working with .base files, creating database-like views of notes, or when the user mentions Bases, table views, card views, filters, or formulas in Obsidian.",
+      "category": "agent-workflow",
+      "tags": [
+        "database"
+      ],
+      "path": "public/obsidian-bases",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "obsidian-markdown",
+      "description": "Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other Obsidian-specific syntax. Use when working with .md files in Obsidian, or when the user mentions wikilinks, callouts, frontmatter, tags, embeds, or Obsidian notes.",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/obsidian-markdown",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "omero-integration",
+      "description": "Microscopy data management platform. Access images via Python, retrieve datasets, analyze pixels, manage ROIs/annotations, batch processing, for high-content screening and microscopy workflows.",
+      "category": "agent-workflow",
+      "tags": [
+        "python",
+        "workflow"
+      ],
+      "path": "public/omero-integration",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "onboard",
+      "description": "Design or improve onboarding flows, empty states, and first-time user experiences. Helps users get started successfully and understand value quickly.",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/onboard",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "openalex-database",
+      "description": "Query and analyze scholarly literature using the OpenAlex database. This skill should be used when searching for academic papers, analyzing research trends, finding works by authors or institutions, tracking citations, discovering open access publications, or conducting bibliometric analysis across 240M+ scholarly works. Use for literature searches, research output analysis, citation analysis, and academic database queries.",
+      "category": "scientific-databases",
+      "tags": [
+        "database"
+      ],
+      "path": "public/openalex-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "opentargets-database",
+      "description": "Query Open Targets Platform for target-disease associations, drug target discovery, tractability/safety data, genetics/omics evidence, known drugs, for therapeutic target identification.",
+      "category": "scientific-databases",
+      "tags": [
+        "database",
+        "drug"
+      ],
+      "path": "public/opentargets-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "opentrons-integration",
+      "description": "Official Opentrons Protocol API for OT-2 and Flex robots. Use when writing protocols specifically for Opentrons hardware with full access to Protocol API v2 features. Best for production Opentrons protocols, official API compatibility. For multi-vendor automation or broader equipment control use pylabrobot.",
+      "category": "scientific-writing",
+      "tags": [
+        "api"
+      ],
+      "path": "public/opentrons-integration",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "optimize",
+      "description": "Improve interface performance across loading speed, rendering, animations, images, and bundle size. Makes experiences faster and smoother.",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/optimize",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "paper-2-web",
+      "description": "This skill should be used when converting academic papers into promotional and presentation formats including interactive websites (Paper2Web), presentation videos (Paper2Video), and conference posters (Paper2Poster). Use this skill for tasks involving paper dissemination, conference preparation, creating explorable academic homepages, generating video abstracts, or producing print-ready posters from LaTeX or PDF sources.",
+      "category": "scientific-writing",
+      "tags": [],
+      "path": "public/paper-2-web",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "pathml",
+      "description": "Full-featured computational pathology toolkit. Use for advanced WSI analysis including multiplexed immunofluorescence (CODEX, Vectra), nucleus segmentation, tissue graph construction, and ML model training on pathology data. Supports 160+ slide formats. For simple tile extraction from H&E slides, histolab may be simpler.",
+      "category": "lab-automation",
+      "tags": [
+        "ml"
+      ],
+      "path": "public/pathml",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "pdb-database",
+      "description": "Access RCSB PDB for 3D protein/nucleic acid structures. Search by text/sequence/structure, download coordinates (PDB/mmCIF), retrieve metadata, for structural biology and drug discovery.",
+      "category": "scientific-databases",
+      "tags": [
+        "database",
+        "protein",
+        "drug"
+      ],
+      "path": "public/pdb-database",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "pdf",
+      "description": "Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form or programmatically process, generate, or analyze PDF documents at scale.",
+      "category": "document-processing",
+      "tags": [],
+      "path": "public/pdf",
+      "hasReferences": false,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "peer-review",
+      "description": "Structured manuscript/grant review with checklist-based evaluation. Use when writing formal peer reviews with specific criteria methodology assessment, statistical validity, reporting standards compliance (CONSORT/STROBE), and constructive feedback. Best for actual review writing, manuscript revision. For evaluating claims/evidence quality use scientific-critical-thinking; for quantitative scoring frameworks use scholar-evaluation.",
+      "category": "scientific-writing",
+      "tags": [],
+      "path": "public/peer-review",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "pennylane",
+      "description": "Hardware-agnostic quantum ML framework with automatic differentiation. Use when training quantum circuits via gradients, building hybrid quantum-classical models, or needing device portability across IBM/Google/Rigetti/IonQ. Best for variational algorithms (VQE, QAOA), quantum neural networks, and integration with PyTorch/JAX/TensorFlow. For hardware-specific optimizations use qiskit (IBM) or cirq (Google); for open quantum systems use qutip.",
+      "category": "machine-learning",
+      "tags": [
+        "ml",
+        "quantum"
+      ],
+      "path": "public/pennylane",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "perplexity-search",
+      "description": "Perform AI-powered web searches with real-time information using Perplexity models via LiteLLM and OpenRouter. This skill should be used when conducting web searches for current information, finding recent scientific literature, getting grounded answers with source citations, or accessing information beyond the model knowledge cutoff. Provides access to multiple Perplexity models including Sonar Pro, Sonar Pro Search (advanced agentic search), and Sonar Reasoning Pro through a single OpenRouter API key.",
+      "category": "frontend-web",
+      "tags": [
+        "api"
+      ],
+      "path": "public/perplexity-search",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "plotly",
+      "description": "Interactive visualization library. Use when you need hover info, zoom, pan, or web-embeddable charts. Best for dashboards, exploratory analysis, and presentations. For static publication figures use matplotlib or scientific-visualization.",
+      "category": "data-visualization",
+      "tags": [
+        "visualization"
+      ],
+      "path": "public/plotly",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "polars",
+      "description": "Fast in-memory DataFrame library for datasets that fit in RAM. Use when pandas is too slow but data still fits in memory. Lazy evaluation, parallel execution, Apache Arrow backend. Best for 1-100GB datasets, ETL pipelines, faster pandas replacement. For larger-than-RAM data use dask or vaex.",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/polars",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "polish",
+      "description": "Final quality pass before shipping. Fixes alignment, spacing, consistency, and detail issues that separate good from great.",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/polish",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "pptx",
+      "description": "Presentation creation, editing, and analysis. When Claude needs to work with presentations (.pptx files) for: (1) Creating new presentations, (2) Modifying or editing content, (3) Working with layouts, (4) Adding comments or speaker notes, or any other presentation tasks",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/pptx",
+      "hasReferences": false,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "pptx-posters",
+      "description": "Create research posters using HTML/CSS that can be exported to PDF or PPTX. Use this skill ONLY when the user explicitly requests PowerPoint/PPTX poster format. For standard research posters, use latex-posters instead. This skill provides modern web-based poster design with responsive layouts and easy visual integration.",
+      "category": "frontend-web",
+      "tags": [
+        "ml"
+      ],
+      "path": "public/pptx-posters",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": true
+    },
+    {
+      "name": "protocolsio-integration",
+      "description": "Integration with protocols.io API for managing scientific protocols. This skill should be used when working with protocols.io to search, create, update, or publish protocols; manage protocol steps and materials; handle discussions and comments; organize workspaces; upload and manage files; or integrate protocols.io functionality into workflows. Applicable for protocol discovery, collaborative protocol development, experiment tracking, lab protocol management, and scientific documentation.",
+      "category": "lab-automation",
+      "tags": [
+        "api",
+        "workflow"
+      ],
+      "path": "public/protocolsio-integration",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "pubchem-database",
+      "description": "Query PubChem via PUG-REST API/PubChemPy (110M+ compounds). Search by name/CID/SMILES, retrieve properties, similarity/substructure searches, bioactivity, for cheminformatics.",
+      "category": "scientific-databases",
+      "tags": [
+        "api",
+        "rest",
+        "database"
+      ],
+      "path": "public/pubchem-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "pubmed-database",
+      "description": "Direct REST API access to PubMed. Advanced Boolean/MeSH queries, E-utilities API, batch processing, citation management. For Python workflows, prefer biopython (Bio.Entrez). Use this for direct HTTP/REST work or custom API implementations.",
+      "category": "scientific-databases",
+      "tags": [
+        "python",
+        "api",
+        "rest",
+        "database",
+        "workflow"
+      ],
+      "path": "public/pubmed-database",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "pufferlib",
+      "description": "High-performance reinforcement learning framework optimized for speed and scale. Use when you need fast parallel training, vectorized environments, multi-agent systems, or integration with game environments (Atari, Procgen, NetHack). Achieves 2-10x speedups over standard implementations. For quick prototyping or standard algorithm implementations with extensive documentation, use stable-baselines3 instead.",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/pufferlib",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "pydeseq2",
+      "description": "Differential gene expression analysis (Python DESeq2). Identify DE genes from bulk RNA-seq counts, Wald tests, FDR correction, volcano/MA plots, for RNA-seq analysis.",
+      "category": "data-visualization",
+      "tags": [
+        "python",
+        "rna"
+      ],
+      "path": "public/pydeseq2",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "pydicom",
+      "description": "Python library for working with DICOM (Digital Imaging and Communications in Medicine) files. Use this skill when reading, writing, or modifying medical imaging data in DICOM format, extracting pixel data from medical images (CT, MRI, X-ray, ultrasound), anonymizing DICOM files, working with DICOM metadata and tags, converting DICOM images to other formats, handling compressed DICOM data, or processing medical imaging datasets. Applies to tasks involving medical image analysis, PACS systems, radiology workflows, and healthcare imaging applications.",
+      "category": "clinical-medical",
+      "tags": [
+        "python",
+        "git",
+        "workflow"
+      ],
+      "path": "public/pydicom",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "pyhealth",
+      "description": "Comprehensive healthcare AI toolkit for developing, testing, and deploying machine learning models with clinical data. This skill should be used when working with electronic health records (EHR), clinical prediction tasks (mortality, readmission, drug recommendation), medical coding systems (ICD, NDC, ATC), physiological signals (EEG, ECG), healthcare datasets (MIMIC-III/IV, eICU, OMOP), or implementing deep learning models for healthcare applications (RETAIN, SafeDrug, Transformer, GNN).",
+      "category": "drug-discovery",
+      "tags": [
+        "drug"
+      ],
+      "path": "public/pyhealth",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "pylabrobot",
+      "description": "Vendor-agnostic lab automation framework. Use when controlling multiple equipment types (Hamilton, Tecan, Opentrons, plate readers, pumps) or needing unified programming across different vendors. Best for complex workflows, multi-vendor setups, simulation. For Opentrons-only protocols with official API, opentrons-integration may be simpler.",
+      "category": "lab-automation",
+      "tags": [
+        "api",
+        "workflow"
+      ],
+      "path": "public/pylabrobot",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "pymatgen",
+      "description": "Materials science toolkit. Crystal structures (CIF, POSCAR), phase diagrams, band structure, DOS, Materials Project integration, format conversion, for computational materials science.",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/pymatgen",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "pymc-bayesian-modeling",
+      "description": "Bayesian modeling with PyMC. Build hierarchical models, MCMC (NUTS), variational inference, LOO/WAIC comparison, posterior checks, for probabilistic programming and inference.",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/pymc",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "pymoo",
+      "description": "Multi-objective optimization framework. NSGA-II, NSGA-III, MOEA/D, Pareto fronts, constraint handling, benchmarks (ZDT, DTLZ), for engineering design and optimization problems.",
+      "category": "design-art",
+      "tags": [],
+      "path": "public/pymoo",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "pyopenms",
+      "description": "Complete mass spectrometry analysis platform. Use for proteomics workflows feature detection, peptide identification, protein quantification, and complex LC-MS/MS pipelines. Supports extensive file formats and algorithms. Best for proteomics, comprehensive MS data processing. For simple spectral comparison and metabolite ID use matchms.",
+      "category": "agent-workflow",
+      "tags": [
+        "protein",
+        "workflow"
+      ],
+      "path": "public/pyopenms",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "pysam",
+      "description": "Genomic file toolkit. Read/write SAM/BAM/CRAM alignments, VCF/BCF variants, FASTA/FASTQ sequences, extract regions, calculate coverage, for NGS data processing pipelines.",
+      "category": "bioinformatics",
+      "tags": [],
+      "path": "public/pysam",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "pytdc",
+      "description": "Therapeutics Data Commons. AI-ready drug discovery datasets (ADME, toxicity, DTI), benchmarks, scaffold splits, molecular oracles, for therapeutic ML and pharmacological prediction.",
+      "category": "drug-discovery",
+      "tags": [
+        "drug",
+        "ml"
+      ],
+      "path": "public/pytdc",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "pytorch-lightning",
+      "description": "Deep learning framework (PyTorch Lightning). Organize PyTorch code into LightningModules, configure Trainers for multi-GPU/TPU, implement data pipelines, callbacks, logging (W&B, TensorBoard), distributed training (DDP, FSDP, DeepSpeed), for scalable neural network training.",
+      "category": "machine-learning",
+      "tags": [],
+      "path": "public/pytorch-lightning",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "qiskit",
+      "description": "IBM quantum computing framework. Use when targeting IBM Quantum hardware, working with Qiskit Runtime for production workloads, or needing IBM optimization tools. Best for IBM hardware execution, quantum error mitigation, and enterprise quantum computing. For Google hardware use cirq; for gradient-based quantum ML use pennylane; for open quantum system simulations use qutip.",
+      "category": "quantum-computing",
+      "tags": [
+        "ml",
+        "quantum"
+      ],
+      "path": "public/qiskit",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "quieter",
+      "description": "Tone down overly bold or visually aggressive designs. Reduces intensity while maintaining design quality and impact.",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/quieter",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "qutip",
+      "description": "Quantum physics simulation library for open quantum systems. Use when studying master equations, Lindblad dynamics, decoherence, quantum optics, or cavity QED. Best for physics research, open system dynamics, and educational simulations. NOT for circuit-based quantum computing—use qiskit, cirq, or pennylane for quantum algorithms and hardware execution.",
+      "category": "quantum-computing",
+      "tags": [
+        "quantum"
+      ],
+      "path": "public/qutip",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "rdkit",
+      "description": "Cheminformatics toolkit for fine-grained molecular control. SMILES/SDF parsing, descriptors (MW, LogP, TPSA), fingerprints, substructure search, 2D/3D generation, similarity, reactions. For standard workflows with simpler interface, use datamol (wrapper around RDKit). Use rdkit for advanced control, custom sanitization, specialized algorithms.",
+      "category": "drug-discovery",
+      "tags": [
+        "react",
+        "workflow"
+      ],
+      "path": "public/rdkit",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "vercel-react-best-practices",
+      "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
+      "category": "scientific-writing",
+      "tags": [
+        "react"
+      ],
+      "path": "public/react-best-practices",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "reactome-database",
+      "description": "Query Reactome REST API for pathway analysis, enrichment, gene-pathway mapping, disease pathways, molecular interactions, expression analysis, for systems biology studies.",
+      "category": "scientific-databases",
+      "tags": [
+        "api",
+        "rest",
+        "database",
+        "react"
+      ],
+      "path": "public/reactome-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "receiving-code-review",
+      "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/receiving-code-review",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "requesting-code-review",
+      "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/requesting-code-review",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "research-grants",
+      "description": "Write competitive research proposals for NSF, NIH, DOE, DARPA, and Taiwan NSTC. Agency-specific formatting, review criteria, budget preparation, broader impacts, significance statements, innovation narratives, and compliance with submission requirements.",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/research-grants",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": true
+    },
+    {
+      "name": "research-lookup",
+      "description": "Look up current research information using Perplexity Sonar Pro Search or Sonar Reasoning Pro models through OpenRouter. Automatically selects the best model based on query complexity. Search academic papers, recent studies, technical documentation, and general research information with citations.",
+      "category": "scientific-databases",
+      "tags": [],
+      "path": "public/research-lookup",
+      "hasReferences": false,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "rowan",
+      "description": "Cloud-based quantum chemistry platform with Python API. Preferred for computational chemistry workflows including pKa prediction, geometry optimization, conformer searching, molecular property calculations, protein-ligand docking (AutoDock Vina), and AI protein cofolding (Chai-1, Boltz-1/2). Use when tasks involve quantum chemistry calculations, molecular property prediction, DFT or semiempirical methods, neural network potentials (AIMNet2), protein-ligand binding predictions, or automated computational chemistry pipelines. Provides cloud compute resources with no local setup required.",
+      "category": "drug-discovery",
+      "tags": [
+        "python",
+        "api",
+        "protein",
+        "workflow",
+        "quantum"
+      ],
+      "path": "public/rowan",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "scanpy",
+      "description": "Standard single-cell RNA-seq analysis pipeline. Use for QC, normalization, dimensionality reduction (PCA/UMAP/t-SNE), clustering, differential expression, and visualization. Best for exploratory scRNA-seq analysis with established workflows. For deep learning models use scvi-tools; for data format questions use anndata.",
+      "category": "bioinformatics",
+      "tags": [
+        "rna",
+        "single-cell",
+        "visualization",
+        "workflow"
+      ],
+      "path": "public/scanpy",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "scholar-evaluation",
+      "description": "Systematically evaluate scholarly work using the ScholarEval framework, providing structured assessment across research quality dimensions including problem formulation, methodology, analysis, and writing with quantitative scoring and actionable feedback.",
+      "category": "scientific-writing",
+      "tags": [],
+      "path": "public/scholar-evaluation",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "scientific-brainstorming",
+      "description": "Creative research ideation and exploration. Use for open-ended brainstorming sessions, exploring interdisciplinary connections, challenging assumptions, or identifying research gaps. Best for early-stage research planning when you do not have specific observations yet. For formulating testable hypotheses from data use hypothesis-generation.",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/scientific-brainstorming",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "scientific-critical-thinking",
+      "description": "Evaluate scientific claims and evidence quality. Use for assessing experimental design validity, identifying biases and confounders, applying evidence grading frameworks (GRADE, Cochrane Risk of Bias), or teaching critical analysis. Best for understanding evidence quality, identifying flaws. For formal peer review writing use peer-review.",
+      "category": "scientific-writing",
+      "tags": [],
+      "path": "public/scientific-critical-thinking",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "scientific-schematics",
+      "description": "Create publication-quality scientific diagrams using Nano Banana Pro AI with smart iterative refinement. Uses Gemini 3 Pro for quality review. Only regenerates if quality is below threshold for your document type. Specialized in neural network architectures, system diagrams, flowcharts, biological pathways, and complex scientific visualizations.",
+      "category": "drug-discovery",
+      "tags": [
+        "visualization"
+      ],
+      "path": "public/scientific-schematics",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "scientific-slides",
+      "description": "Build slide decks and presentations for research talks. Use this for making PowerPoint slides, conference presentations, seminar talks, research presentations, thesis defense slides, or any scientific talk. Provides slide structure, design templates, timing guidance, and visual validation. Works with PowerPoint and LaTeX Beamer.",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/scientific-slides",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "scientific-visualization",
+      "description": "Meta-skill for publication-ready figures. Use when creating journal submission figures requiring multi-panel layouts, significance annotations, error bars, colorblind-safe palettes, and specific journal formatting (Nature, Science, Cell). Orchestrates matplotlib/seaborn/plotly with publication styles. For quick exploration use seaborn or plotly directly.",
+      "category": "data-visualization",
+      "tags": [
+        "rna",
+        "visualization"
+      ],
+      "path": "public/scientific-visualization",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "scientific-writing",
+      "description": "Core skill for the deep research and writing tool. Write scientific manuscripts in full paragraphs (never bullet points). Use two-stage process with (1) section outlines with key points using research-lookup then (2) convert to flowing prose. IMRAD structure, citations (APA/AMA/Vancouver), figures/tables, reporting guidelines (CONSORT/STROBE/PRISMA), for research papers and journal submissions.",
+      "category": "scientific-writing",
+      "tags": [
+        "rna"
+      ],
+      "path": "public/scientific-writing",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": true
+    },
+    {
+      "name": "scikit-bio",
+      "description": "Biological data toolkit. Sequence analysis, alignments, phylogenetic trees, diversity metrics (alpha/beta, UniFrac), ordination (PCoA), PERMANOVA, FASTA/Newick I/O, for microbiome analysis.",
+      "category": "bioinformatics",
+      "tags": [],
+      "path": "public/scikit-bio",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "scikit-learn",
+      "description": "Machine learning in Python with scikit-learn. Use when working with supervised learning (classification, regression), unsupervised learning (clustering, dimensionality reduction), model evaluation, hyperparameter tuning, preprocessing, or building ML pipelines. Provides comprehensive reference documentation for algorithms, preprocessing techniques, pipelines, and best practices.",
+      "category": "machine-learning",
+      "tags": [
+        "python",
+        "ml"
+      ],
+      "path": "public/scikit-learn",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "scikit-survival",
+      "description": "Comprehensive toolkit for survival analysis and time-to-event modeling in Python using scikit-survival. Use this skill when working with censored survival data, performing time-to-event analysis, fitting Cox models, Random Survival Forests, Gradient Boosting models, or Survival SVMs, evaluating survival predictions with concordance index or Brier score, handling competing risks, or implementing any survival analysis workflow with the scikit-survival library.",
+      "category": "agent-workflow",
+      "tags": [
+        "python",
+        "rest",
+        "workflow"
+      ],
+      "path": "public/scikit-survival",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "scvi-tools",
+      "description": "Deep generative models for single-cell omics. Use when you need probabilistic batch correction (scVI), transfer learning, differential expression with uncertainty, or multi-modal integration (TOTALVI, MultiVI). Best for advanced modeling, batch effects, multimodal data. For standard analysis pipelines use scanpy.",
+      "category": "bioinformatics",
+      "tags": [
+        "single-cell"
+      ],
+      "path": "public/scvi-tools",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "seaborn",
+      "description": "Statistical visualization with pandas integration. Use for quick exploration of distributions, relationships, and categorical comparisons with attractive defaults. Best for box plots, violin plots, pair plots, heatmaps. Built on matplotlib. For interactive plots use plotly; for publication styling use scientific-visualization.",
+      "category": "data-visualization",
+      "tags": [
+        "visualization"
+      ],
+      "path": "public/seaborn",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "serenity-skill",
+      "description": "Turn an investment agent into a supply-chain bottleneck hunter. Use this skill for source-backed investment research, live market/theme scans, AI/semi/technology value-chain mapping, A-share/HK/US stock screening, thesis stress tests, and Serenity-inspired research conversations. Trigger on requests like \"用 Serenity 的方式看\", \"深度调研\", \"产业链/供应链/卡点/瓶颈\", \"A股 AI 半导体哪个最值得研究\", \"find unknown bottlenecks\", \"rank candidates\", or \"challenge this thesis\". Outputs plain-language reasoning, ranked research priorities, evidence chains, risks, and next verification steps. Research support only; no trade execution.",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/serenity-skill",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "shap",
+      "description": "Model interpretability and explainability using SHAP (SHapley Additive exPlanations). Use this skill when explaining machine learning model predictions, computing feature importance, generating SHAP plots (waterfall, beeswarm, bar, scatter, force, heatmap), debugging models, analyzing model bias or fairness, comparing models, or implementing explainable AI. Works with tree-based models (XGBoost, LightGBM, Random Forest), deep learning (TensorFlow, PyTorch), linear models, and any black-box model.",
+      "category": "machine-learning",
+      "tags": [
+        "rest"
+      ],
+      "path": "public/shap",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "simpy",
+      "description": "Process-based discrete-event simulation framework in Python. Use this skill when building simulations of systems with processes, queues, resources, and time-based events such as manufacturing systems, service operations, network traffic, logistics, or any system where entities interact with shared resources over time.",
+      "category": "frontend-web",
+      "tags": [
+        "python"
+      ],
+      "path": "public/simpy",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "skill-creator",
+      "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations.",
+      "category": "frontend-web",
+      "tags": [
+        "workflow"
+      ],
+      "path": "public/skill-creator",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "slack-gif-creator",
+      "description": "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like \"make me a GIF of X doing Y for Slack.\"",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/slack-gif-creator",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "stable-baselines3",
+      "description": "Production-ready reinforcement learning algorithms (PPO, SAC, DQN, TD3, DDPG, A2C) with scikit-learn-like API. Use for standard RL experiments, quick prototyping, and well-documented algorithm implementations. Best for single-agent RL with Gymnasium environments. For high-performance parallel training, multi-agent systems, or custom vectorized environments, use pufferlib instead.",
+      "category": "frontend-web",
+      "tags": [
+        "api"
+      ],
+      "path": "public/stable-baselines3",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "statistical-analysis",
+      "description": "Guided statistical analysis with test selection and reporting. Use when you need help choosing appropriate tests for your data, assumption checking, power analysis, and APA-formatted results. Best for academic research reporting, test selection guidance. For implementing specific models programmatically use statsmodels.",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/statistical-analysis",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "statsmodels",
+      "description": "Statistical models library for Python. Use when you need specific model classes (OLS, GLM, mixed models, ARIMA) with detailed diagnostics, residuals, and inference. Best for econometrics, time series, rigorous inference with coefficient tables. For guided statistical test selection with APA reporting use statistical-analysis.",
+      "category": "frontend-web",
+      "tags": [
+        "python"
+      ],
+      "path": "public/statsmodels",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "string-database",
+      "description": "Query STRING API for protein-protein interactions (59M proteins, 20B interactions). Network analysis, GO/KEGG enrichment, interaction discovery, 5000+ species, for systems biology.",
+      "category": "scientific-databases",
+      "tags": [
+        "api",
+        "database",
+        "protein"
+      ],
+      "path": "public/string-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "subagent-driven-development",
+      "description": "Use when executing implementation plans with independent tasks in the current session",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/subagent-driven-development",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "sympy",
+      "description": "Use this skill when working with symbolic mathematics in Python. This skill should be used for symbolic computation tasks including solving equations algebraically, performing calculus operations (derivatives, integrals, limits), manipulating algebraic expressions, working with matrices symbolically, physics calculations, number theory problems, geometry computations, and generating executable code from mathematical expressions. Apply this skill when the user needs exact symbolic results rather than numerical approximations, or when working with mathematical formulas that contain variables and parameters.",
+      "category": "agent-workflow",
+      "tags": [
+        "python"
+      ],
+      "path": "public/sympy",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "systematic-debugging",
+      "description": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/systematic-debugging",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "teach-impeccable",
+      "description": "One-time setup that gathers design context for your project and saves it to your AI config file. Run once to establish persistent design guidelines.",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/teach-impeccable",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "test-driven-development",
+      "description": "Use when implementing any feature or bugfix, before writing implementation code",
+      "category": "scientific-writing",
+      "tags": [],
+      "path": "public/test-driven-development",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "theme-factory",
+      "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.",
+      "category": "design-art",
+      "tags": [
+        "ml"
+      ],
+      "path": "public/theme-factory",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "torch-geometric",
+      "description": "Graph Neural Networks (PyG). Node/graph classification, link prediction, GCN, GAT, GraphSAGE, heterogeneous graphs, molecular property prediction, for geometric deep learning.",
+      "category": "drug-discovery",
+      "tags": [],
+      "path": "public/torch_geometric",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "torchdrug",
+      "description": "PyTorch-native graph neural networks for molecules and proteins. Use when building custom GNN architectures for drug discovery, protein modeling, or knowledge graph reasoning. Best for custom model development, protein property prediction, retrosynthesis. For pre-trained models and diverse featurizers use deepchem; for benchmark datasets use pytdc.",
+      "category": "drug-discovery",
+      "tags": [
+        "protein",
+        "drug",
+        "molecule"
+      ],
+      "path": "public/torchdrug",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "transformers",
+      "description": "This skill should be used when working with pre-trained transformer models for natural language processing, computer vision, audio, or multimodal tasks. Use for text generation, classification, question answering, translation, summarization, image classification, object detection, speech recognition, and fine-tuning models on custom datasets.",
+      "category": "agent-workflow",
+      "tags": [],
+      "path": "public/transformers",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "treatment-plans",
+      "description": "Generate concise (3-4 page), focused medical treatment plans in LaTeX/PDF format for all clinical specialties. Supports general medical treatment, rehabilitation therapy, mental health care, chronic disease management, perioperative care, and pain management. Includes SMART goal frameworks, evidence-based interventions with minimal text citations, regulatory compliance (HIPAA), and professional formatting. Prioritizes brevity and clinical actionability.",
+      "category": "clinical-medical",
+      "tags": [],
+      "path": "public/treatment-plans",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "umap-learn",
+      "description": "UMAP dimensionality reduction. Fast nonlinear manifold learning for 2D/3D visualization, clustering preprocessing (HDBSCAN), supervised/parametric UMAP, for high-dimensional data.",
+      "category": "data-visualization",
+      "tags": [
+        "visualization"
+      ],
+      "path": "public/umap-learn",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "uniprot-database",
+      "description": "Direct REST API access to UniProt. Protein searches, FASTA retrieval, ID mapping, Swiss-Prot/TrEMBL. For Python workflows with multiple databases, prefer bioservices (unified interface to 40+ services). Use this for direct HTTP/REST work or UniProt-specific control.",
+      "category": "scientific-databases",
+      "tags": [
+        "python",
+        "api",
+        "rest",
+        "database",
+        "protein"
+      ],
+      "path": "public/uniprot-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "using-git-worktrees",
+      "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - creates isolated git worktrees with smart directory selection and safety verification",
+      "category": "design-art",
+      "tags": [
+        "git"
+      ],
+      "path": "public/using-git-worktrees",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "using-superpowers",
+      "description": "Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/using-superpowers",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "uspto-database",
+      "description": "Access USPTO APIs for patent/trademark searches, examination history (PEDS), assignments, citations, office actions, TSDR, for IP analysis and prior art searches.",
+      "category": "scientific-databases",
+      "tags": [
+        "api",
+        "database"
+      ],
+      "path": "public/uspto-database",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "vaex",
+      "description": "Use this skill for processing and analyzing large tabular datasets (billions of rows) that exceed available RAM. Vaex excels at out-of-core DataFrame operations, lazy evaluation, fast aggregations, efficient visualization of big data, and machine learning on large datasets. Apply when users need to work with large CSV/HDF5/Arrow/Parquet files, perform fast statistics on massive datasets, create visualizations of big data, or build ML pipelines that do not fit in memory.",
+      "category": "machine-learning",
+      "tags": [
+        "ml",
+        "visualization"
+      ],
+      "path": "public/vaex",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "venue-templates",
+      "description": "Access comprehensive LaTeX templates, formatting requirements, and submission guidelines for major scientific publication venues (Nature, Science, PLOS, IEEE, ACM), academic conferences (NeurIPS, ICML, CVPR, CHI), research posters, and grant proposals (NSF, NIH, DOE, DARPA). This skill should be used when preparing manuscripts for journal submission, conference papers, research posters, or grant proposals and need venue-specific formatting requirements and templates.",
+      "category": "scientific-writing",
+      "tags": [
+        "rna",
+        "ml"
+      ],
+      "path": "public/venue-templates",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
+    },
+    {
+      "name": "vercel-deploy",
+      "description": "Deploy applications and websites to Vercel. Use this skill when the user requests deployment actions such as \"Deploy my app\", \"Deploy this to production\", \"Create a preview deployment\", \"Deploy and give me the link\", or \"Push this live\". No authentication required - returns preview URL and claimable deployment link.",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/vercel-deploy-claimable",
+      "hasReferences": false,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "vercel-react-best-practices",
+      "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
+      "category": "scientific-writing",
+      "tags": [
+        "react"
+      ],
+      "path": "public/vercel-react-best-practices",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "vercel-react-native-skills",
+      "description": "React Native and Expo best practices for building performant mobile apps. Use when building React Native components, optimizing list performance, implementing animations, or working with native modules. Triggers on tasks involving React Native, Expo, mobile performance, or native platform APIs.",
+      "category": "frontend-web",
+      "tags": [
+        "api",
+        "react"
+      ],
+      "path": "public/vercel-react-native-skills",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "verification-before-completion",
+      "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/verification-before-completion",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "web-artifacts-builder",
+      "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
+      "category": "lab-automation",
+      "tags": [
+        "ml",
+        "react"
+      ],
+      "path": "public/web-artifacts-builder",
+      "hasReferences": false,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "web-design-guidelines",
+      "description": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\".",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/web-design-guidelines",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "webapp-testing",
+      "description": "Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.",
+      "category": "frontend-web",
+      "tags": [],
+      "path": "public/webapp-testing",
+      "hasReferences": false,
+      "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "writing-plans",
+      "description": "Use when you have a spec or requirements for a multi-step task, before touching code",
+      "category": "scientific-writing",
+      "tags": [],
+      "path": "public/writing-plans",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "writing-skills",
+      "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
+      "category": "scientific-writing",
+      "tags": [],
+      "path": "public/writing-skills",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "xlsx",
+      "description": "Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, data analysis, and visualization. When Claude needs to work with spreadsheets (.xlsx, .xlsm, .csv, .tsv, etc) for: (1) Creating new spreadsheets with formulas and formatting, (2) Reading or analyzing data, (3) Modify existing spreadsheets while preserving formulas, (4) Data analysis and visualization in spreadsheets, or (5) Recalculating formulas",
+      "category": "data-visualization",
+      "tags": [
+        "visualization"
+      ],
+      "path": "public/xlsx",
+      "hasReferences": false,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "zarr-python",
+      "description": "Chunked N-D arrays for cloud storage. Compressed arrays, parallel I/O, S3/GCS integration, NumPy/Dask/Xarray compatible, for large-scale scientific computing pipelines.",
+      "category": "agent-workflow",
+      "tags": [
+        "python"
+      ],
+      "path": "public/zarr-python",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    },
+    {
+      "name": "zinc-database",
+      "description": "Access ZINC (230M+ purchasable compounds). Search by ZINC ID/SMILES, similarity searches, 3D-ready structures for docking, analog discovery, for virtual screening and drug discovery.",
+      "category": "scientific-databases",
+      "tags": [
+        "database",
+        "drug"
+      ],
+      "path": "public/zinc-database",
+      "hasReferences": true,
+      "hasScripts": false,
+      "hasAssets": false
+    }
+  ],
+  "categories": [
+    {
+      "id": "scientific-databases",
+      "name": "Scientific Databases",
+      "description": "Direct REST/SOAP API access to scientific databases"
+    },
+    {
+      "id": "bioinformatics",
+      "name": "Bioinformatics & Genomics",
+      "description": "Biological sequences, genomics, and single-cell omics"
+    },
+    {
+      "id": "drug-discovery",
+      "name": "Drug Discovery & Chemistry",
+      "description": "Molecular modeling, cheminformatics, and drug discovery"
+    },
+    {
+      "id": "machine-learning",
+      "name": "Machine Learning & Data Science",
+      "description": "ML frameworks, statistical modeling, and data science"
+    },
+    {
+      "id": "scientific-computing",
+      "name": "Scientific Computing",
+      "description": "Mathematical, physical, and astronomical computation"
+    },
+    {
+      "id": "data-visualization",
+      "name": "Data Visualization",
+      "description": "Plotting libraries, scientific visualization, and charts"
+    },
+    {
+      "id": "clinical-medical",
+      "name": "Clinical & Medical",
+      "description": "Healthcare AI, clinical research, and medical documentation"
+    },
+    {
+      "id": "scientific-writing",
+      "name": "Scientific Writing & Publishing",
+      "description": "Literature review, manuscript writing, and publishing"
+    },
+    {
+      "id": "lab-automation",
+      "name": "Lab Automation & Protocols",
+      "description": "Laboratory automation and experimental workflows"
+    },
+    {
+      "id": "frontend-web",
+      "name": "Frontend & Web Development",
+      "description": "UI/UX design, web development, and frontend optimization"
+    },
+    {
+      "id": "design-art",
+      "name": "Design & Art",
+      "description": "Visual design, creative tools, and aesthetic enhancement"
+    },
+    {
+      "id": "agent-workflow",
+      "name": "Agent & Workflow",
+      "description": "Agent orchestration, workflow management, and dev practices"
+    },
+    {
+      "id": "context-engineering",
+      "name": "Context Engineering",
+      "description": "AI context optimization and agent architecture"
+    },
+    {
+      "id": "quantum-computing",
+      "name": "Quantum Computing",
+      "description": "Quantum computing frameworks and quantum ML"
+    },
+    {
+      "id": "document-processing",
+      "name": "Document Processing",
+      "description": "File format handling, document creation, and data extraction"
+    }
+  ]
+}
