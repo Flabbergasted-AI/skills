@@ -56,6 +56,7 @@ export function registerInstallCommand(program: Command) {
       console.log();
 
       const sourceBase = opts.source || findRepoRoot();
+      const registryUrl = config.registries[0]?.url;
 
       for (const name of names) {
         const skill = index.skills.find((s) => s.name === name);
@@ -65,7 +66,7 @@ export function registerInstallCommand(program: Command) {
         }
 
         const spinner = ora(`Installing ${chalk.cyan(name)}...`).start();
-        const results = await installSkill(skill, sourceBase, targets);
+        const results = await installSkill(skill, sourceBase, targets, registryUrl);
 
         const successes = results.filter((r) => r.success);
         const failures = results.filter((r) => !r.success);
