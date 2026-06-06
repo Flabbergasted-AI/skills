@@ -10,13 +10,11 @@ import { registerValidateCommand } from './commands/validate.js';
 import { registerPackageCommand } from './commands/package.js';
 import { registerConfigCommand } from './commands/config.js';
 import { registerIndexBuildCommand } from './commands/index-build.js';
+import packageJson from '../package.json' with { type: 'json' };
 
 const program = new Command();
 
-program
-  .name('skills')
-  .description('CLI tool for searching, installing, and managing AI agent skills')
-  .version('0.1.0');
+program.name('skills').description('CLI tool for searching, installing, and managing AI agent skills').version(packageJson.version);
 
 registerSearchCommand(program);
 registerInstallCommand(program);
