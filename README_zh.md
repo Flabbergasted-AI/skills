@@ -2,7 +2,7 @@
 
 为 Claude Code 打造的 200+ 专业 AI 技能库，涵盖科学研究、软件开发创意工作等领域。
 
-**[English Version](./README.md)** | **[Agent Guide](./AGENTS.md)** | **[CLAUDE.md](./CLAUDE.md)**
+**[English](./README.md)** | **[中文版](./README_zh.md)** | **[日本語版](./README_ja.md)** | **[Agent Guide](./AGENTS.md)** | **[CLAUDE.md](./CLAUDE.md)**
 
 ---
 

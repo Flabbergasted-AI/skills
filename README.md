@@ -2,7 +2,7 @@
 
 A curated collection of 200+ AI skills for Claude Code that extend capabilities across scientific research, software development, and creative work.
 
-**[中文版](./README_zh.md)** | **[Agent Guide](./AGENTS.md)** | **[CLAUDE.md](./CLAUDE.md)**
+**[English](./README.md)** | **[中文版](./README_zh.md)** | **[日本語版](./README_ja.md)** | **[Agent Guide](./AGENTS.md)** | **[CLAUDE.md](./CLAUDE.md)**
 
 ---
 
