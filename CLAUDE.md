@@ -1,70 +1,99 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides concise, Claude-specific guidance. For comprehensive agent documentation, see [AGENTS.md](./AGENTS.md).
 
 ## Project Overview
 
-This is a library of AI "skills" for Claude Code - modular packages that extend Claude's capabilities with specialized knowledge, workflows, and tool integrations for scientific research and software development.
+A library of 200+ AI skills for Claude Code - modular packages extending Claude's capabilities across scientific research, software development, and creative work.
 
-## Repository Structure
+## Quick Reference
 
+| Resource | Purpose |
+|----------|---------|
+| [README.md](./README.md) | Full skill catalog (15 categories,200+ skills) |
+| [README_zh.md](./README_zh.md) | 中文版技能目录 |
+| [AGENTS.md](./AGENTS.md) | Comprehensive agent guide |
+
+## Skill Discovery
+
+When user asks about something that might have a skill:
+
+1. Check [README.md](./README.md) category list
+2. Use `find-skills` skill: `/find-skills query="..."`
+3. Grep for keywords: `grep -l "keyword" public/*/SKILL.md`
+
+## Skill Invocation
+
+Use the Skill tool to invoke skills:
 ```
-public/
-├── skill-creator/     # Framework for creating new skills
-├── document-skills/    # PDF, DOCX, PPTX, XLSX processing
-├── mcp-builder/        # MCP server creation
-├── [database-name]/    # 180+ scientific database skills
-│   ├── SKILL.md
-│   ├── scripts/        # Executable code
-│   ├── references/     # Documentation for context
-│   └── assets/        # Templates, fonts, etc.
-└── ...
+/<skill-name> [args]
 ```
 
-## Common Commands
+Example: `/pubmed-database query="CRISPR efficiency"`
 
-### Working with Skills
+## Key Commands
 
 ```bash
-# Initialize a new skill template
-python public/skill-creator/scripts/init_skill.py <skill-name> --path public/
+# Initialize new skill
+python public/skill-creator/scripts/init_skill.py <name> --path public/
 
-# Package a skill for distribution
-python public/skill-creator/scripts/package_skill.py public/<skill-name>
+# Validate skill structure
+python public/skill-creator/scripts/quick_validate.py public/<name>
 
-# Validate a skill structure
-python public/skill-creator/scripts/quick_validate.py public/<skill-name>
+# Package for distribution
+python public/skill-creator/scripts/package_skill.py public/<name>
 ```
 
-## Architecture
+## Skill Structure
 
-### Skill Structure
-Each skill follows this pattern:
-- **SKILL.md** (required): YAML frontmatter with `name` and `description`, plus Markdown body
-- **scripts/**: Executable Python/Bash code for deterministic tasks
-- **references/**: Documentation loaded into context as needed
-- **assets/**: Files used in output (templates, fonts, icons)
+```
+public/<skill-name>/
+├── SKILL.md        # Required: YAML frontmatter + markdown
+├── scripts/        # Optional: executable code
+├── references/     # Optional: detailed docs
+└── assets/         # Optional: templates, fonts
+```
 
-### Skill Categories
+## Skill Frontmatter (Required)
 
-1. **Database APIs**: Direct REST/SOAP access to scientific databases (UniProt, PDB, Ensembl, ClinVar, etc.)
-2. **Scientific Computing**: ML/analysis frameworks (PyTorch, scikit-learn, scanpy, etc.)
-3. **Document Processing**: PDF, DOCX, PPTX, XLSX manipulation
-4. **Development Workflows**: Git, testing, code review patterns
-5. **Scientific Writing**: Literature review, clinical reports, grants
-6. **Web Development**: React, frontend design, webapp testing
+```yaml
+---
+name: skill-name           # Unique, lowercase, hyphenated
+description: |            # Primary trigger - be specific
+  When to use this skill. Include all relevant contexts.
+  Mention related skills for differentiation.
+user-invokable: true # Set true if slash command is useful
+---
+```
 
-### Creating/Modifying Skills
+## Key Principles
 
-Use the `skill-creator` skill for guidance on creating or updating skills. Key principles:
-- Keep SKILL.md concise (under 500 lines)
-- Use progressive disclosure: essential info in SKILL.md, detailed refs in references/
-- Frontmatter description is the primary trigger - include all "when to use" context
-- Test scripts by actually running them
+- **Progressive disclosure**: Essential info in SKILL.md, details in `references/`
+- **Description is trigger**: Include all "when to use" contexts naturally
+- **Test scripts**: Run them before committing
+- **No duplicates**: Check for existing skills covering the same purpose
 
-## Finding Skills
+## Coding Conventions
 
-Skills are in `public/<skill-name>/`. Use glob patterns to find skills:
-- `public/*/SKILL.md` - all top-level skills
-- `public/*/references/` - reference documentation
-- `public/*/scripts/` - executable scripts
+- Use `skill-creator` skill when creating new skills
+- Keep SKILL.md under 500 lines
+- Follow naming conventions:
+  - Database: `{name}-database` (e.g., `pubmed-database`)
+  - ML/Analysis: library name (e.g., `scanpy`)
+  - Task-based: verb-object (e.g., `literature-review`)
+  - Design: adjective (e.g., `polish`, `harden`)
+
+## Common Workflows
+
+```
+# Research → Writing
+/literature-review → /scientific-writing → /peer-review
+
+# Drug Discovery
+/pubchem-database → /deepchem → /diffdock → /zinc-database
+
+# Web Development
+/brainstorming → /frontend-design → /webapp-testing → /polish → /vercel-deploy-claimable
+```
+
+**Read when**: New session, creating/modifying skills, unsure which skill to use.
