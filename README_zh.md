@@ -380,6 +380,72 @@ AI 上下文优化、内存管理和智能体架构。
 
 ---
 
+## Skills CLI
+
+命令行工具，用于搜索、安装和管理 skills。支持同时安装到多个 agent 工具目录。
+
+### 快速开始
+
+```bash
+# 在 repo 根目录执行
+cd cli && npm install && cd ..
+
+# 构建技能索引
+cd cli && npm run build-index
+
+# 搜索技能
+npx tsx cli/src/index.ts search "protein"
+
+# 查看技能详情
+npx tsx cli/src/index.ts info alphafold-database
+
+# 安装技能（自动检测 ~/.claude, ~/.cursor, ~/.agents 等）
+npx tsx cli/src/index.ts install alphafold-database
+
+# 安装到指定目标
+npx tsx cli/src/index.ts install scanpy --target claude
+
+# 安装到当前项目
+npx tsx cli/src/index.ts install scanpy --project
+```
+
+### 所有命令
+
+| 命令 | 说明 |
+|------|------|
+| `search [query]` | 按关键词搜索，支持 `--category`、`--tag` |
+| `list` | 列出所有可用技能（`--installed` 仅已安装） |
+| `info <name>` | 查看技能详细信息 |
+| `install <names...>` | 安装技能（`--target`、`--path`、`--project`） |
+| `uninstall <names...>` | 卸载技能 |
+| `update [names...]` | 更新已安装技能 |
+| `outdated` | 检查可用更新 |
+| `init <name>` | 从模板创建新技能 |
+| `validate <path>` | 验证技能目录结构 |
+| `package <path>` | 将技能打包为 `.skill` 文件 |
+| `config show` | 显示当前配置 |
+| `config set <key> <value>` | 设置配置项 |
+| `config add-target <id> <path>` | 添加自定义安装目标 |
+| `targets` | 列出所有安装目标及检测状态 |
+| `index-build` | 从 `public/` 重新构建 `index.json` |
+
+### 安装目标
+
+CLI 自动检测已安装的 agent 工具，并同时安装到所有检测到的目录：
+
+| 目标 | 路径 | 工具 |
+|------|------|------|
+| `claude` | `~/.claude/skills/` | Claude Code |
+| `cursor` | `~/.cursor/skills/` | Cursor |
+| `agents` | `~/.agents/skills/` | 通用 Agent |
+| `codex` | `~/.codex/skills/` | OpenAI Codex CLI |
+| `aider` | `~/.aider/skills/` | Aider |
+| `continue` | `~/.continue/skills/` | Continue.dev |
+
+通过 `config add-target <id> <path>` 可添加自定义目标。
+
+---
+
 ## 贡献指南
 
 创建和修改技能请参阅 [CLAUDE.md](./CLAUDE.md)。

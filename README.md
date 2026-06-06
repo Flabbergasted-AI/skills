@@ -394,6 +394,72 @@ File format handling, document creation, and data extraction.
 
 ---
 
+## Skills CLI
+
+A command-line tool for searching, installing, and managing skills. Supports installing to multiple agent tool directories at once.
+
+### Quick Start
+
+```bash
+# From repo root
+cd cli && npm install && cd ..
+
+# Build the skill index
+cd cli && npm run build-index
+
+# Search for skills
+npx tsx cli/src/index.ts search "protein"
+
+# Show skill details
+npx tsx cli/src/index.ts info alphafold-database
+
+# Install a skill (auto-detects ~/.claude, ~/.cursor, ~/.agents, etc.)
+npx tsx cli/src/index.ts install alphafold-database
+
+# Install to a specific target
+npx tsx cli/src/index.ts install scanpy --target claude
+
+# Install to current project
+npx tsx cli/src/index.ts install scanpy --project
+```
+
+### All Commands
+
+| Command | Description |
+|---------|-------------|
+| `search [query]` | Search skills by keyword, `--category`, or `--tag` |
+| `list` | List all available skills (`--installed` for installed only) |
+| `info <name>` | Show detailed skill information |
+| `install <names...>` | Install skills (`--target`, `--path`, `--project`) |
+| `uninstall <names...>` | Uninstall skills |
+| `update [names...]` | Update installed skills |
+| `outdated` | Check for available updates |
+| `init <name>` | Create a new skill from template |
+| `validate <path>` | Validate skill directory structure |
+| `package <path>` | Package skill into `.skill` file |
+| `config show` | Show current configuration |
+| `config set <key> <value>` | Set config value |
+| `config add-target <id> <path>` | Add custom install target |
+| `targets` | List all install targets and detection status |
+| `index-build` | Rebuild `index.json` from `public/` |
+
+### Install Targets
+
+The CLI auto-detects installed agent tools and installs skills to all of them:
+
+| Target | Path | Tool |
+|--------|------|------|
+| `claude` | `~/.claude/skills/` | Claude Code |
+| `cursor` | `~/.cursor/skills/` | Cursor |
+| `agents` | `~/.agents/skills/` | General Agent |
+| `codex` | `~/.codex/skills/` | OpenAI Codex CLI |
+| `aider` | `~/.aider/skills/` | Aider |
+| `continue` | `~/.continue/skills/` | Continue.dev |
+
+Custom targets can be added via `config add-target <id> <path>`.
+
+---
+
 ## Contributing
 
 See [CLAUDE.md](./CLAUDE.md) for guidance on creating and modifying skills.
