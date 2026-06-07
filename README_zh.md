@@ -386,27 +386,29 @@ AI 上下文优化、内存管理和智能体架构。
 
 ### 快速开始
 
+从 npm 安装（推荐）：
+
+```bash
+# 使用 npx 直接运行（无需安装）
+npx @flabbergasted-ai/skills search "protein"
+npx @flabbergasted-ai/skills install alphafold-database
+
+# 或全局安装
+npm install -g @flabbergasted-ai/skills
+skills search "protein"
+skills install alphafold-database --target claude
+```
+
+或从 repo 运行：
+
 ```bash
 # 在 repo 根目录执行
 cd cli && npm install && cd ..
-
-# 构建技能索引
 cd cli && npm run build-index
 
-# 搜索技能
 npx tsx cli/src/index.ts search "protein"
-
-# 查看技能详情
-npx tsx cli/src/index.ts info alphafold-database
-
-# 安装技能（自动检测 ~/.claude, ~/.cursor, ~/.agents 等）
 npx tsx cli/src/index.ts install alphafold-database
-
-# 安装到指定目标
-npx tsx cli/src/index.ts install scanpy --target claude
-
-# 安装到当前项目
-npx tsx cli/src/index.ts install scanpy --project
+npx tsx cli/src/index.ts install scanpy --target claude --project
 ```
 
 ### 所有命令

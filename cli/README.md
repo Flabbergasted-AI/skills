@@ -2,7 +2,7 @@
 
 CLI tool for searching, installing, and managing AI agent skills.
 
-[中文](./cli/README_zh.md) | [日本語](./cli/README_ja.md)
+[中文](./README_zh.md) | [日本語](./README_ja.md)
 
 ## What is this?
 

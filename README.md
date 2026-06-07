@@ -400,27 +400,29 @@ A command-line tool for searching, installing, and managing skills. Supports ins
 
 ### Quick Start
 
+Install from npm (recommended):
+
+```bash
+# Run directly with npx (no install needed)
+npx @flabbergasted-ai/skills search "protein"
+npx @flabbergasted-ai/skills install alphafold-database
+
+# Or install globally
+npm install -g @flabbergasted-ai/skills
+skills search "protein"
+skills install alphafold-database --target claude
+```
+
+Or run from the repo:
+
 ```bash
 # From repo root
 cd cli && npm install && cd ..
-
-# Build the skill index
 cd cli && npm run build-index
 
-# Search for skills
 npx tsx cli/src/index.ts search "protein"
-
-# Show skill details
-npx tsx cli/src/index.ts info alphafold-database
-
-# Install a skill (auto-detects ~/.claude, ~/.cursor, ~/.agents, etc.)
 npx tsx cli/src/index.ts install alphafold-database
-
-# Install to a specific target
-npx tsx cli/src/index.ts install scanpy --target claude
-
-# Install to current project
-npx tsx cli/src/index.ts install scanpy --project
+npx tsx cli/src/index.ts install scanpy --target claude --project
 ```
 
 ### All Commands
