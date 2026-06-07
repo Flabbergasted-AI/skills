@@ -464,6 +464,29 @@ Custom targets can be added via `config add-target <id> <path>`.
 
 See [CLAUDE.md](./CLAUDE.md) for guidance on creating and modifying skills.
 
+### Updating Skills (CLI Release Not Needed)
+
+Skills and the CLI are decoupled — the CLI fetches the skill index from GitHub CDN. Adding or updating skills does **not** require a CLI release.
+
+**Workflow:**
+
+```bash
+# 1. Modify or add skills in public/
+# 2. Rebuild the skill index
+cd cli && npm run build-index
+
+# 3. Commit and push — CDN updates automatically
+git add public/ index.json
+git commit -m "feat: add new-skill"
+git push
+```
+
+Users will pick up the new skill on their next CLI invocation.
+
+**Only release a new CLI version when:**
+- Adding CLI features or fixing CLI bugs
+- Changing the `build-index.ts` index generation logic
+
 ---
 
 ## License

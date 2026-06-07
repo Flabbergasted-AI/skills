@@ -450,6 +450,29 @@ CLI 自动检测已安装的 agent 工具，并同时安装到所有检测到的
 
 创建和修改技能请参阅 [CLAUDE.md](./CLAUDE.md)。
 
+### 更新技能（无需发布 CLI）
+
+Skills 和 CLI 是解耦的——CLI 从 GitHub CDN 获取技能索引。添加或更新技能**不需要**发布新 CLI 版本。
+
+**工作流程：**
+
+```bash
+# 1. 在 public/ 中修改或新增技能
+# 2. 重建技能索引
+cd cli && npm run build-index
+
+# 3. 提交并推送 — CDN 自动更新
+git add public/ index.json
+git commit -m "feat: add new-skill"
+git push
+```
+
+用户下次运行 CLI 时即可使用新技能。
+
+**仅在以下情况发布新 CLI 版本：**
+- 添加 CLI 功能或修复 CLI bug
+- 修改 `build-index.ts` 的索引生成逻辑
+
 ---
 
 ## 许可证
