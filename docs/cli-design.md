@@ -493,10 +493,11 @@ npm run release:major      # major (0.1.5 → 1.0.0)
 ```
 
 脚本会自动：
+
 1. 检查工作目录是否干净
 2. `npm version` 更新 package.json
 3. 更新 CHANGELOG.md 中的版本号和日期
-4. 创建 commit: `chore(cli): release vX.Y.Z`
+4. 创建 commit: `chore(cli): bump version to vx.y.z`
 5. 创建 Git tag: `vX.Y.Z`
 
 完成后只需推送：
@@ -516,7 +517,7 @@ npm version patch   # 或 minor / major
 # 2. 提交
 cd ..
 git add cli/package.json cli/CHANGELOG.md
-git commit -m "chore(cli): release vx.y.z"
+git commit -m "chore(cli): bump version to vx.y.z"
 
 # 3. 打 tag 并推送
 git tag v$(node -p "require('./cli/package.json').version")
@@ -526,6 +527,7 @@ git push origin main --tags
 #### CI 自动发布
 
 推送 tag 后 GitHub Actions 自动执行：
+
 - `npm ci` 安装依赖
 - `npm run build` 构建 dist/
 - `npm publish --access public --provenance` 发布到 npm

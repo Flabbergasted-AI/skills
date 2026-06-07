@@ -69,7 +69,7 @@ fi
 # Stage and commit
 cd "$REPO_ROOT"
 git add cli/package.json cli/package-lock.json cli/CHANGELOG.md 2>/dev/null || true
-git commit -m "chore(cli): release v$NEW_VERSION"
+git commit -m "chore(cli): bump version to v$NEW_VERSION"
 
 # Create tag
 git tag "v$NEW_VERSION"
