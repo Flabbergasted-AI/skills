@@ -7,7 +7,9 @@ import ora from 'ora';
 import { loadConfig } from '../lib/config.js';
 import { fetchIndex, loadLocalIndex } from '../lib/registry.js';
 import { installSkill } from '../lib/installer.js';
+import type { InstallOptions } from '../lib/installer.js';
 import { resolveTargets, getProjectTargets } from '../lib/targets.js';
+import { loadLockFile, updateLockEntry, getLockEntry } from '../lib/lockfile.js';
 
 export function registerInstallCommand(program: Command) {
   program
@@ -17,6 +19,8 @@ export function registerInstallCommand(program: Command) {
     .option('-p, --path <dir>', 'Custom install path')
     .option('--project', 'Install to project-level .claude/skills/')
     .option('--source <dir>', 'Local source directory (default: repo root)')
+    .option('--lock', 'Write/update skills.lock with commit hashes')
+    .option('--frozen', 'Install using exact versions from skills.lock (fail if not locked)')
     .action(async (names: string[], opts) => {
       const config = await loadConfig();
 
@@ -57,6 +61,13 @@ export function registerInstallCommand(program: Command) {
 
       const sourceBase = opts.source || findRepoRoot();
       const registryUrl = config.registries[0]?.url;
+      const lockDir = process.cwd();
+      const lockfile = await loadLockFile(lockDir);
+
+      if (opts.frozen && !lockfile) {
+        console.error(chalk.red('✗ --frozen requires a skills.lock file in the current directory.'));
+        process.exit(1);
+      }
 
       for (const name of names) {
         const skill = index.skills.find((s) => s.name === name);
@@ -65,8 +76,26 @@ export function registerInstallCommand(program: Command) {
           continue;
         }
 
+        const installOpts: InstallOptions = { registryUrl };
+
+        if (opts.frozen && lockfile) {
+          const entry = getLockEntry(lockfile, name);
+          if (!entry) {
+            console.log(chalk.red(`   ✗ Skill "${name}" not found in skills.lock (--frozen mode)`));
+            continue;
+          }
+          installOpts.lockCommit = entry.commit;
+          console.log(chalk.dim(`   🔒 ${name} pinned to ${entry.commit.slice(0, 7)}`));
+        } else if (lockfile && !opts.lock) {
+          const entry = getLockEntry(lockfile, name);
+          if (entry) {
+            installOpts.lockCommit = entry.commit;
+            console.log(chalk.dim(`   🔒 ${name} pinned to ${entry.commit.slice(0, 7)} (from skills.lock)`));
+          }
+        }
+
         const spinner = ora(`Installing ${chalk.cyan(name)}...`).start();
-        const results = await installSkill(skill, sourceBase, targets, registryUrl);
+        const results = await installSkill(skill, sourceBase, targets, installOpts);
 
         const successes = results.filter((r) => r.success);
         const failures = results.filter((r) => !r.success);
@@ -75,6 +104,11 @@ export function registerInstallCommand(program: Command) {
           spinner.succeed(`${chalk.cyan(name)} installed to ${successes.length} target(s)`);
           for (const r of successes) {
             console.log(`     → ${chalk.dim(r.targetPath)}`);
+          }
+
+          if (opts.lock && successes[0].commit) {
+            await updateLockEntry(lockDir, name, successes[0].commit, 'flabbergasted');
+            console.log(`     ${chalk.dim(`🔒 Locked at ${successes[0].commit.slice(0, 7)}`)}`);
           }
         }
         if (failures.length > 0) {

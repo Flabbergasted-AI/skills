@@ -10,6 +10,12 @@ export interface InstallResult {
   targetPath: string;
   success: boolean;
   error?: string;
+  commit?: string;
+}
+
+export interface InstallOptions {
+  registryUrl?: string;
+  lockCommit?: string;
 }
 
 interface GitHubContentEntry {
@@ -19,8 +25,7 @@ interface GitHubContentEntry {
   download_url: string | null;
 }
 
-function parseRegistryUrl(registryUrl: string): { owner: string; repo: string; branch: string } | null {
-  // https://raw.githubusercontent.com/{owner}/{repo}/{branch}/index.json
+export function parseRegistryUrl(registryUrl: string): { owner: string; repo: string; branch: string } | null {
   const match = registryUrl.match(
     /raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)\//,
   );
@@ -32,6 +37,7 @@ async function downloadFromGitHub(
   skillPath: string,
   registryUrl: string,
   destDir: string,
+  commitRef?: string,
 ): Promise<void> {
   const repoInfo = parseRegistryUrl(registryUrl);
   if (!repoInfo) {
@@ -39,17 +45,18 @@ async function downloadFromGitHub(
   }
 
   const { owner, repo, branch } = repoInfo;
-  await downloadDirRecursive(owner, repo, branch, skillPath, destDir);
+  const ref = commitRef || branch;
+  await downloadDirRecursive(owner, repo, ref, skillPath, destDir);
 }
 
 async function downloadDirRecursive(
   owner: string,
   repo: string,
-  branch: string,
+  ref: string,
   dirPath: string,
   localDir: string,
 ): Promise<void> {
-  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${dirPath}?ref=${branch}`;
+  const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${dirPath}?ref=${ref}`;
   const response = await fetch(apiUrl, {
     headers: { 'User-Agent': 'flabbergasted-skills-cli' },
   });
@@ -71,7 +78,7 @@ async function downloadDirRecursive(
       const content = Buffer.from(await fileResp.arrayBuffer());
       await fs.writeFile(localPath, content);
     } else if (entry.type === 'dir') {
-      await downloadDirRecursive(owner, repo, branch, entry.path, localPath);
+      await downloadDirRecursive(owner, repo, ref, entry.path, localPath);
     }
   }
 }
@@ -80,14 +87,19 @@ export async function installSkill(
   skill: SkillMeta,
   sourceBase: string,
   targets: InstallTarget[],
-  registryUrl?: string,
+  registryUrlOrOpts?: string | InstallOptions,
 ): Promise<InstallResult[]> {
+  const opts: InstallOptions = typeof registryUrlOrOpts === 'string'
+    ? { registryUrl: registryUrlOrOpts }
+    : registryUrlOrOpts || {};
+
   const results: InstallResult[] = [];
   let sourcePath = path.join(sourceBase, skill.path);
   let tempDir: string | null = null;
+  let resolvedCommit = opts.lockCommit;
 
   if (!(await fs.pathExists(sourcePath))) {
-    if (!registryUrl) {
+    if (!opts.registryUrl) {
       return targets.map((t) => ({
         skill: skill.name,
         target: t.id,
@@ -97,10 +109,9 @@ export async function installSkill(
       }));
     }
 
-    // Download from remote
     tempDir = path.join(os.tmpdir(), `skills-install-${skill.name}-${Date.now()}`);
     try {
-      await downloadFromGitHub(skill.path, registryUrl, tempDir);
+      await downloadFromGitHub(skill.path, opts.registryUrl, tempDir, opts.lockCommit);
       sourcePath = tempDir;
     } catch (err) {
       await fs.remove(tempDir).catch(() => {});
@@ -114,6 +125,19 @@ export async function installSkill(
     }
   }
 
+  // Resolve current HEAD commit for lock file tracking (when no pinned commit)
+  if (!resolvedCommit && opts.registryUrl) {
+    try {
+      const repoInfo = parseRegistryUrl(opts.registryUrl);
+      if (repoInfo) {
+        const { fetchHeadCommit } = await import('./lockfile.js');
+        resolvedCommit = await fetchHeadCommit(repoInfo.owner, repoInfo.repo, repoInfo.branch);
+      }
+    } catch {
+      // non-fatal: lock file just won't have a commit
+    }
+  }
+
   for (const target of targets) {
     const destPath = path.join(target.path, skill.name);
     try {
@@ -124,6 +148,7 @@ export async function installSkill(
         target: target.id,
         targetPath: destPath,
         success: true,
+        commit: resolvedCommit,
       });
     } catch (err) {
       results.push({
@@ -147,6 +172,7 @@ export async function installSkill(
     version: '1.0.0',
     source: 'flabbergasted',
     targets: results.filter((r) => r.success).map((r) => r.target),
+    commit: resolvedCommit,
   };
   await saveInstalled(installed);
 

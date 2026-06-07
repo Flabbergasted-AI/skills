@@ -10,6 +10,8 @@ import { registerValidateCommand } from './commands/validate.js';
 import { registerPackageCommand } from './commands/package.js';
 import { registerConfigCommand } from './commands/config.js';
 import { registerIndexBuildCommand } from './commands/index-build.js';
+import { registerUpgradeCommand } from './commands/upgrade.js';
+import { registerLockCommand } from './commands/lock.js';
 import packageJson from '../package.json' with { type: 'json' };
 
 const program = new Command();
@@ -25,5 +27,7 @@ registerValidateCommand(program);
 registerPackageCommand(program);
 registerConfigCommand(program);
 registerIndexBuildCommand(program);
+registerUpgradeCommand(program);
+registerLockCommand(program);
 
 program.parse();
