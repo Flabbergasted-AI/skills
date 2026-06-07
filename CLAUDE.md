@@ -102,6 +102,27 @@ public/example-integration/
 - When adding content that pushes SKILL.md past 500 lines, extract to a reference file
 - Test scripts by running them if modified
 
+## Local Development Guide
+
+When working on this repo, use the CLI from source:
+
+```bash
+cd cli && npm install && cd ..
+npx tsx cli/src/index.ts<command>
+```
+
+### Building the Skill Index
+
+The `index.json` at repo root is the skill search index. It maps each `public/<skill>/SKILL.md` to name, description, category, and tags.
+
+After creating or modifying skills, rebuild the index:
+
+```bash
+cd cli && npm run build-index
+```
+
+This is a **dev-only command** — it is not available to end users via `skills` (available only as an npm script). The published npm package uses the pre-built `index.json` from GitHub CDN.
+
 ## Commit Conventions
 
 - Separate commits by function (don't mix unrelated skill changes)

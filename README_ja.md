@@ -404,7 +404,6 @@ skills install alphafold-database --target claude
 ```bash
 # repo ルートで実行
 cd cli && npm install && cd ..
-cd cli && npm run build-index
 
 npx tsx cli/src/index.ts search "protein"
 npx tsx cli/src/index.ts install alphafold-database
@@ -429,7 +428,6 @@ npx tsx cli/src/index.ts install scanpy --target claude --project
 | `config set <key> <value>` | 設定値の変更 |
 | `config add-target <id> <path>` | カスタムインストール先の追加 |
 | `targets` | 全インストール先と検出状態の一覧 |
-| `index-build` | `public/` から `index.json` を再構築 |
 
 ### インストール先
 

@@ -418,7 +418,6 @@ Or run from the repo:
 ```bash
 # From repo root
 cd cli && npm install && cd ..
-cd cli && npm run build-index
 
 npx tsx cli/src/index.ts search "protein"
 npx tsx cli/src/index.ts install alphafold-database
@@ -443,7 +442,6 @@ npx tsx cli/src/index.ts install scanpy --target claude --project
 | `config set <key> <value>` | Set config value |
 | `config add-target <id> <path>` | Add custom install target |
 | `targets` | List all install targets and detection status |
-| `index-build` | Rebuild `index.json` from `public/` |
 
 ### Install Targets
 
