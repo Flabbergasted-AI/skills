@@ -63,7 +63,28 @@ if [[ -f CHANGELOG.md ]]; then
       rm -f CHANGELOG.md.bak
     fi
   fi
-  echo "📝 Updated CHANGELOG.md"
+   echo "📝 Updated CHANGELOG.md"
+fi
+
+# Verify CHANGELOG has meaningful content under [Unreleased]
+if [[ -f CHANGELOG.md ]]; then
+  # Extract lines between [Unreleased] and next ## [x.x.x] — then check for bullet/paragraph content
+  HAS_CONTENT=$(
+    awk '/^## \[Unreleased\]/ {
+      for (i=1; i<=30; i++) {
+        if ((getline line) <= 0) break
+               if (line ~ /^## \[[0-9]/) exit # hit next version header
+        if (line ~ /^## / || line ~ /^### /) continue  # skip section headers
+        gsub(/^[ \t]+|[ \t]+$/, "", line) # trim whitespace
+        if (line != "") { print "yes"; exit } # non-empty content found
+      }
+    }' CHANGELOG.md
+  )
+  if [[ -z "$HAS_CONTENT" ]]; then
+    echo "❌ [Unreleased] section is empty. Document the changes before releasing."
+    echo "   Add content under '## [Unreleased]' in CHANGELOG.md, then re-run."
+    exit 1
+  fi
 fi
 
 # Stage and commit
