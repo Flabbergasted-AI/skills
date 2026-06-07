@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.6] - 2026-06-07
+
+### Added
+
+- Japanese (`README_ja.md`) CLI documentation section
+- Local development guide in `CLAUDE.md` covering CLI usage and skill index rebuilding
+
+### Changed
+
+- Quick start guides now lead with npm install as the recommended path, with repo-based usage as an alternative
+- `cli/README.md` translation links fixed (`README_zh.md`, `README_ja.md` paths corrected)
+
+### Removed
+
+- **`skills index-build`** command — no longer available to end users; preserved as a dev-only npm script (`npm run build-index`) for maintainers
+
 ## [0.1.5] - 2026-06-07
 
 ### Added
@@ -74,7 +90,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remote index fetching with local cache (1h TTL)
 - `skills index build` for maintainers
 
-[Unreleased]: https://github.com/Flabbergasted-AI/skills/compare/v0.1.5...HEAD
+[Unreleased]: https://github.com/Flabbergasted-AI/skills/compare/v0.1.6...HEAD
+[0.1.6]: https://github.com/Flabbergasted-AI/skills/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/Flabbergasted-AI/skills/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/Flabbergasted-AI/skills/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/Flabbergasted-AI/skills/compare/v0.1.2...v0.1.3
