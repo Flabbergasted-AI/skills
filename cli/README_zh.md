@@ -34,6 +34,8 @@ skills install <名称...>            # 安装到默认目标
 skills install <名称> -t cursor     # 安装到指定目标 (claude/cursor/agents/all)
 skills install <名称> --project     # 安装到项目级 .claude/skills/
 skills install <名称> -p <目录>     # 安装到自定义路径
+skills install <名称> --lock        # 安装并写入 skills.lock
+skills install <名称> --frozen      # 使用 skills.lock 中的锁定版本安装
 
 skills uninstall <名称...>          # 从所有目标卸载
 ```
@@ -43,6 +45,22 @@ skills uninstall <名称...>          # 从所有目标卸载
 ```bash
 skills update                       # 更新所有已安装技能
 skills update <名称>                # 更新指定技能
+```
+
+### CLI 升级
+
+```bash
+skills upgrade                      # 检查并安装 CLI 最新版本
+skills upgrade --check              # 仅检查，不安装
+```
+
+### 版本锁定
+
+```bash
+skills lock create                  # 从已安装技能生成 skills.lock
+skills lock show                    # 查看锁定的版本
+skills lock update [名称...]        # 更新锁定到最新 commit
+skills lock remove <名称...>        # 从锁文件中移除技能
 ```
 
 ### 创建与打包

@@ -2,7 +2,7 @@
 
 CLI tool for searching, installing, and managing AI agent skills.
 
-[中文](./README_zh.md) | [日本語](./README_ja.md)
+[中文](./cli/README_zh.md) | [日本語](./cli/README_ja.md)
 
 ## What is this?
 
@@ -34,6 +34,8 @@ skills install <name...>            # Install to default targets
 skills install <name> -t cursor     # Install to specific target (claude/cursor/agents/all)
 skills install <name> --project     # Install to project-level .claude/skills/
 skills install <name> -p <dir>      # Install to custom path
+skills install <name> --lock        # Install and write to skills.lock
+skills install <name> --frozen      # Install using pinned versions from skills.lock
 
 skills uninstall <name...>          # Uninstall from all targets
 ```
@@ -43,6 +45,22 @@ skills uninstall <name...>          # Uninstall from all targets
 ```bash
 skills update                       # Update all installed skills
 skills update <name>                # Update a specific skill
+```
+
+### Upgrade CLI
+
+```bash
+skills upgrade                      # Check and install CLI updates
+skills upgrade --check              # Only check, don't install
+```
+
+### Version Locking
+
+```bash
+skills lock create                  # Create skills.lock from installed skills
+skills lock show                    # Show locked versions
+skills lock update [names...]       # Update lock entries to latest commit
+skills lock remove <names...>       # Remove skills from lock file
 ```
 
 ### Create & Package
@@ -64,8 +82,8 @@ skills config set <key> <value>     # Set a config value
 
 The CLI auto-detects installed agent tools and installs skills to the appropriate directory:
 
-| Target | Path |
-|--------|------|
+| Target   | Path                |
+| -------- | ------------------- |
 | `claude` | `~/.claude/skills/` |
 | `cursor` | `~/.cursor/skills/` |
 | `agents` | `~/.agents/skills/` |
