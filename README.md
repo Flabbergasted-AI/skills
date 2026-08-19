@@ -307,6 +307,7 @@ Visual design, creative tools, and aesthetic enhancement.
 | [canvas-design](./public/canvas-design/) | Create visual art in PNG and PDF |
 | [colorize](./public/colorize/) | Add strategic color to monochromatic designs |
 | [delight](./public/delight/) | Add moments of joy and personality |
+| [diagram-design](./public/diagram-design/) | Create branded diagrams as self-contained HTML, SVG, or PNG |
 | [extract](./public/extract/) | Extract design tokens into design system |
 | [generate-image](./public/generate-image/) | Generate images with AI models |
 | [normalize](./public/normalize/) | Normalize design to match design system |

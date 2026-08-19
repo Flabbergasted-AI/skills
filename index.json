@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-06-06T15:01:25.262Z",
+  "updatedAt": "2026-08-19T09:03:44.534Z",
   "skills": [
     {
       "name": "adapt",
@@ -575,6 +575,16 @@
       "hasReferences": true,
       "hasScripts": false,
       "hasAssets": false
+    },
+    {
+      "name": "diagram-design",
+      "description": "Create branded architecture, IT current-state, flowchart, sequence, state machine, ER/data model, timeline, swimlane, quadrant, radar/spider, loop/flywheel, nested, tree, org chart, layer stack, Venn, pyramid/funnel, treemap, bar, line, Gantt and scatter charts, high-level, process, medallion, data flow, DP integration, or DP security matrix diagrams as standalone HTML/SVG/PNG. Redraw .drawio/.drawio.png/.drawio.svg or Mermaid .mmd sources at a chosen size/detail; onboard brand tokens from a website; add semantic patterns, callouts, accessible motion, or sketchy/hand-drawn styling.",
+      "category": "design-art",
+      "tags": [],
+      "path": "public/diagram-design",
+      "hasReferences": true,
+      "hasScripts": true,
+      "hasAssets": true
     },
     {
       "name": "diffdock",

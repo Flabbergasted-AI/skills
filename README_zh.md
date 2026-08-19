@@ -293,6 +293,7 @@ UI/UX 设计、网页开发和前端优化。
 | [canvas-design](./public/canvas-design/) | 在 PNG 和 PDF 中创建视觉艺术 |
 | [colorize](./public/colorize/) | 为单调设计添加战略性色彩 |
 | [delight](./public/delight/) | 添加愉悦和个性的元素 |
+| [diagram-design](./public/diagram-design/) | 创建品牌化的自包含 HTML、SVG 或 PNG 图表 |
 | [extract](./public/extract/) | 提取设计标记到设计系统 |
 | [generate-image](./public/generate-image/) | 使用 AI 模型生成图像 |
 | [normalize](./public/normalize/) | 使设计与设计系统保持一致 |
