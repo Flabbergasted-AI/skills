@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-08-19T09:03:44.534Z",
+  "updatedAt": "2026-08-19T09:17:39.026Z",
   "skills": [
     {
       "name": "adapt",
@@ -56,7 +56,7 @@
       "tags": [
         "database",
         "protein",
-        "drug"
+        "drug-discovery"
       ],
       "path": "public/alphafold-database",
       "hasReferences": true,
@@ -66,7 +66,7 @@
     {
       "name": "amap-jsapi-skill |",
       "description": "高德地图 JSAPI v2.0 (WebGL) 开发技能。涵盖地图生命周期管理、强制安全配置、3D 视图控制、覆盖物绘制及 LBS 服务集成。 |",
-      "category": "frontend-web",
+      "category": "agent-workflow",
       "tags": [
         "api"
       ],
@@ -78,7 +78,7 @@
     {
       "name": "animate",
       "description": "Review a feature and enhance it with purposeful animations, micro-interactions, and motion effects that improve usability and delight.",
-      "category": "agent-workflow",
+      "category": "design-art",
       "tags": [],
       "path": "public/animate",
       "hasReferences": false,
@@ -114,7 +114,7 @@
     {
       "name": "astropy",
       "description": "Comprehensive Python library for astronomy and astrophysics. This skill should be used when working with astronomical data including celestial coordinates, physical units, FITS files, cosmological calculations, time systems, tables, world coordinate systems (WCS), and astronomical data analysis. Use when tasks involve coordinate transformations, unit conversions, FITS file manipulation, cosmological distance calculations, time scale conversions, or astronomical data processing.",
-      "category": "agent-workflow",
+      "category": "scientific-computing",
       "tags": [
         "python"
       ],
@@ -136,7 +136,7 @@
     {
       "name": "benchling-integration",
       "description": "Benchling R&D platform integration. Access registry (DNA, proteins), inventory, ELN entries, workflows via API, build Benchling Apps, query Data Warehouse, for lab data management automation.",
-      "category": "scientific-databases",
+      "category": "lab-automation",
       "tags": [
         "api",
         "protein",
@@ -156,7 +156,7 @@
         "genomics",
         "rna",
         "single-cell",
-        "drug"
+        "drug-discovery"
       ],
       "path": "public/biomni",
       "hasReferences": true,
@@ -190,7 +190,7 @@
     {
       "name": "bioservices",
       "description": "Unified Python interface to 40+ bioinformatics services. Use when querying multiple databases (UniProt, KEGG, ChEMBL, Reactome) in a single workflow with consistent API. Best for cross-database analysis, ID mapping across services. For quick single-database lookups use gget; for sequence/file manipulation use biopython.",
-      "category": "scientific-databases",
+      "category": "bioinformatics",
       "tags": [
         "python",
         "api",
@@ -218,7 +218,7 @@
     {
       "name": "brainstorming",
       "description": "You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.",
-      "category": "frontend-web",
+      "category": "design-art",
       "tags": [],
       "path": "public/brainstorming",
       "hasReferences": false,
@@ -228,7 +228,7 @@
     {
       "name": "brand-guidelines",
       "description": "Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply.",
-      "category": "frontend-web",
+      "category": "design-art",
       "tags": [],
       "path": "public/brand-guidelines",
       "hasReferences": false,
@@ -262,7 +262,7 @@
     {
       "name": "cellxgene-census",
       "description": "Query the CELLxGENE Census (61M+ cells) programmatically. Use when you need expression data across tissues, diseases, or cell types from the largest curated single-cell atlas. Best for population-scale queries, reference atlas comparisons. For analyzing your own data use scanpy or scvi-tools.",
-      "category": "scientific-databases",
+      "category": "bioinformatics",
       "tags": [
         "single-cell"
       ],
@@ -277,7 +277,7 @@
       "category": "scientific-databases",
       "tags": [
         "database",
-        "drug",
+        "drug-discovery",
         "molecule"
       ],
       "path": "public/chembl-database",
@@ -290,8 +290,8 @@
       "description": "Google quantum computing framework. Use when targeting Google Quantum AI hardware, designing noise-aware circuits, or running quantum characterization experiments. Best for Google hardware, noise modeling, and low-level circuit design. For IBM hardware use qiskit; for quantum ML with autodiff use pennylane; for physics simulations use qutip.",
       "category": "quantum-computing",
       "tags": [
-        "ml",
-        "quantum"
+        "quantum",
+        "simulation"
       ],
       "path": "public/cirq",
       "hasReferences": true,
@@ -323,7 +323,7 @@
       "description": "Generate professional clinical decision support (CDS) documents for pharmaceutical and clinical research settings, including patient cohort analyses (biomarker-stratified with outcomes) and treatment recommendation reports (evidence-based guidelines with decision algorithms). Supports GRADE evidence grading, statistical analysis (hazard ratios, survival curves, waterfall plots), biomarker integration, and regulatory compliance. Outputs publication-ready LaTeX/PDF format optimized for drug development, clinical research, and evidence synthesis.",
       "category": "drug-discovery",
       "tags": [
-        "drug"
+        "drug-discovery"
       ],
       "path": "public/clinical-decision-support",
       "hasReferences": true,
@@ -347,7 +347,7 @@
       "tags": [
         "api",
         "database",
-        "drug"
+        "drug-discovery"
       ],
       "path": "public/clinicaltrials-database",
       "hasReferences": true,
@@ -361,7 +361,7 @@
       "tags": [
         "database",
         "genomics",
-        "drug"
+        "drug-discovery"
       ],
       "path": "public/clinpgx-database",
       "hasReferences": true,
@@ -385,9 +385,7 @@
       "name": "cobrapy",
       "description": "Constraint-based metabolic modeling (COBRA). FBA, FVA, gene knockouts, flux sampling, SBML models, for systems biology and metabolic engineering analysis.",
       "category": "agent-workflow",
-      "tags": [
-        "ml"
-      ],
+      "tags": [],
       "path": "public/cobrapy",
       "hasReferences": true,
       "hasScripts": false,
@@ -482,7 +480,6 @@
       "description": "Distributed computing for larger-than-RAM pandas/NumPy workflows. Use when you need to scale existing pandas/NumPy code beyond memory or across clusters. Best for parallel file processing, distributed ML, integration with existing pandas code. For out-of-core analytics on single machine use vaex; for in-memory speed use polars.",
       "category": "agent-workflow",
       "tags": [
-        "ml",
         "workflow"
       ],
       "path": "public/dask",
@@ -493,7 +490,7 @@
     {
       "name": "datacommons-client",
       "description": "Work with Data Commons, a platform providing programmatic access to public statistical data from global sources. Use this skill when working with demographic data, economic indicators, health statistics, environmental data, or any public datasets available through Data Commons. Applicable for querying population statistics, GDP figures, unemployment rates, disease prevalence, geographic entity resolution, and exploring relationships between statistical entities.",
-      "category": "scientific-databases",
+      "category": "data-visualization",
       "tags": [],
       "path": "public/datacommons-client",
       "hasReferences": true,
@@ -506,7 +503,7 @@
       "category": "drug-discovery",
       "tags": [
         "python",
-        "drug"
+        "drug-discovery"
       ],
       "path": "public/datamol",
       "hasReferences": true,
@@ -518,9 +515,8 @@
       "description": "Molecular ML with diverse featurizers and pre-built datasets. Use for property prediction (ADMET, toxicity) with traditional ML or GNNs when you want extensive featurization options and MoleculeNet benchmarks. Best for quick experiments with pre-trained models, diverse molecular representations. For graph-first PyTorch workflows use torchdrug; for benchmark datasets use pytdc.",
       "category": "drug-discovery",
       "tags": [
-        "drug",
+        "drug-discovery",
         "molecule",
-        "ml",
         "workflow"
       ],
       "path": "public/deepchem",
@@ -531,7 +527,7 @@
     {
       "name": "deeptools",
       "description": "NGS analysis toolkit. BAM to bigWig conversion, QC (correlation, PCA, fingerprints), heatmaps/profiles (TSS, peaks), for ChIP-seq, RNA-seq, ATAC-seq visualization.",
-      "category": "data-visualization",
+      "category": "bioinformatics",
       "tags": [
         "rna",
         "visualization"
@@ -568,7 +564,6 @@
       "description": "Applies 10 proven design principles to evaluate, critique, or build user interfaces. Use when: (1) reviewing UI/UX decisions, (2) building or modifying frontends, (3) asking for design feedback, (4) assessing visual hierarchy, layout, accessibility, or interaction patterns, (5) creating or editing React or components, (6) writing HTML/CSS/Tailwind. Triggers on keywords like design, UI, UX, interface, layout, accessibility, typography, hierarchy, responsive.",
       "category": "scientific-writing",
       "tags": [
-        "ml",
         "react"
       ],
       "path": "public/design-principles",
@@ -579,7 +574,7 @@
     {
       "name": "diagram-design",
       "description": "Create branded architecture, IT current-state, flowchart, sequence, state machine, ER/data model, timeline, swimlane, quadrant, radar/spider, loop/flywheel, nested, tree, org chart, layer stack, Venn, pyramid/funnel, treemap, bar, line, Gantt and scatter charts, high-level, process, medallion, data flow, DP integration, or DP security matrix diagrams as standalone HTML/SVG/PNG. Redraw .drawio/.drawio.png/.drawio.svg or Mermaid .mmd sources at a chosen size/detail; onboard brand tokens from a website; add semantic patterns, callouts, accessible motion, or sketchy/hand-drawn styling.",
-      "category": "design-art",
+      "category": "bioinformatics",
       "tags": [],
       "path": "public/diagram-design",
       "hasReferences": true,
@@ -592,7 +587,7 @@
       "category": "drug-discovery",
       "tags": [
         "protein",
-        "drug"
+        "drug-discovery"
       ],
       "path": "public/diffdock",
       "hasReferences": true,
@@ -622,7 +617,7 @@
     {
       "name": "dnanexus-integration",
       "description": "DNAnexus cloud genomics platform. Build apps/applets, manage data (upload/download), dxpy Python SDK, run workflows, FASTQ/BAM/VCF, for genomics pipeline development and execution.",
-      "category": "frontend-web",
+      "category": "agent-workflow",
       "tags": [
         "python",
         "genomics",
@@ -661,7 +656,7 @@
       "category": "scientific-databases",
       "tags": [
         "database",
-        "drug"
+        "drug-discovery"
       ],
       "path": "public/drugbank-database",
       "hasReferences": true,
@@ -761,7 +756,7 @@
       "tags": [
         "api",
         "database",
-        "drug"
+        "drug-discovery"
       ],
       "path": "public/fda-database",
       "hasReferences": true,
@@ -783,7 +778,7 @@
     {
       "name": "finishing-a-development-branch",
       "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup",
-      "category": "frontend-web",
+      "category": "agent-workflow",
       "tags": [],
       "path": "public/finishing-a-development-branch",
       "hasReferences": false,
@@ -793,7 +788,7 @@
     {
       "name": "flowio",
       "description": "Parse FCS (Flow Cytometry Standard) files v2.0-3.1. Extract events as NumPy arrays, read metadata/channels, convert to CSV/DataFrame, for flow cytometry data preprocessing.",
-      "category": "agent-workflow",
+      "category": "machine-learning",
       "tags": [],
       "path": "public/flowio",
       "hasReferences": true,
@@ -803,9 +798,10 @@
     {
       "name": "fluidsim",
       "description": "Framework for computational fluid dynamics simulations using Python. Use when running fluid dynamics simulations including Navier-Stokes equations (2D/3D), shallow water equations, stratified flows, or when analyzing turbulence, vortex dynamics, or geophysical flows. Provides pseudospectral methods with FFT, HPC support, and comprehensive output analysis.",
-      "category": "frontend-web",
+      "category": "scientific-computing",
       "tags": [
-        "python"
+        "python",
+        "simulation"
       ],
       "path": "public/fluidsim",
       "hasReferences": true,
@@ -817,7 +813,6 @@
       "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.",
       "category": "frontend-web",
       "tags": [
-        "ml",
         "react"
       ],
       "path": "public/frontend-design",
@@ -977,7 +972,7 @@
       "description": "Lightweight WSI tile extraction and preprocessing. Use for basic slide processing tissue detection, tile extraction, stain normalization for H&E images. Best for simple pipelines, dataset preparation, quick tile-based analysis. For advanced spatial proteomics, multiplexed imaging, or deep learning pipelines use pathml.",
       "category": "machine-learning",
       "tags": [
-        "ml"
+        "deep-learning"
       ],
       "path": "public/histolab",
       "hasReferences": true,
@@ -999,7 +994,7 @@
     {
       "name": "hypogenic",
       "description": "Automated LLM-driven hypothesis generation and testing on tabular datasets. Use when you want to systematically explore hypotheses about patterns in empirical data (e.g., deception detection, content analysis). Combines literature insights with data-driven hypothesis testing. For manual hypothesis formulation use hypothesis-generation; for creative ideation use scientific-brainstorming.",
-      "category": "agent-workflow",
+      "category": "scientific-writing",
       "tags": [],
       "path": "public/hypogenic",
       "hasReferences": true,
@@ -1057,7 +1052,8 @@
         "api",
         "rest",
         "database",
-        "drug"
+        "drug-discovery",
+        "workflow"
       ],
       "path": "public/kegg-database",
       "hasReferences": true,
@@ -1080,10 +1076,9 @@
     {
       "name": "lamindb",
       "description": "This skill should be used when working with LaminDB, an open-source data framework for biology that makes data queryable, traceable, reproducible, and FAIR. Use when managing biological datasets (scRNA-seq, spatial, flow cytometry, etc.), tracking computational workflows, curating and validating data with biological ontologies, building data lakehouses, or ensuring data lineage and reproducibility in biological research. Covers data management, annotation, ontologies (genes, cell types, diseases, tissues), schema validation, integrations with workflow managers (Nextflow, Snakemake) and MLOps platforms (W&B, MLflow), and deployment strategies.",
-      "category": "scientific-databases",
+      "category": "bioinformatics",
       "tags": [
         "rna",
-        "ml",
         "workflow"
       ],
       "path": "public/lamindb",
@@ -1139,9 +1134,7 @@
       "name": "markitdown",
       "description": "Convert files and office documents to Markdown. Supports PDF, DOCX, PPTX, XLSX, images (with OCR), audio (with transcription), HTML, CSV, JSON, XML, ZIP, YouTube URLs, EPubs and more.",
       "category": "document-processing",
-      "tags": [
-        "ml"
-      ],
+      "tags": [],
       "path": "public/markitdown",
       "hasReferences": true,
       "hasScripts": true,
@@ -1204,7 +1197,7 @@
       "description": "Medicinal chemistry filters. Apply drug-likeness rules (Lipinski, Veber), PAINS filters, structural alerts, complexity metrics, for compound prioritization and library filtering.",
       "category": "drug-discovery",
       "tags": [
-        "drug"
+        "drug-discovery"
       ],
       "path": "public/medchem",
       "hasReferences": true,
@@ -1228,11 +1221,10 @@
     {
       "name": "modal",
       "description": "Run Python code in the cloud with serverless containers, GPUs, and autoscaling. Use when deploying ML models, running batch processing jobs, scheduling compute-intensive tasks, or serving APIs that require GPU acceleration or dynamic scaling.",
-      "category": "frontend-web",
+      "category": "agent-workflow",
       "tags": [
         "python",
-        "api",
-        "ml"
+        "api"
       ],
       "path": "public/modal",
       "hasReferences": true,
@@ -1243,9 +1235,7 @@
       "name": "molfeat",
       "description": "Molecular featurization for ML (100+ featurizers). ECFP, MACCS, descriptors, pretrained models (ChemBERTa), convert SMILES to features, for QSAR and molecular ML.",
       "category": "drug-discovery",
-      "tags": [
-        "ml"
-      ],
+      "tags": [],
       "path": "public/molfeat",
       "hasReferences": true,
       "hasScripts": false,
@@ -1331,7 +1321,7 @@
     {
       "name": "onboard",
       "description": "Design or improve onboarding flows, empty states, and first-time user experiences. Helps users get started successfully and understand value quickly.",
-      "category": "frontend-web",
+      "category": "design-art",
       "tags": [],
       "path": "public/onboard",
       "hasReferences": false,
@@ -1356,7 +1346,7 @@
       "category": "scientific-databases",
       "tags": [
         "database",
-        "drug"
+        "drug-discovery"
       ],
       "path": "public/opentargets-database",
       "hasReferences": true,
@@ -1378,7 +1368,7 @@
     {
       "name": "optimize",
       "description": "Improve interface performance across loading speed, rendering, animations, images, and bundle size. Makes experiences faster and smoother.",
-      "category": "agent-workflow",
+      "category": "design-art",
       "tags": [],
       "path": "public/optimize",
       "hasReferences": false,
@@ -1399,9 +1389,7 @@
       "name": "pathml",
       "description": "Full-featured computational pathology toolkit. Use for advanced WSI analysis including multiplexed immunofluorescence (CODEX, Vectra), nucleus segmentation, tissue graph construction, and ML model training on pathology data. Supports 160+ slide formats. For simple tile extraction from H&E slides, histolab may be simpler.",
       "category": "lab-automation",
-      "tags": [
-        "ml"
-      ],
+      "tags": [],
       "path": "public/pathml",
       "hasReferences": true,
       "hasScripts": false,
@@ -1414,7 +1402,7 @@
       "tags": [
         "database",
         "protein",
-        "drug"
+        "drug-discovery"
       ],
       "path": "public/pdb-database",
       "hasReferences": true,
@@ -1446,7 +1434,6 @@
       "description": "Hardware-agnostic quantum ML framework with automatic differentiation. Use when training quantum circuits via gradients, building hybrid quantum-classical models, or needing device portability across IBM/Google/Rigetti/IonQ. Best for variational algorithms (VQE, QAOA), quantum neural networks, and integration with PyTorch/JAX/TensorFlow. For hardware-specific optimizations use qiskit (IBM) or cirq (Google); for open quantum systems use qutip.",
       "category": "machine-learning",
       "tags": [
-        "ml",
         "quantum"
       ],
       "path": "public/pennylane",
@@ -1457,7 +1444,7 @@
     {
       "name": "perplexity-search",
       "description": "Perform AI-powered web searches with real-time information using Perplexity models via LiteLLM and OpenRouter. This skill should be used when conducting web searches for current information, finding recent scientific literature, getting grounded answers with source citations, or accessing information beyond the model knowledge cutoff. Provides access to multiple Perplexity models including Sonar Pro, Sonar Pro Search (advanced agentic search), and Sonar Reasoning Pro through a single OpenRouter API key.",
-      "category": "frontend-web",
+      "category": "scientific-writing",
       "tags": [
         "api"
       ],
@@ -1481,7 +1468,7 @@
     {
       "name": "polars",
       "description": "Fast in-memory DataFrame library for datasets that fit in RAM. Use when pandas is too slow but data still fits in memory. Lazy evaluation, parallel execution, Apache Arrow backend. Best for 1-100GB datasets, ETL pipelines, faster pandas replacement. For larger-than-RAM data use dask or vaex.",
-      "category": "agent-workflow",
+      "category": "machine-learning",
       "tags": [],
       "path": "public/polars",
       "hasReferences": true,
@@ -1501,7 +1488,7 @@
     {
       "name": "pptx",
       "description": "Presentation creation, editing, and analysis. When Claude needs to work with presentations (.pptx files) for: (1) Creating new presentations, (2) Modifying or editing content, (3) Working with layouts, (4) Adding comments or speaker notes, or any other presentation tasks",
-      "category": "agent-workflow",
+      "category": "document-processing",
       "tags": [],
       "path": "public/pptx",
       "hasReferences": false,
@@ -1512,9 +1499,7 @@
       "name": "pptx-posters",
       "description": "Create research posters using HTML/CSS that can be exported to PDF or PPTX. Use this skill ONLY when the user explicitly requests PowerPoint/PPTX poster format. For standard research posters, use latex-posters instead. This skill provides modern web-based poster design with responsive layouts and easy visual integration.",
       "category": "frontend-web",
-      "tags": [
-        "ml"
-      ],
+      "tags": [],
       "path": "public/pptx-posters",
       "hasReferences": true,
       "hasScripts": false,
@@ -1566,7 +1551,7 @@
     {
       "name": "pufferlib",
       "description": "High-performance reinforcement learning framework optimized for speed and scale. Use when you need fast parallel training, vectorized environments, multi-agent systems, or integration with game environments (Atari, Procgen, NetHack). Achieves 2-10x speedups over standard implementations. For quick prototyping or standard algorithm implementations with extensive documentation, use stable-baselines3 instead.",
-      "category": "frontend-web",
+      "category": "machine-learning",
       "tags": [],
       "path": "public/pufferlib",
       "hasReferences": true,
@@ -1576,7 +1561,7 @@
     {
       "name": "pydeseq2",
       "description": "Differential gene expression analysis (Python DESeq2). Identify DE genes from bulk RNA-seq counts, Wald tests, FDR correction, volcano/MA plots, for RNA-seq analysis.",
-      "category": "data-visualization",
+      "category": "bioinformatics",
       "tags": [
         "python",
         "rna"
@@ -1605,7 +1590,9 @@
       "description": "Comprehensive healthcare AI toolkit for developing, testing, and deploying machine learning models with clinical data. This skill should be used when working with electronic health records (EHR), clinical prediction tasks (mortality, readmission, drug recommendation), medical coding systems (ICD, NDC, ATC), physiological signals (EEG, ECG), healthcare datasets (MIMIC-III/IV, eICU, OMOP), or implementing deep learning models for healthcare applications (RETAIN, SafeDrug, Transformer, GNN).",
       "category": "drug-discovery",
       "tags": [
-        "drug"
+        "drug-discovery",
+        "ml",
+        "deep-learning"
       ],
       "path": "public/pyhealth",
       "hasReferences": true,
@@ -1618,7 +1605,8 @@
       "category": "lab-automation",
       "tags": [
         "api",
-        "workflow"
+        "workflow",
+        "simulation"
       ],
       "path": "public/pylabrobot",
       "hasReferences": true,
@@ -1638,7 +1626,7 @@
     {
       "name": "pymc-bayesian-modeling",
       "description": "Bayesian modeling with PyMC. Build hierarchical models, MCMC (NUTS), variational inference, LOO/WAIC comparison, posterior checks, for probabilistic programming and inference.",
-      "category": "frontend-web",
+      "category": "agent-workflow",
       "tags": [],
       "path": "public/pymc",
       "hasReferences": true,
@@ -1683,8 +1671,7 @@
       "description": "Therapeutics Data Commons. AI-ready drug discovery datasets (ADME, toxicity, DTI), benchmarks, scaffold splits, molecular oracles, for therapeutic ML and pharmacological prediction.",
       "category": "drug-discovery",
       "tags": [
-        "drug",
-        "ml"
+        "drug-discovery"
       ],
       "path": "public/pytdc",
       "hasReferences": true,
@@ -1695,7 +1682,9 @@
       "name": "pytorch-lightning",
       "description": "Deep learning framework (PyTorch Lightning). Organize PyTorch code into LightningModules, configure Trainers for multi-GPU/TPU, implement data pipelines, callbacks, logging (W&B, TensorBoard), distributed training (DDP, FSDP, DeepSpeed), for scalable neural network training.",
       "category": "machine-learning",
-      "tags": [],
+      "tags": [
+        "deep-learning"
+      ],
       "path": "public/pytorch-lightning",
       "hasReferences": true,
       "hasScripts": true,
@@ -1706,8 +1695,8 @@
       "description": "IBM quantum computing framework. Use when targeting IBM Quantum hardware, working with Qiskit Runtime for production workloads, or needing IBM optimization tools. Best for IBM hardware execution, quantum error mitigation, and enterprise quantum computing. For Google hardware use cirq; for gradient-based quantum ML use pennylane; for open quantum system simulations use qutip.",
       "category": "quantum-computing",
       "tags": [
-        "ml",
-        "quantum"
+        "quantum",
+        "simulation"
       ],
       "path": "public/qiskit",
       "hasReferences": true,
@@ -1717,7 +1706,7 @@
     {
       "name": "quieter",
       "description": "Tone down overly bold or visually aggressive designs. Reduces intensity while maintaining design quality and impact.",
-      "category": "frontend-web",
+      "category": "design-art",
       "tags": [],
       "path": "public/quieter",
       "hasReferences": false,
@@ -1729,7 +1718,8 @@
       "description": "Quantum physics simulation library for open quantum systems. Use when studying master equations, Lindblad dynamics, decoherence, quantum optics, or cavity QED. Best for physics research, open system dynamics, and educational simulations. NOT for circuit-based quantum computing—use qiskit, cirq, or pennylane for quantum algorithms and hardware execution.",
       "category": "quantum-computing",
       "tags": [
-        "quantum"
+        "quantum",
+        "simulation"
       ],
       "path": "public/qutip",
       "hasReferences": true,
@@ -1750,18 +1740,6 @@
       "hasAssets": false
     },
     {
-      "name": "vercel-react-best-practices",
-      "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
-      "category": "scientific-writing",
-      "tags": [
-        "react"
-      ],
-      "path": "public/react-best-practices",
-      "hasReferences": false,
-      "hasScripts": false,
-      "hasAssets": false
-    },
-    {
       "name": "reactome-database",
       "description": "Query Reactome REST API for pathway analysis, enrichment, gene-pathway mapping, disease pathways, molecular interactions, expression analysis, for systems biology studies.",
       "category": "scientific-databases",
@@ -1779,7 +1757,7 @@
     {
       "name": "receiving-code-review",
       "description": "Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation",
-      "category": "frontend-web",
+      "category": "agent-workflow",
       "tags": [],
       "path": "public/receiving-code-review",
       "hasReferences": false,
@@ -1789,7 +1767,7 @@
     {
       "name": "requesting-code-review",
       "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
-      "category": "frontend-web",
+      "category": "agent-workflow",
       "tags": [],
       "path": "public/requesting-code-review",
       "hasReferences": false,
@@ -1799,7 +1777,7 @@
     {
       "name": "research-grants",
       "description": "Write competitive research proposals for NSF, NIH, DOE, DARPA, and Taiwan NSTC. Agency-specific formatting, review criteria, budget preparation, broader impacts, significance statements, innovation narratives, and compliance with submission requirements.",
-      "category": "frontend-web",
+      "category": "agent-workflow",
       "tags": [],
       "path": "public/research-grants",
       "hasReferences": true,
@@ -1809,7 +1787,7 @@
     {
       "name": "research-lookup",
       "description": "Look up current research information using Perplexity Sonar Pro Search or Sonar Reasoning Pro models through OpenRouter. Automatically selects the best model based on query complexity. Search academic papers, recent studies, technical documentation, and general research information with citations.",
-      "category": "scientific-databases",
+      "category": "scientific-writing",
       "tags": [],
       "path": "public/research-lookup",
       "hasReferences": false,
@@ -1839,6 +1817,7 @@
       "tags": [
         "rna",
         "single-cell",
+        "deep-learning",
         "visualization",
         "workflow"
       ],
@@ -1892,7 +1871,7 @@
     {
       "name": "scientific-slides",
       "description": "Build slide decks and presentations for research talks. Use this for making PowerPoint slides, conference presentations, seminar talks, research presentations, thesis defense slides, or any scientific talk. Provides slide structure, design templates, timing guidance, and visual validation. Works with PowerPoint and LaTeX Beamer.",
-      "category": "frontend-web",
+      "category": "design-art",
       "tags": [],
       "path": "public/scientific-slides",
       "hasReferences": true,
@@ -1915,7 +1894,7 @@
     {
       "name": "scientific-writing",
       "description": "Core skill for the deep research and writing tool. Write scientific manuscripts in full paragraphs (never bullet points). Use two-stage process with (1) section outlines with key points using research-lookup then (2) convert to flowing prose. IMRAD structure, citations (APA/AMA/Vancouver), figures/tables, reporting guidelines (CONSORT/STROBE/PRISMA), for research papers and journal submissions.",
-      "category": "scientific-writing",
+      "category": "data-visualization",
       "tags": [
         "rna"
       ],
@@ -1988,7 +1967,7 @@
     {
       "name": "serenity-skill",
       "description": "Turn an investment agent into a supply-chain bottleneck hunter. Use this skill for source-backed investment research, live market/theme scans, AI/semi/technology value-chain mapping, A-share/HK/US stock screening, thesis stress tests, and Serenity-inspired research conversations. Trigger on requests like \"用 Serenity 的方式看\", \"深度调研\", \"产业链/供应链/卡点/瓶颈\", \"A股 AI 半导体哪个最值得研究\", \"find unknown bottlenecks\", \"rank candidates\", or \"challenge this thesis\". Outputs plain-language reasoning, ranked research priorities, evidence chains, risks, and next verification steps. Research support only; no trade execution.",
-      "category": "agent-workflow",
+      "category": "design-art",
       "tags": [],
       "path": "public/serenity-skill",
       "hasReferences": true,
@@ -2000,7 +1979,9 @@
       "description": "Model interpretability and explainability using SHAP (SHapley Additive exPlanations). Use this skill when explaining machine learning model predictions, computing feature importance, generating SHAP plots (waterfall, beeswarm, bar, scatter, force, heatmap), debugging models, analyzing model bias or fairness, comparing models, or implementing explainable AI. Works with tree-based models (XGBoost, LightGBM, Random Forest), deep learning (TensorFlow, PyTorch), linear models, and any black-box model.",
       "category": "machine-learning",
       "tags": [
-        "rest"
+        "rest",
+        "ml",
+        "deep-learning"
       ],
       "path": "public/shap",
       "hasReferences": true,
@@ -2010,9 +1991,10 @@
     {
       "name": "simpy",
       "description": "Process-based discrete-event simulation framework in Python. Use this skill when building simulations of systems with processes, queues, resources, and time-based events such as manufacturing systems, service operations, network traffic, logistics, or any system where entities interact with shared resources over time.",
-      "category": "frontend-web",
+      "category": "scientific-computing",
       "tags": [
-        "python"
+        "python",
+        "simulation"
       ],
       "path": "public/simpy",
       "hasReferences": true,
@@ -2022,7 +2004,7 @@
     {
       "name": "skill-creator",
       "description": "Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations.",
-      "category": "frontend-web",
+      "category": "agent-workflow",
       "tags": [
         "workflow"
       ],
@@ -2034,7 +2016,7 @@
     {
       "name": "slack-gif-creator",
       "description": "Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like \"make me a GIF of X doing Y for Slack.\"",
-      "category": "agent-workflow",
+      "category": "design-art",
       "tags": [],
       "path": "public/slack-gif-creator",
       "hasReferences": false,
@@ -2044,7 +2026,7 @@
     {
       "name": "stable-baselines3",
       "description": "Production-ready reinforcement learning algorithms (PPO, SAC, DQN, TD3, DDPG, A2C) with scikit-learn-like API. Use for standard RL experiments, quick prototyping, and well-documented algorithm implementations. Best for single-agent RL with Gymnasium environments. For high-performance parallel training, multi-agent systems, or custom vectorized environments, use pufferlib instead.",
-      "category": "frontend-web",
+      "category": "machine-learning",
       "tags": [
         "api"
       ],
@@ -2056,7 +2038,7 @@
     {
       "name": "statistical-analysis",
       "description": "Guided statistical analysis with test selection and reporting. Use when you need help choosing appropriate tests for your data, assumption checking, power analysis, and APA-formatted results. Best for academic research reporting, test selection guidance. For implementing specific models programmatically use statsmodels.",
-      "category": "frontend-web",
+      "category": "agent-workflow",
       "tags": [],
       "path": "public/statistical-analysis",
       "hasReferences": true,
@@ -2066,7 +2048,7 @@
     {
       "name": "statsmodels",
       "description": "Statistical models library for Python. Use when you need specific model classes (OLS, GLM, mixed models, ARIMA) with detailed diagnostics, residuals, and inference. Best for econometrics, time series, rigorous inference with coefficient tables. For guided statistical test selection with APA reporting use statistical-analysis.",
-      "category": "frontend-web",
+      "category": "agent-workflow",
       "tags": [
         "python"
       ],
@@ -2102,7 +2084,7 @@
     {
       "name": "sympy",
       "description": "Use this skill when working with symbolic mathematics in Python. This skill should be used for symbolic computation tasks including solving equations algebraically, performing calculus operations (derivatives, integrals, limits), manipulating algebraic expressions, working with matrices symbolically, physics calculations, number theory problems, geometry computations, and generating executable code from mathematical expressions. Apply this skill when the user needs exact symbolic results rather than numerical approximations, or when working with mathematical formulas that contain variables and parameters.",
-      "category": "agent-workflow",
+      "category": "scientific-computing",
       "tags": [
         "python"
       ],
@@ -2124,7 +2106,7 @@
     {
       "name": "teach-impeccable",
       "description": "One-time setup that gathers design context for your project and saves it to your AI config file. Run once to establish persistent design guidelines.",
-      "category": "frontend-web",
+      "category": "design-art",
       "tags": [],
       "path": "public/teach-impeccable",
       "hasReferences": false,
@@ -2145,9 +2127,7 @@
       "name": "theme-factory",
       "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.",
       "category": "design-art",
-      "tags": [
-        "ml"
-      ],
+      "tags": [],
       "path": "public/theme-factory",
       "hasReferences": false,
       "hasScripts": false,
@@ -2157,7 +2137,9 @@
       "name": "torch-geometric",
       "description": "Graph Neural Networks (PyG). Node/graph classification, link prediction, GCN, GAT, GraphSAGE, heterogeneous graphs, molecular property prediction, for geometric deep learning.",
       "category": "drug-discovery",
-      "tags": [],
+      "tags": [
+        "deep-learning"
+      ],
       "path": "public/torch_geometric",
       "hasReferences": true,
       "hasScripts": true,
@@ -2169,7 +2151,7 @@
       "category": "drug-discovery",
       "tags": [
         "protein",
-        "drug",
+        "drug-discovery",
         "molecule"
       ],
       "path": "public/torchdrug",
@@ -2218,7 +2200,8 @@
         "api",
         "rest",
         "database",
-        "protein"
+        "protein",
+        "workflow"
       ],
       "path": "public/uniprot-database",
       "hasReferences": true,
@@ -2240,7 +2223,7 @@
     {
       "name": "using-superpowers",
       "description": "Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions",
-      "category": "frontend-web",
+      "category": "design-art",
       "tags": [],
       "path": "public/using-superpowers",
       "hasReferences": false,
@@ -2278,8 +2261,7 @@
       "description": "Access comprehensive LaTeX templates, formatting requirements, and submission guidelines for major scientific publication venues (Nature, Science, PLOS, IEEE, ACM), academic conferences (NeurIPS, ICML, CVPR, CHI), research posters, and grant proposals (NSF, NIH, DOE, DARPA). This skill should be used when preparing manuscripts for journal submission, conference papers, research posters, or grant proposals and need venue-specific formatting requirements and templates.",
       "category": "scientific-writing",
       "tags": [
-        "rna",
-        "ml"
+        "rna"
       ],
       "path": "public/venue-templates",
       "hasReferences": true,
@@ -2289,11 +2271,23 @@
     {
       "name": "vercel-deploy",
       "description": "Deploy applications and websites to Vercel. Use this skill when the user requests deployment actions such as \"Deploy my app\", \"Deploy this to production\", \"Create a preview deployment\", \"Deploy and give me the link\", or \"Push this live\". No authentication required - returns preview URL and claimable deployment link.",
-      "category": "frontend-web",
+      "category": "agent-workflow",
       "tags": [],
       "path": "public/vercel-deploy-claimable",
       "hasReferences": false,
       "hasScripts": true,
+      "hasAssets": false
+    },
+    {
+      "name": "vercel-react-best-practices",
+      "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements.",
+      "category": "scientific-writing",
+      "tags": [
+        "react"
+      ],
+      "path": "public/react-best-practices",
+      "hasReferences": false,
+      "hasScripts": false,
       "hasAssets": false
     },
     {
@@ -2324,7 +2318,7 @@
     {
       "name": "verification-before-completion",
       "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
-      "category": "frontend-web",
+      "category": "agent-workflow",
       "tags": [],
       "path": "public/verification-before-completion",
       "hasReferences": false,
@@ -2336,7 +2330,6 @@
       "description": "Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts.",
       "category": "lab-automation",
       "tags": [
-        "ml",
         "react"
       ],
       "path": "public/web-artifacts-builder",
@@ -2347,7 +2340,7 @@
     {
       "name": "web-design-guidelines",
       "description": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"check my site against best practices\".",
-      "category": "frontend-web",
+      "category": "design-art",
       "tags": [],
       "path": "public/web-design-guidelines",
       "hasReferences": false,
@@ -2414,7 +2407,7 @@
       "category": "scientific-databases",
       "tags": [
         "database",
-        "drug"
+        "drug-discovery"
       ],
       "path": "public/zinc-database",
       "hasReferences": true,
@@ -2451,7 +2444,7 @@
     {
       "id": "data-visualization",
       "name": "Data Visualization",
-      "description": "Plotting libraries, scientific visualization, and charts"
+      "description": "Plotting, scientific visualization, and charts"
     },
     {
       "id": "clinical-medical",
