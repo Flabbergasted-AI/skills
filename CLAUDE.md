@@ -39,6 +39,7 @@ description: What the skill does. When to use it — include specific triggers l
    - `assets/` — Templates, images, fonts used in output
 
 4. **Update catalogs** — Add entry to both `README.md` and `README_zh.md` in the appropriate category table
+5. **Classify provenance** — Add the directory to `upstream.sources.json` in `manual` mode until its source and import baseline are verified. See `docs/upstream-maintenance.md`.
 
 ### SKILL.md Best Practices
 
@@ -96,6 +97,11 @@ public/example-integration/
 - User-facing documentation — skills are for Claude, not humans
 
 ## Editing Existing Skills
+
+For upstream copies, keep `upstream.lock.json` pinned to the last verified upstream
+baseline when making local edits. The weekly sync workflow uses it for three-way
+merges. Preview updates with `node cli/scripts/sync-upstream.mjs`; see
+`docs/upstream-maintenance.md` for adoption, conflicts, and workflow setup.
 
 - Preserve the existing structure and style
 - Keep frontmatter `name` and `description` fields — never remove them

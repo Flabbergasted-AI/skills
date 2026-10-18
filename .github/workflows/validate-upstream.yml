@@ -1,0 +1,37 @@
+name: Validate upstream maintenance
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cli/scripts/sync-upstream*'
+      - 'cli/package*.json'
+      - 'upstream.*.json'
+      - '.github/workflows/*upstream.yml'
+  pull_request:
+    paths:
+      - 'public/**'
+      - 'cli/scripts/sync-upstream*'
+      - 'cli/package*.json'
+      - 'upstream.*.json'
+      - '.github/workflows/*upstream.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: cli/package-lock.json
+      - run: npm ci --ignore-scripts
+        working-directory: cli
+      - run: npm run upstream:test && npm run upstream:validate
+        working-directory: cli

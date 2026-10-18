@@ -464,6 +464,14 @@ Custom targets can be added via `config add-target <id> <path>`.
 
 ## Contributing
 
+### Upstream maintenance
+
+Verified upstream skills are checked weekly and proposed through automated PRs.
+The source inventory and pinned merge bases are in `upstream.sources.json` and
+`upstream.lock.json`. Skills without a verified baseline remain manually maintained.
+See [upstream maintenance](./docs/upstream-maintenance.md) for coverage, local
+commands, conflict handling, enrollment, and GitHub Actions setup.
+
 See [CLAUDE.md](./CLAUDE.md) for guidance on creating and modifying skills.
 
 ### Updating Skills (CLI Release Not Needed)

@@ -81,9 +81,16 @@ Browse `public/` or search by name. Each skill's `SKILL.md` frontmatter descript
 2. Add a `SKILL.md` with proper frontmatter
 3. Add `references/`, `scripts/`, or `assets/` as needed
 4. Update `README.md` and `README_zh.md` with the new entry in the appropriate category table
+5. Classify the new directory in `upstream.sources.json`; use `manual` until its source and import baseline are verified
 
 ### Modifying a skill
 Edit files within the skill's directory. Keep `SKILL.md` under 500 lines — split into reference files when approaching this limit.
+
+### Maintaining upstream copies
+- Read `docs/upstream-maintenance.md` before changing source mappings or synchronization behavior
+- Preserve `upstream.lock.json` as the upstream merge baseline; do not advance it for local-only edits
+- Preview upstream changes with `node cli/scripts/sync-upstream.mjs` before applying them
+- Run `npm run upstream:test` and `npm run upstream:validate` from `cli/` after changing maintenance code or inventory
 
 ### Commit practices
 - Separate commits by function — don't mix unrelated changes
