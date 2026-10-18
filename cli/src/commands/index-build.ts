@@ -110,6 +110,7 @@ function parseSkillMeta(content: string, dirName: string, skillDir: string): Ski
 }
 
 function inferCategory(name: string, description: string): string {
+  if (name === 'anatomy') return 'design-art';
   const text = `${name} ${description}`.toLowerCase();
 
   if (name.endsWith('-database') || text.includes('api access') || text.includes('query')) {

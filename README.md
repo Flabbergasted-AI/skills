@@ -302,6 +302,7 @@ Visual design, creative tools, and aesthetic enhancement.
 | Skill | Description |
 |-------|-------------|
 | [algorithmic-art](./public/algorithmic-art/) | Create algorithmic art with p5.js |
+| [anatomy](./public/anatomy/) | Build detailed interactive isometric SVG illustrations with WebGL effects and optional 3D motion |
 | [bolder](./public/bolder/) | Amplify designs to make them more visually interesting |
 | [brand-guidelines](./public/brand-guidelines/) | Apply Anthropic brand colors and typography |
 | [canvas-design](./public/canvas-design/) | Create visual art in PNG and PDF |

@@ -36,6 +36,7 @@ const CATEGORY_MAP: Record<string, { name: string; description: string }> = {
 };
 
 function inferCategory(name: string, description: string): string {
+  if (name === 'anatomy') return 'design-art';
   const text = `${name} ${description}`.toLowerCase();
 
   if (name.endsWith('-database') || text.includes('api access') || text.includes('direct rest')) return 'scientific-databases';

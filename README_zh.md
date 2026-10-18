@@ -288,6 +288,7 @@ UI/UX 设计、网页开发和前端优化。
 | 技能 | 描述 |
 |------|------|
 | [algorithmic-art](./public/algorithmic-art/) | 使用 p5.js 创建算法艺术 |
+| [anatomy](./public/anatomy/) | 制作精细的交互式等距 SVG 技术插图，支持 WebGL 特效与可选 3D 动画 |
 | [bolder](./public/bolder/) | 增强设计使其更具视觉吸引力 |
 | [brand-guidelines](./public/brand-guidelines/) | 应用 Anthropic 品牌色彩和排版 |
 | [canvas-design](./public/canvas-design/) | 在 PNG 和 PDF 中创建视觉艺术 |

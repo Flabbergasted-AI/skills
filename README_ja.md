@@ -288,6 +288,7 @@ UI/UX デザイン、ウェブ開発、フロントエンド最適化。
 | スキル | 説明 |
 |--------|------|
 | [algorithmic-art](./public/algorithmic-art/) | p5.js でアルゴリズムアートを作成 |
+| [anatomy](./public/anatomy/) | WebGL エフェクトとオプションの 3D 動作を備えた精密な対話型アイソメトリック SVG 技術イラストを作成 |
 | [bolder](./public/bolder/) | デザインを視覚的に興味深いものに強化 |
 | [brand-guidelines](./public/brand-guidelines/) | Anthropic ブランド色彩とタイポグラフィの適用 |
 | [canvas-design](./public/canvas-design/) | PNG と PDF でビジュアルアートを作成 |
