@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Use npm trusted publishing instead of a long-lived token that requires interactive authentication.
+- Allow retrying an unpublished release tag through the publishing workflow without moving tags or bumping versions.
+
 ## [0.1.7] - 2026-10-18
 
 ### Added

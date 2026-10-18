@@ -541,9 +541,19 @@ npx @flabbergasted-ai/skills --version
 
 ### 前置要求
 
-- 在 GitHub repo 的 Settings → Secrets → Actions 中添加 `NPM_TOKEN`
-- npm token 需要 publish 权限：`npm token create --read-only=false`
+- 在 npm 的 `@flabbergasted-ai/skills` → Settings → Trusted publishing 中添加 GitHub Actions：Organization or user 填 `Flabbergasted-AI`，Repository 填 `skills`，Workflow filename 填 `publish.yml`，Environment name 留空，并允许 `npm publish`。
+- 发布工作流使用 OIDC 短期凭证，无需 `NPM_TOKEN`；运行环境为 Node.js 24 和 npm 11（至少 11.5.1）。参考 [npm Trusted publishing 文档](https://docs.npmjs.com/trusted-publishers/)。
 - package.json 中的 `name` 字段需要是你有发布权限的 scope
+
+#### 重试未发布的版本
+
+在默认分支运行 `Publish to npm` 工作流，输入已有的版本标签。工作流会检出该标签，并核对标签和 `cli/package.json` 版本一致；无需移动标签或再次增加版本号。例如：
+
+```bash
+gh workflow run publish.yml --ref main -f tag=v0.1.7
+```
+
+旧运行记录的 Re-run 使用旧版工作流；迁移认证方式后应使用上面的手动触发入口。
 
 ---
 

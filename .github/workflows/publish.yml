@@ -4,23 +4,52 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing release tag to publish (for example, v0.1.7)'
+        required: true
+        type: string
+
+concurrency:
+  group: npm-publish-${{ inputs.tag || github.ref_name }}
+  cancel-in-progress: false
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
     permissions:
       contents: read
       id-token: write
 
     steps:
+      - name: Validate release tag
+        shell: bash
+        run: |
+          if [[ ! "$RELEASE_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo 'Expected a stable release tag such as v0.1.7.' >&2
+            exit 1
+          fi
+
       - uses: actions/checkout@v6
+        with:
+          ref: refs/tags/${{ env.RELEASE_TAG }}
+          persist-credentials: false
 
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-          registry-url: https://registry.npmjs.org
-          cache: 'npm'
-          cache-dependency-path: cli/package-lock.json
+          package-manager-cache: false
+
+      - name: Install npm with trusted publishing support
+        run: npm install --global npm@11
+
+      - name: Match package version to release tag
+        working-directory: cli
+        run: |
+          node -e 'const version = require("./package.json").version; if (process.env.RELEASE_TAG !== `v${version}`) { throw new Error("Release tag does not match package.json version"); }'
 
       - run: npm ci
         working-directory: cli
@@ -31,7 +60,8 @@ jobs:
       - run: npm run build-index
         working-directory: cli
 
-      - run: npm publish --access public --provenance
+      # Configure this workflow as a Trusted Publisher in the npm package settings.
+      # Omit registry-url above so setup-node does not inject token authentication.
+      - name: Publish with npm trusted publishing
+        run: npm publish --access public --provenance --registry https://registry.npmjs.org
         working-directory: cli
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
