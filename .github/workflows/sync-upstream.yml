@@ -1,0 +1,101 @@
+name: Sync upstream skills
+
+on:
+  schedule:
+    # Mondays at 10:23 Asia/Shanghai (02:23 UTC); scheduled runs may be delayed.
+    - cron: '23 2 * * 1'
+  workflow_dispatch:
+    inputs:
+      skill:
+        description: 'Optional skill directory to sync; leave empty for all enabled skills'
+        required: false
+        type: string
+      dry_run:
+        description: 'Only report proposed changes; do not create or update a PR'
+        required: true
+        default: true
+        type: boolean
+
+concurrency:
+  group: upstream-skill-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: cli/package-lock.json
+
+      - run: npm ci --ignore-scripts
+        working-directory: cli
+
+      - run: npm run upstream:test && npm run upstream:validate
+        working-directory: cli
+
+      - name: Sync verified upstream directories
+        id: sync
+        # Successful independent skills can still get a PR when another skill conflicts.
+        continue-on-error: true
+        env:
+          SELECTED_SKILL: ${{ inputs.skill }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        shell: bash
+        run: |
+          args=(--report "$RUNNER_TEMP/upstream-sync.md")
+          if [[ "$DRY_RUN" != 'true' ]]; then args+=(--apply); fi
+          if [[ -n "$SELECTED_SKILL" ]]; then args+=(--only "$SELECTED_SKILL"); fi
+          node cli/scripts/sync-upstream.mjs "${args[@]}"
+
+      - name: Rebuild skill index
+        if: steps.sync.outputs.changed == 'true'
+        run: npm run build-index
+        working-directory: cli
+
+      - name: Create or update sync PR
+        if: steps.sync.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: codex/sync-upstream-skills
+          delete-branch: true
+          title: 'chore(skills): sync verified upstream changes'
+          commit-message: 'chore(skills): sync verified upstream changes'
+          body-path: ${{ runner.temp }}/upstream-sync.md
+          add-paths: |
+            public/
+            upstream.lock.json
+            index.json
+
+      - name: Publish sync report
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f "$RUNNER_TEMP/upstream-sync.md" ]]; then
+            cat "$RUNNER_TEMP/upstream-sync.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: upstream-sync-report
+          path: ${{ runner.temp }}/upstream-sync.md
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Flag skills requiring attention
+        if: steps.sync.outcome == 'failure'
+        run: |
+          echo 'Some skills could not be synchronized. Review the report; their baselines were retained.' >&2
+          exit 1

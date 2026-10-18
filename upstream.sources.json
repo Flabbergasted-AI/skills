@@ -1,0 +1,1059 @@
+{
+  "version": 1,
+  "sources": {
+    "anthropic": {
+      "url": "https://github.com/anthropics/skills.git",
+      "ref": "main"
+    },
+    "scientific": {
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills.git",
+      "ref": "main"
+    }
+  },
+  "skills": {
+    "adapt": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "adaptyv": {
+      "source": "scientific",
+      "path": "skills/adaptyv",
+      "mode": "merge"
+    },
+    "aeon": {
+      "source": "scientific",
+      "path": "skills/aeon",
+      "mode": "merge"
+    },
+    "algorithmic-art": {
+      "source": "anthropic",
+      "path": "skills/algorithmic-art",
+      "mode": "merge"
+    },
+    "alphafold-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/alphafold-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "amap-jsapi-skill": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "anatomy": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "animate": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "anndata": {
+      "source": "scientific",
+      "path": "skills/anndata",
+      "mode": "merge"
+    },
+    "arboreto": {
+      "source": "scientific",
+      "path": "skills/arboreto",
+      "mode": "merge"
+    },
+    "astropy": {
+      "source": "scientific",
+      "path": "skills/astropy",
+      "mode": "merge"
+    },
+    "audit": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "benchling-integration": {
+      "source": "scientific",
+      "path": "skills/benchling-integration",
+      "mode": "merge"
+    },
+    "biomni": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/biomni",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "biopython": {
+      "source": "scientific",
+      "path": "skills/biopython",
+      "mode": "merge"
+    },
+    "biorxiv-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/biorxiv-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "bioservices": {
+      "source": "scientific",
+      "path": "skills/bioservices",
+      "mode": "merge"
+    },
+    "bolder": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "brainstorming": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "brand-guidelines": {
+      "source": "anthropic",
+      "path": "skills/brand-guidelines",
+      "mode": "merge"
+    },
+    "brenda-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/brenda-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "canvas-design": {
+      "source": "anthropic",
+      "path": "skills/canvas-design",
+      "mode": "merge"
+    },
+    "cellxgene-census": {
+      "source": "scientific",
+      "path": "skills/cellxgene-census",
+      "mode": "merge"
+    },
+    "chembl-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/chembl-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "cirq": {
+      "source": "scientific",
+      "path": "skills/cirq",
+      "mode": "merge"
+    },
+    "citation-management": {
+      "source": "scientific",
+      "path": "skills/citation-management",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "clarify": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "clinical-decision-support": {
+      "source": "scientific",
+      "path": "skills/clinical-decision-support",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "clinical-reports": {
+      "source": "scientific",
+      "path": "skills/clinical-reports",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "clinicaltrials-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/clinicaltrials-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "clinpgx-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/clinpgx-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "clinvar-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/clinvar-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "cobrapy": {
+      "source": "scientific",
+      "path": "skills/cobrapy",
+      "mode": "merge"
+    },
+    "code-simplifier": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "colorize": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "context-compression": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "context-degradation": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "context-fundamentals": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "context-optimization": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "cosmic-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/cosmic-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "critique": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "dask": {
+      "source": "scientific",
+      "path": "skills/dask",
+      "mode": "merge"
+    },
+    "datacommons-client": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/datacommons-client",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "datamol": {
+      "source": "scientific",
+      "path": "skills/datamol",
+      "mode": "merge"
+    },
+    "deepchem": {
+      "source": "scientific",
+      "path": "skills/deepchem",
+      "mode": "merge"
+    },
+    "deeptools": {
+      "source": "scientific",
+      "path": "skills/deeptools",
+      "mode": "merge"
+    },
+    "delight": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "denario": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/denario",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "design-principles": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "diagram-design": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "diffdock": {
+      "source": "scientific",
+      "path": "skills/diffdock",
+      "mode": "merge"
+    },
+    "dispatching-parallel-agents": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "distill": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "dnanexus-integration": {
+      "source": "scientific",
+      "path": "skills/dnanexus-integration",
+      "mode": "merge"
+    },
+    "doc-coauthoring": {
+      "source": "anthropic",
+      "path": "skills/doc-coauthoring",
+      "mode": "merge"
+    },
+    "document-skills": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "docx": {
+      "source": "anthropic",
+      "path": "skills/docx",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "drugbank-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/drugbank-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "ena-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/ena-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "ensembl-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/ensembl-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "esm": {
+      "source": "scientific",
+      "path": "skills/esm",
+      "mode": "merge"
+    },
+    "etetoolkit": {
+      "source": "scientific",
+      "path": "skills/etetoolkit",
+      "mode": "merge"
+    },
+    "executing-plans": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "exploratory-data-analysis": {
+      "source": "scientific",
+      "path": "skills/exploratory-data-analysis",
+      "mode": "merge"
+    },
+    "extract": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "fda-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/fda-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "find-skills": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "finishing-a-development-branch": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "flowio": {
+      "source": "scientific",
+      "path": "skills/flowio",
+      "mode": "merge"
+    },
+    "fluidsim": {
+      "source": "scientific",
+      "path": "skills/fluidsim",
+      "mode": "merge"
+    },
+    "frontend-design": {
+      "source": "anthropic",
+      "path": "skills/frontend-design",
+      "mode": "merge"
+    },
+    "gene-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/gene-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "generate-image": {
+      "source": "scientific",
+      "path": "skills/generate-image",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "geniml": {
+      "source": "scientific",
+      "path": "skills/geniml",
+      "mode": "merge"
+    },
+    "geo-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/geo-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "geopandas": {
+      "source": "scientific",
+      "path": "skills/geopandas",
+      "mode": "merge"
+    },
+    "get-available-resources": {
+      "source": "scientific",
+      "path": "skills/get-available-resources",
+      "mode": "merge"
+    },
+    "gget": {
+      "source": "scientific",
+      "path": "skills/gget",
+      "mode": "merge"
+    },
+    "git-commit": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "git-release": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "gtars": {
+      "source": "scientific",
+      "path": "skills/gtars",
+      "mode": "merge"
+    },
+    "gwas-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/gwas-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "harden": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "histolab": {
+      "source": "scientific",
+      "path": "skills/histolab",
+      "mode": "merge"
+    },
+    "hmdb-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/hmdb-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "hypogenic": {
+      "source": "scientific",
+      "path": "skills/hypogenic",
+      "mode": "merge"
+    },
+    "hypothesis-generation": {
+      "source": "scientific",
+      "path": "skills/hypothesis-generation",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "internal-comms": {
+      "source": "anthropic",
+      "path": "skills/internal-comms",
+      "mode": "merge"
+    },
+    "iso-13485-certification": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/iso-13485-certification",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "json-canvas": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "kegg-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/kegg-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "labarchive-integration": {
+      "source": "scientific",
+      "path": "skills/labarchive-integration",
+      "mode": "merge"
+    },
+    "lamindb": {
+      "source": "scientific",
+      "path": "skills/lamindb",
+      "mode": "merge"
+    },
+    "latchbio-integration": {
+      "source": "scientific",
+      "path": "skills/latchbio-integration",
+      "mode": "merge"
+    },
+    "latex-posters": {
+      "source": "scientific",
+      "path": "skills/latex-posters",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "literature-review": {
+      "source": "scientific",
+      "path": "skills/literature-review",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "market-research-reports": {
+      "source": "scientific",
+      "path": "skills/market-research-reports",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "markitdown": {
+      "source": "scientific",
+      "path": "skills/markitdown",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "matchms": {
+      "source": "scientific",
+      "path": "skills/matchms",
+      "mode": "merge"
+    },
+    "matlab": {
+      "source": "scientific",
+      "path": "skills/matlab",
+      "mode": "merge"
+    },
+    "matplotlib": {
+      "source": "scientific",
+      "path": "skills/matplotlib",
+      "mode": "merge"
+    },
+    "mcp-builder": {
+      "source": "anthropic",
+      "path": "skills/mcp-builder",
+      "mode": "merge"
+    },
+    "medchem": {
+      "source": "scientific",
+      "path": "skills/medchem",
+      "mode": "merge"
+    },
+    "metabolomics-workbench-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/metabolomics-workbench-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "modal": {
+      "source": "scientific",
+      "path": "skills/modal",
+      "mode": "merge"
+    },
+    "molfeat": {
+      "source": "scientific",
+      "path": "skills/molfeat",
+      "mode": "merge"
+    },
+    "networkx": {
+      "source": "scientific",
+      "path": "skills/networkx",
+      "mode": "merge"
+    },
+    "neurokit2": {
+      "source": "scientific",
+      "path": "skills/neurokit2",
+      "mode": "merge"
+    },
+    "neuropixels-analysis": {
+      "source": "scientific",
+      "path": "skills/neuropixels-analysis",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "normalize": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "obsidian-bases": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "obsidian-markdown": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "omero-integration": {
+      "source": "scientific",
+      "path": "skills/omero-integration",
+      "mode": "merge"
+    },
+    "onboard": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "openalex-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/openalex-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "opentargets-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/opentargets-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "opentrons-integration": {
+      "source": "scientific",
+      "path": "skills/opentrons-integration",
+      "mode": "merge"
+    },
+    "optimize": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "paper-2-web": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/paper-2-web",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "pathml": {
+      "source": "scientific",
+      "path": "skills/pathml",
+      "mode": "merge"
+    },
+    "pdb-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/pdb-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "pdf": {
+      "source": "anthropic",
+      "path": "skills/pdf",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "peer-review": {
+      "source": "scientific",
+      "path": "skills/peer-review",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "pennylane": {
+      "source": "scientific",
+      "path": "skills/pennylane",
+      "mode": "merge"
+    },
+    "perplexity-search": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/perplexity-search",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "plotly": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/plotly",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "polars": {
+      "source": "scientific",
+      "path": "skills/polars",
+      "mode": "merge"
+    },
+    "polish": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "pptx": {
+      "source": "anthropic",
+      "path": "skills/pptx",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "pptx-posters": {
+      "source": "scientific",
+      "path": "skills/pptx-posters",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "protocolsio-integration": {
+      "source": "scientific",
+      "path": "skills/protocolsio-integration",
+      "mode": "merge"
+    },
+    "pubchem-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/pubchem-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "pubmed-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/pubmed-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "pufferlib": {
+      "source": "scientific",
+      "path": "skills/pufferlib",
+      "mode": "merge"
+    },
+    "pydeseq2": {
+      "source": "scientific",
+      "path": "skills/pydeseq2",
+      "mode": "merge"
+    },
+    "pydicom": {
+      "source": "scientific",
+      "path": "skills/pydicom",
+      "mode": "merge"
+    },
+    "pyhealth": {
+      "source": "scientific",
+      "path": "skills/pyhealth",
+      "mode": "merge"
+    },
+    "pylabrobot": {
+      "source": "scientific",
+      "path": "skills/pylabrobot",
+      "mode": "merge"
+    },
+    "pymatgen": {
+      "source": "scientific",
+      "path": "skills/pymatgen",
+      "mode": "merge"
+    },
+    "pymc": {
+      "source": "scientific",
+      "path": "skills/pymc",
+      "mode": "merge"
+    },
+    "pymoo": {
+      "source": "scientific",
+      "path": "skills/pymoo",
+      "mode": "merge"
+    },
+    "pyopenms": {
+      "source": "scientific",
+      "path": "skills/pyopenms",
+      "mode": "merge"
+    },
+    "pysam": {
+      "source": "scientific",
+      "path": "skills/pysam",
+      "mode": "merge"
+    },
+    "pytdc": {
+      "source": "scientific",
+      "path": "skills/pytdc",
+      "mode": "merge"
+    },
+    "pytorch-lightning": {
+      "source": "scientific",
+      "path": "skills/pytorch-lightning",
+      "mode": "merge"
+    },
+    "qiskit": {
+      "source": "scientific",
+      "path": "skills/qiskit",
+      "mode": "merge"
+    },
+    "quieter": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "qutip": {
+      "source": "scientific",
+      "path": "skills/qutip",
+      "mode": "merge"
+    },
+    "rdkit": {
+      "source": "scientific",
+      "path": "skills/rdkit",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "react-best-practices": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "reactome-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/reactome-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "receiving-code-review": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "requesting-code-review": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "research-grants": {
+      "source": "scientific",
+      "path": "skills/research-grants",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "research-lookup": {
+      "source": "scientific",
+      "path": "skills/research-lookup",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "rowan": {
+      "source": "scientific",
+      "path": "skills/rowan",
+      "mode": "merge"
+    },
+    "scanpy": {
+      "source": "scientific",
+      "path": "skills/scanpy",
+      "mode": "merge"
+    },
+    "scholar-evaluation": {
+      "source": "scientific",
+      "path": "skills/scholar-evaluation",
+      "mode": "merge"
+    },
+    "scientific-brainstorming": {
+      "source": "scientific",
+      "path": "skills/scientific-brainstorming",
+      "mode": "merge"
+    },
+    "scientific-critical-thinking": {
+      "source": "scientific",
+      "path": "skills/scientific-critical-thinking",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "scientific-schematics": {
+      "source": "scientific",
+      "path": "skills/scientific-schematics",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "scientific-slides": {
+      "source": "scientific",
+      "path": "skills/scientific-slides",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "scientific-visualization": {
+      "source": "scientific",
+      "path": "skills/scientific-visualization",
+      "mode": "merge"
+    },
+    "scientific-writing": {
+      "source": "scientific",
+      "path": "skills/scientific-writing",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "scikit-bio": {
+      "source": "scientific",
+      "path": "skills/scikit-bio",
+      "mode": "merge"
+    },
+    "scikit-learn": {
+      "source": "scientific",
+      "path": "skills/scikit-learn",
+      "mode": "merge"
+    },
+    "scikit-survival": {
+      "source": "scientific",
+      "path": "skills/scikit-survival",
+      "mode": "merge"
+    },
+    "scvi-tools": {
+      "source": "scientific",
+      "path": "skills/scvi-tools",
+      "mode": "merge"
+    },
+    "seaborn": {
+      "source": "scientific",
+      "path": "skills/seaborn",
+      "mode": "merge"
+    },
+    "serenity-skill": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "shap": {
+      "source": "scientific",
+      "path": "skills/shap",
+      "mode": "merge"
+    },
+    "simpy": {
+      "source": "scientific",
+      "path": "skills/simpy",
+      "mode": "merge"
+    },
+    "skill-creator": {
+      "source": "anthropic",
+      "path": "skills/skill-creator",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "slack-gif-creator": {
+      "source": "anthropic",
+      "path": "skills/slack-gif-creator",
+      "mode": "merge"
+    },
+    "stable-baselines3": {
+      "source": "scientific",
+      "path": "skills/stable-baselines3",
+      "mode": "merge"
+    },
+    "statistical-analysis": {
+      "source": "scientific",
+      "path": "skills/statistical-analysis",
+      "mode": "merge"
+    },
+    "statsmodels": {
+      "source": "scientific",
+      "path": "skills/statsmodels",
+      "mode": "merge"
+    },
+    "string-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/string-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "subagent-driven-development": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "sympy": {
+      "source": "scientific",
+      "path": "skills/sympy",
+      "mode": "merge"
+    },
+    "systematic-debugging": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "teach-impeccable": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "test-driven-development": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "theme-factory": {
+      "source": "anthropic",
+      "path": "skills/theme-factory",
+      "mode": "merge"
+    },
+    "torch_geometric": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/torch_geometric",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "torchdrug": {
+      "source": "scientific",
+      "path": "skills/torchdrug",
+      "mode": "merge"
+    },
+    "transformers": {
+      "source": "scientific",
+      "path": "skills/transformers",
+      "mode": "merge"
+    },
+    "treatment-plans": {
+      "source": "scientific",
+      "path": "skills/treatment-plans",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "umap-learn": {
+      "source": "scientific",
+      "path": "skills/umap-learn",
+      "mode": "merge"
+    },
+    "uniprot-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/uniprot-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "using-git-worktrees": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "using-superpowers": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "uspto-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/uspto-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    },
+    "vaex": {
+      "source": "scientific",
+      "path": "skills/vaex",
+      "mode": "merge"
+    },
+    "venue-templates": {
+      "source": "scientific",
+      "path": "skills/venue-templates",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "vercel-deploy-claimable": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "vercel-react-best-practices": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "vercel-react-native-skills": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "verification-before-completion": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "web-artifacts-builder": {
+      "source": "anthropic",
+      "path": "skills/web-artifacts-builder",
+      "mode": "merge"
+    },
+    "web-design-guidelines": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "webapp-testing": {
+      "source": "anthropic",
+      "path": "skills/webapp-testing",
+      "mode": "merge"
+    },
+    "writing-plans": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "writing-skills": {
+      "mode": "manual",
+      "reason": "Source and import baseline have not been verified."
+    },
+    "xlsx": {
+      "source": "anthropic",
+      "path": "skills/xlsx",
+      "mode": "manual",
+      "reason": "Source verified; the complete directory differs from both checked upstream snapshots. Establish the original import baseline before enabling sync."
+    },
+    "zarr-python": {
+      "source": "scientific",
+      "path": "skills/zarr-python",
+      "mode": "merge"
+    },
+    "zinc-database": {
+      "mode": "manual",
+      "source": "scientific",
+      "path": "skills/zinc-database",
+      "reason": "Author metadata identifies the source; the current upstream directory is missing or renamed."
+    }
+  }
+}

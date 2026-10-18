@@ -450,6 +450,13 @@ CLI 自动检测已安装的 agent 工具，并同时安装到所有检测到的
 
 ## 贡献指南
 
+### 自动维护上游技能
+
+已验证来源和同步基线的技能每周检查上游变化，通过自动 PR 提议更新。
+`upstream.sources.json` 记录来源与维护方式，`upstream.lock.json` 固定三方合并基线。
+来源或基线未确认的技能暂时保留为手动维护；冲突不会覆盖现有内容。
+覆盖范围、本地命令、接入方式与 GitHub Actions 启用步骤见[上游维护说明](./docs/upstream-maintenance.md)。
+
 创建和修改技能请参阅 [CLAUDE.md](./CLAUDE.md)。
 
 ### 更新技能（无需发布 CLI）
