@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.7] - 2026-10-18
+
+### Added
+
+- Complete Anatomy skill with its drawing kit, references, examples, verification scripts, and MIT license.
+- Anatomy entries in the English, Chinese, and Japanese skill catalogs.
+
+### Fixed
+
+- Keep Anatomy in the Design & Art category when rebuilding the skill index.
+
 ## [0.1.6] - 2026-06-07
 
 ### Added
@@ -90,7 +101,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remote index fetching with local cache (1h TTL)
 - `skills index build` for maintainers
 
-[Unreleased]: https://github.com/Flabbergasted-AI/skills/compare/v0.1.6...HEAD
+[Unreleased]: https://github.com/Flabbergasted-AI/skills/compare/v0.1.7...HEAD
+[0.1.7]: https://github.com/Flabbergasted-AI/skills/compare/v0.1.6...v0.1.7
 [0.1.6]: https://github.com/Flabbergasted-AI/skills/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/Flabbergasted-AI/skills/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/Flabbergasted-AI/skills/compare/v0.1.3...v0.1.4
