@@ -3,103 +3,103 @@
   "skills": {
     "adaptyv": {
       "source": "scientific",
-      "path": "scientific-skills/adaptyv",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/adaptyv",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "aeon": {
       "source": "scientific",
-      "path": "scientific-skills/aeon",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/aeon",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "algorithmic-art": {
       "source": "anthropic",
       "path": "skills/algorithmic-art",
-      "commit": "3d59511518591fa82e6cfcf0438d68dd5dad3e76"
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
     },
     "anndata": {
       "source": "scientific",
-      "path": "scientific-skills/anndata",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/anndata",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "arboreto": {
       "source": "scientific",
-      "path": "scientific-skills/arboreto",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/arboreto",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "astropy": {
       "source": "scientific",
-      "path": "scientific-skills/astropy",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/astropy",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "benchling-integration": {
       "source": "scientific",
-      "path": "scientific-skills/benchling-integration",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/benchling-integration",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "biopython": {
       "source": "scientific",
-      "path": "scientific-skills/biopython",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/biopython",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "bioservices": {
       "source": "scientific",
-      "path": "scientific-skills/bioservices",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/bioservices",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "brand-guidelines": {
       "source": "anthropic",
       "path": "skills/brand-guidelines",
-      "commit": "3d59511518591fa82e6cfcf0438d68dd5dad3e76"
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
     },
     "canvas-design": {
       "source": "anthropic",
       "path": "skills/canvas-design",
-      "commit": "3d59511518591fa82e6cfcf0438d68dd5dad3e76"
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
     },
     "cellxgene-census": {
       "source": "scientific",
-      "path": "scientific-skills/cellxgene-census",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/cellxgene-census",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "cirq": {
       "source": "scientific",
-      "path": "scientific-skills/cirq",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/cirq",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "cobrapy": {
       "source": "scientific",
-      "path": "scientific-skills/cobrapy",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/cobrapy",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "dask": {
       "source": "scientific",
-      "path": "scientific-skills/dask",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/dask",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "datamol": {
       "source": "scientific",
-      "path": "scientific-skills/datamol",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/datamol",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "deepchem": {
       "source": "scientific",
-      "path": "scientific-skills/deepchem",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/deepchem",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "deeptools": {
       "source": "scientific",
-      "path": "scientific-skills/deeptools",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/deeptools",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "diffdock": {
       "source": "scientific",
-      "path": "scientific-skills/diffdock",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/diffdock",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "dnanexus-integration": {
       "source": "scientific",
-      "path": "scientific-skills/dnanexus-integration",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/dnanexus-integration",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "doc-coauthoring": {
       "source": "anthropic",
@@ -108,358 +108,358 @@
     },
     "esm": {
       "source": "scientific",
-      "path": "scientific-skills/esm",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/esm",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "etetoolkit": {
       "source": "scientific",
-      "path": "scientific-skills/etetoolkit",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/etetoolkit",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "exploratory-data-analysis": {
       "source": "scientific",
-      "path": "scientific-skills/exploratory-data-analysis",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/exploratory-data-analysis",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "flowio": {
       "source": "scientific",
-      "path": "scientific-skills/flowio",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/flowio",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "fluidsim": {
       "source": "scientific",
-      "path": "scientific-skills/fluidsim",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/fluidsim",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "frontend-design": {
       "source": "anthropic",
       "path": "skills/frontend-design",
-      "commit": "3d59511518591fa82e6cfcf0438d68dd5dad3e76"
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
     },
     "geniml": {
       "source": "scientific",
-      "path": "scientific-skills/geniml",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/geniml",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "geopandas": {
       "source": "scientific",
-      "path": "scientific-skills/geopandas",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/geopandas",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "get-available-resources": {
       "source": "scientific",
-      "path": "scientific-skills/get-available-resources",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/get-available-resources",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "gget": {
       "source": "scientific",
-      "path": "scientific-skills/gget",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/gget",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "gtars": {
       "source": "scientific",
-      "path": "scientific-skills/gtars",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/gtars",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "histolab": {
       "source": "scientific",
-      "path": "scientific-skills/histolab",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/histolab",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "hypogenic": {
       "source": "scientific",
-      "path": "scientific-skills/hypogenic",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/hypogenic",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "internal-comms": {
       "source": "anthropic",
       "path": "skills/internal-comms",
-      "commit": "3d59511518591fa82e6cfcf0438d68dd5dad3e76"
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
     },
     "labarchive-integration": {
       "source": "scientific",
-      "path": "scientific-skills/labarchive-integration",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/labarchive-integration",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "lamindb": {
       "source": "scientific",
-      "path": "scientific-skills/lamindb",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/lamindb",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "latchbio-integration": {
       "source": "scientific",
-      "path": "scientific-skills/latchbio-integration",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/latchbio-integration",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "matchms": {
       "source": "scientific",
-      "path": "scientific-skills/matchms",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/matchms",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "matlab": {
       "source": "scientific",
-      "path": "scientific-skills/matlab",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/matlab",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "matplotlib": {
       "source": "scientific",
-      "path": "scientific-skills/matplotlib",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/matplotlib",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "mcp-builder": {
       "source": "anthropic",
       "path": "skills/mcp-builder",
-      "commit": "3d59511518591fa82e6cfcf0438d68dd5dad3e76"
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
     },
     "medchem": {
       "source": "scientific",
-      "path": "scientific-skills/medchem",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/medchem",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "modal": {
       "source": "scientific",
-      "path": "scientific-skills/modal",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/modal",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "molfeat": {
       "source": "scientific",
-      "path": "scientific-skills/molfeat",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/molfeat",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "networkx": {
       "source": "scientific",
-      "path": "scientific-skills/networkx",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/networkx",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "neurokit2": {
       "source": "scientific",
-      "path": "scientific-skills/neurokit2",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/neurokit2",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "omero-integration": {
       "source": "scientific",
-      "path": "scientific-skills/omero-integration",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/omero-integration",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "opentrons-integration": {
       "source": "scientific",
-      "path": "scientific-skills/opentrons-integration",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/opentrons-integration",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "pathml": {
       "source": "scientific",
-      "path": "scientific-skills/pathml",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/pathml",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "pennylane": {
       "source": "scientific",
-      "path": "scientific-skills/pennylane",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/pennylane",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "polars": {
       "source": "scientific",
-      "path": "scientific-skills/polars",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/polars",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "protocolsio-integration": {
       "source": "scientific",
-      "path": "scientific-skills/protocolsio-integration",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/protocolsio-integration",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "pufferlib": {
       "source": "scientific",
-      "path": "scientific-skills/pufferlib",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/pufferlib",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "pydeseq2": {
       "source": "scientific",
-      "path": "scientific-skills/pydeseq2",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/pydeseq2",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "pydicom": {
       "source": "scientific",
-      "path": "scientific-skills/pydicom",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/pydicom",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "pyhealth": {
       "source": "scientific",
-      "path": "scientific-skills/pyhealth",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/pyhealth",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "pylabrobot": {
       "source": "scientific",
-      "path": "scientific-skills/pylabrobot",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/pylabrobot",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "pymatgen": {
       "source": "scientific",
-      "path": "scientific-skills/pymatgen",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/pymatgen",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "pymc": {
       "source": "scientific",
-      "path": "scientific-skills/pymc",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/pymc",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "pymoo": {
       "source": "scientific",
-      "path": "scientific-skills/pymoo",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/pymoo",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "pyopenms": {
       "source": "scientific",
-      "path": "scientific-skills/pyopenms",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/pyopenms",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "pysam": {
       "source": "scientific",
-      "path": "scientific-skills/pysam",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/pysam",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "pytdc": {
       "source": "scientific",
-      "path": "scientific-skills/pytdc",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/pytdc",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "pytorch-lightning": {
       "source": "scientific",
-      "path": "scientific-skills/pytorch-lightning",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/pytorch-lightning",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "qiskit": {
       "source": "scientific",
-      "path": "scientific-skills/qiskit",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/qiskit",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "qutip": {
       "source": "scientific",
-      "path": "scientific-skills/qutip",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/qutip",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "rowan": {
       "source": "scientific",
-      "path": "scientific-skills/rowan",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/rowan",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "scanpy": {
       "source": "scientific",
-      "path": "scientific-skills/scanpy",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/scanpy",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "scholar-evaluation": {
       "source": "scientific",
-      "path": "scientific-skills/scholar-evaluation",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/scholar-evaluation",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "scientific-brainstorming": {
       "source": "scientific",
-      "path": "scientific-skills/scientific-brainstorming",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/scientific-brainstorming",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "scientific-visualization": {
       "source": "scientific",
-      "path": "scientific-skills/scientific-visualization",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/scientific-visualization",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "scikit-bio": {
       "source": "scientific",
-      "path": "scientific-skills/scikit-bio",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/scikit-bio",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "scikit-learn": {
       "source": "scientific",
-      "path": "scientific-skills/scikit-learn",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/scikit-learn",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "scikit-survival": {
       "source": "scientific",
-      "path": "scientific-skills/scikit-survival",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/scikit-survival",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "scvi-tools": {
       "source": "scientific",
-      "path": "scientific-skills/scvi-tools",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/scvi-tools",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "seaborn": {
       "source": "scientific",
-      "path": "scientific-skills/seaborn",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/seaborn",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "shap": {
       "source": "scientific",
-      "path": "scientific-skills/shap",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/shap",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "simpy": {
       "source": "scientific",
-      "path": "scientific-skills/simpy",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/simpy",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "slack-gif-creator": {
       "source": "anthropic",
       "path": "skills/slack-gif-creator",
-      "commit": "3d59511518591fa82e6cfcf0438d68dd5dad3e76"
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
     },
     "stable-baselines3": {
       "source": "scientific",
-      "path": "scientific-skills/stable-baselines3",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/stable-baselines3",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "statistical-analysis": {
       "source": "scientific",
-      "path": "scientific-skills/statistical-analysis",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/statistical-analysis",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "statsmodels": {
       "source": "scientific",
-      "path": "scientific-skills/statsmodels",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/statsmodels",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "sympy": {
       "source": "scientific",
-      "path": "scientific-skills/sympy",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/sympy",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "theme-factory": {
       "source": "anthropic",
       "path": "skills/theme-factory",
-      "commit": "3d59511518591fa82e6cfcf0438d68dd5dad3e76"
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
     },
     "torchdrug": {
       "source": "scientific",
-      "path": "scientific-skills/torchdrug",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/torchdrug",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "transformers": {
       "source": "scientific",
-      "path": "scientific-skills/transformers",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/transformers",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "umap-learn": {
       "source": "scientific",
-      "path": "scientific-skills/umap-learn",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/umap-learn",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "vaex": {
       "source": "scientific",
-      "path": "scientific-skills/vaex",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/vaex",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     },
     "web-artifacts-builder": {
       "source": "anthropic",
       "path": "skills/web-artifacts-builder",
-      "commit": "3d59511518591fa82e6cfcf0438d68dd5dad3e76"
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
     },
     "webapp-testing": {
       "source": "anthropic",
       "path": "skills/webapp-testing",
-      "commit": "3d59511518591fa82e6cfcf0438d68dd5dad3e76"
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
     },
     "zarr-python": {
       "source": "scientific",
-      "path": "scientific-skills/zarr-python",
-      "commit": "8dc57010636835f4dc7d589323fee54590e3ebb4"
+      "path": "skills/zarr-python",
+      "commit": "a1043ef544e3a100c28e70a736b6cf32554d0677"
     }
   }
 }

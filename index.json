@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updatedAt": "2026-10-18T04:35:23.083Z",
+  "updatedAt": "2026-10-19T07:52:33.834Z",
   "skills": [
     {
       "name": "adapt",
@@ -14,15 +14,16 @@
     },
     {
       "name": "adaptyv",
-      "description": "Cloud laboratory platform for automated protein testing and validation. Use when designing proteins and needing experimental validation including binding assays, expression testing, thermostability measurements, enzyme activity assays, or protein sequence optimization. Also use for submitting experiments via API, tracking experiment status, downloading results, optimizing protein sequences for better expression using computational tools (NetSolP, SoluProt, SolubleMPNN, ESM), or managing protein design workflows with wet-lab validation.",
+      "description": "Uses the Adaptyv Bio Foundry API and Python SDK to design protein characterization experiments, estimate costs, submit sequences, monitor laboratory progress, and retrieve results. Applies to Adaptyv Foundry, its target catalog, binding screening and affinity assays, thermostability, expression, fluorescence, epitope binning, and enzyme activity workflows, including code using adaptyv or FoundryClient.",
       "category": "bioinformatics",
       "tags": [
+        "python",
         "api",
         "protein",
         "workflow"
       ],
       "path": "public/adaptyv",
-      "hasReferences": false,
+      "hasReferences": true,
       "hasScripts": false,
       "hasAssets": false
     },
@@ -100,7 +101,7 @@
     },
     {
       "name": "anndata",
-      "description": "Data structure for annotated matrices in single-cell analysis. Use when working with .h5ad files or integrating with the scverse ecosystem. This is the data format skill—for analysis workflows use scanpy; for probabilistic models use scvi-tools; for population-scale queries use cellxgene-census.",
+      "description": "Handles annotated matrices in single-cell analysis, .h5ad and Zarr files, and integration with the scverse ecosystem. This is the data format skill—for analysis workflows use scanpy; for probabilistic models use scvi-tools; for population-scale queries use cellxgene-census.",
       "category": "bioinformatics",
       "tags": [
         "single-cell",
@@ -113,10 +114,9 @@
     },
     {
       "name": "arboreto",
-      "description": "Infer gene regulatory networks (GRNs) from gene expression data using scalable algorithms (GRNBoost2, GENIE3). Use when analyzing transcriptomics data (bulk RNA-seq, single-cell RNA-seq) to identify transcription factor-target gene relationships and regulatory interactions. Supports distributed computation for large-scale datasets.",
+      "description": "Infers candidate gene regulatory networks from bulk or single-cell expression data using AertsLab Arboreto GRNBoost2 and GENIE3. Use for transcription factor-target association ranking, compatible Dask execution, sparse expression inputs, and network stability checks.",
       "category": "bioinformatics",
       "tags": [
-        "rna",
         "single-cell"
       ],
       "path": "public/arboreto",
@@ -126,10 +126,12 @@
     },
     {
       "name": "astropy",
-      "description": "Comprehensive Python library for astronomy and astrophysics. This skill should be used when working with astronomical data including celestial coordinates, physical units, FITS files, cosmological calculations, time systems, tables, world coordinate systems (WCS), and astronomical data analysis. Use when tasks involve coordinate transformations, unit conversions, FITS file manipulation, cosmological distance calculations, time scale conversions, or astronomical data processing.",
+      "description": "Core Python library for astronomy and astrophysics workflows that need Astropy APIs, including units/quantities, coordinates, FITS I/O, tables, time systems, WCS, and cosmology. Use when implementing or debugging astronomical data analysis code with Astropy.",
       "category": "scientific-computing",
       "tags": [
-        "python"
+        "python",
+        "api",
+        "workflow"
       ],
       "path": "public/astropy",
       "hasReferences": true,
@@ -148,11 +150,12 @@
     },
     {
       "name": "benchling-integration",
-      "description": "Benchling R&D platform integration. Access registry (DNA, proteins), inventory, ELN entries, workflows via API, build Benchling Apps, query Data Warehouse, for lab data management automation.",
+      "description": "Benchling Python SDK and REST API integration for registry entities, inventory, ELN entries, workflows, Benchling Apps, and Data Warehouse queries. Use when automating lab data with benchling-sdk or the v2 API.",
       "category": "lab-automation",
       "tags": [
+        "python",
         "api",
-        "protein",
+        "rest",
         "workflow"
       ],
       "path": "public/benchling-integration",
@@ -178,10 +181,11 @@
     },
     {
       "name": "biopython",
-      "description": "Comprehensive molecular biology toolkit. Use for sequence manipulation, file parsing (FASTA/GenBank/PDB), phylogenetics, and programmatic NCBI/PubMed access (Bio.Entrez). Best for batch processing, custom bioinformatics pipelines, BLAST automation. For quick lookups use gget; for multi-service integration use bioservices.",
+      "description": "Provides Biopython workflows for sequence manipulation, file parsing (FASTA/GenBank/PDB), phylogenetics, and programmatic NCBI/PubMed access (Bio.Entrez). Supports batch processing, custom molecular-biology pipelines, BLAST automation, structure analysis, and motif analysis.",
       "category": "bioinformatics",
       "tags": [
-        "python"
+        "python",
+        "workflow"
       ],
       "path": "public/biopython",
       "hasReferences": true,
@@ -202,12 +206,12 @@
     },
     {
       "name": "bioservices",
-      "description": "Unified Python interface to 40+ bioinformatics services. Use when querying multiple databases (UniProt, KEGG, ChEMBL, Reactome) in a single workflow with consistent API. Best for cross-database analysis, ID mapping across services. For quick single-database lookups use gget; for sequence/file manipulation use biopython.",
+      "description": "Provides a Python interface to bioinformatics services including UniProt, KEGG, ChEMBL, Reactome, QuickGO, and UniChem. Used for cross-database protein annotation, pathway retrieval, chemical identifier mapping, and integrated biological data workflows with BioServices.",
       "category": "bioinformatics",
       "tags": [
         "python",
-        "api",
         "database",
+        "protein",
         "react",
         "workflow"
       ],
@@ -274,7 +278,7 @@
     },
     {
       "name": "cellxgene-census",
-      "description": "Query the CELLxGENE Census (61M+ cells) programmatically. Use when you need expression data across tissues, diseases, or cell types from the largest curated single-cell atlas. Best for population-scale queries, reference atlas comparisons. For analyzing your own data use scanpy or scvi-tools.",
+      "description": "Queries the CZ CELLxGENE Census programmatically for versioned public single-cell and spatial transcriptomics data. Use when you need population-scale cell metadata, gene expression slices, Census summary counts, source H5AD URIs/downloads, embeddings, spatial Census data, or reference atlas comparisons across organisms, tissues, diseases, assays, and cell types. For analyzing your own local single-cell data use scanpy, anndata, or scvi-tools.",
       "category": "bioinformatics",
       "tags": [
         "single-cell"
@@ -396,7 +400,7 @@
     },
     {
       "name": "cobrapy",
-      "description": "Constraint-based metabolic modeling (COBRA). FBA, FVA, gene knockouts, flux sampling, SBML models, for systems biology and metabolic engineering analysis.",
+      "description": "Performs constraint-based metabolic modeling with COBRApy, including FBA, pFBA, FVA, gene knockouts, flux sampling, growth media, production envelopes, gap filling, and SBML model validation for systems biology and metabolic engineering.",
       "category": "agent-workflow",
       "tags": [],
       "path": "public/cobrapy",
@@ -490,9 +494,10 @@
     },
     {
       "name": "dask",
-      "description": "Distributed computing for larger-than-RAM pandas/NumPy workflows. Use when you need to scale existing pandas/NumPy code beyond memory or across clusters. Best for parallel file processing, distributed ML, integration with existing pandas code. For out-of-core analytics on single machine use vaex; for in-memory speed use polars.",
-      "category": "agent-workflow",
+      "description": "Scales pandas, NumPy, and custom Python research workflows beyond memory or across clusters with Dask. Covers DataFrames, Arrays, Bags, Futures, chunking, schedulers, and distributed diagnostics. Use for partitioned file processing, scientific array computation, or parallel tasks whose memory and dependency structure require Dask.",
+      "category": "machine-learning",
       "tags": [
+        "python",
         "workflow"
       ],
       "path": "public/dask",
@@ -525,10 +530,9 @@
     },
     {
       "name": "deepchem",
-      "description": "Molecular ML with diverse featurizers and pre-built datasets. Use for property prediction (ADMET, toxicity) with traditional ML or GNNs when you want extensive featurization options and MoleculeNet benchmarks. Best for quick experiments with pre-trained models, diverse molecular representations. For graph-first PyTorch workflows use torchdrug; for benchmark datasets use pytdc.",
+      "description": "Builds molecular property prediction and MoleculeNet workflows with DeepChem, including SMILES featurization, scaffold or grouped holdouts, masked labels, graph models and explicit pretrained encoder transfer. Used for ADMET, toxicity, solubility and chemistry ML when DeepChem data/model contracts and scientific validation are needed.",
       "category": "drug-discovery",
       "tags": [
-        "drug-discovery",
         "molecule",
         "workflow"
       ],
@@ -596,11 +600,11 @@
     },
     {
       "name": "diffdock",
-      "description": "Diffusion-based molecular docking. Predict protein-ligand binding poses from PDB/SMILES, confidence scores, virtual screening, for structure-based drug design. Not for affinity prediction.",
-      "category": "drug-discovery",
+      "description": "Predicts protein-small-molecule binding poses with DiffDock and DiffDock-L from PDB or sequence plus SMILES/SDF/MOL2. Covers batch docking, pose triage, confidence interpretation, and validation. Use for molecular docking and virtual-screening pose generation, not binding-affinity prediction.",
+      "category": "bioinformatics",
       "tags": [
         "protein",
-        "drug-discovery"
+        "molecule"
       ],
       "path": "public/diffdock",
       "hasReferences": true,
@@ -629,16 +633,15 @@
     },
     {
       "name": "dnanexus-integration",
-      "description": "DNAnexus cloud genomics platform. Build apps/applets, manage data (upload/download), dxpy Python SDK, run workflows, FASTQ/BAM/VCF, for genomics pipeline development and execution.",
+      "description": "Builds and operates reproducible genomics workloads on DNAnexus with the dx CLI, dxpy, apps/applets, native workflows, dxCompiler, and Nextflow. Supports DNAnexus data transfers, dxapp.json development, execution monitoring, workflow import, and project automation.",
       "category": "agent-workflow",
       "tags": [
-        "python",
         "genomics",
         "workflow"
       ],
       "path": "public/dnanexus-integration",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
@@ -708,25 +711,23 @@
     },
     {
       "name": "esm",
-      "description": "Comprehensive toolkit for protein language models including ESM3 (generative multimodal protein design across sequence, structure, and function) and ESM C (efficient protein embeddings and representations). Use this skill when working with protein sequences, structures, or function prediction; designing novel proteins; generating protein embeddings; performing inverse folding; or conducting protein engineering tasks. Supports both local model usage and cloud-based Forge API for scalable inference.",
-      "category": "bioinformatics",
+      "description": "Uses the Biohub esm Python SDK for ESM3 protein generation, ESMC embeddings, and ESMFold2 all-atom folding. Applies to local model inference and Biohub hosted clients, including former Forge workflows; distinguishes the separate legacy fair-esm distribution.",
+      "category": "agent-workflow",
       "tags": [
-        "api",
-        "protein"
+        "python",
+        "protein",
+        "workflow"
       ],
       "path": "public/esm",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
       "name": "etetoolkit",
-      "description": "Phylogenetic tree toolkit (ETE). Tree manipulation (Newick/NHX), evolutionary event detection, orthology/paralogy, NCBI taxonomy, visualization (PDF/SVG), for phylogenomics.",
-      "category": "data-visualization",
-      "tags": [
-        "genomics",
-        "visualization"
-      ],
+      "description": "Analyzes, manipulates, compares, annotates, and visualizes phylogenetic or other hierarchical trees with ETE 4. Supports Newick/Nexus tree I/O, topology edits and pattern matching, Robinson-Foulds comparisons, gene-tree evolutionary events and reconciliation, NCBI/GTDB taxonomy, SmartView exploration, and publication rendering. Applies to existing trees after alignment and phylogenetic inference, rather than inferring trees from raw sequences.",
+      "category": "bioinformatics",
+      "tags": [],
       "path": "public/etetoolkit",
       "hasReferences": true,
       "hasScripts": true,
@@ -744,8 +745,8 @@
     },
     {
       "name": "exploratory-data-analysis",
-      "description": "Perform comprehensive exploratory data analysis on scientific data files across 200+ file formats. This skill should be used when analyzing any scientific data file to understand its structure, content, quality, and characteristics. Automatically detects file type and generates detailed markdown reports with format-specific analysis, quality metrics, and downstream analysis recommendations. Covers chemistry, bioinformatics, microscopy, spectroscopy, proteomics, metabolomics, and general scientific data formats.",
-      "category": "bioinformatics",
+      "description": "Performs bounded, local exploratory analysis of explicitly supported scientific files. Supports redacted CSV/TSV/JSON profiles; optional NumPy, HDF5, FASTA/FASTQ, and basic image metadata inspection; missingness/leakage audits; outlier and transformation sensitivity; and rigorous EDA report scaffolds. Other domain formats are reference-only and unknown formats fail closed.",
+      "category": "agent-workflow",
       "tags": [],
       "path": "public/exploratory-data-analysis",
       "hasReferences": true,
@@ -800,33 +801,33 @@
     },
     {
       "name": "flowio",
-      "description": "Parse FCS (Flow Cytometry Standard) files v2.0-3.1. Extract events as NumPy arrays, read metadata/channels, convert to CSV/DataFrame, for flow cytometry data preprocessing.",
-      "category": "machine-learning",
+      "description": "Reads, inspects, and writes Flow Cytometry Standard (FCS) 2.0, 3.0, and 3.1 files with FlowIO. Use for low-level FCS metadata and channel inspection, NumPy event extraction, multi-dataset files, table export, and FCS 3.1 creation; use FlowKit for compensation, cytometry transforms, gating, or FlowJo workspaces.",
+      "category": "agent-workflow",
       "tags": [],
       "path": "public/flowio",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
       "name": "fluidsim",
-      "description": "Framework for computational fluid dynamics simulations using Python. Use when running fluid dynamics simulations including Navier-Stokes equations (2D/3D), shallow water equations, stratified flows, or when analyzing turbulence, vortex dynamics, or geophysical flows. Provides pseudospectral methods with FFT, HPC support, and comprehensive output analysis.",
-      "category": "scientific-computing",
+      "description": "Plans, configures, inspects, restarts, and analyzes bounded FluidSim computational-fluid-dynamics simulations with explicit numerical-validity and HPC safety checks. Use for FluidSim solver selection, parameter review, FFT/MPI setup, output diagnostics, or restart compatibility.",
+      "category": "data-visualization",
       "tags": [
-        "python",
+        "rest",
         "simulation"
       ],
       "path": "public/fluidsim",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
       "name": "frontend-design",
-      "description": "Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, artifacts, posters, or applications (examples include websites, landing pages, dashboards, React components, HTML/CSS layouts, or when styling/beautifying any web UI). Generates creative, polished code and UI design that avoids generic AI aesthetics.",
+      "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
       "category": "frontend-web",
       "tags": [
-        "react"
+        "api"
       ],
       "path": "public/frontend-design",
       "hasReferences": false,
@@ -858,15 +859,14 @@
     },
     {
       "name": "geniml",
-      "description": "This skill should be used when working with genomic interval data (BED files) for machine learning tasks. Use for training region embeddings (Region2Vec, BEDspace), single-cell ATAC-seq analysis (scEmbed), building consensus peaks (universes), or any ML-based analysis of genomic regions. Applies to BED file collections, scATAC-seq data, chromatin accessibility datasets, and region-based genomic feature learning.",
-      "category": "bioinformatics",
+      "description": "Supports audited local Geniml genomic-interval workflows: validate BED and universe contracts, plan Region2Vec or scEmbed runs, inspect model/tokenizer compatibility, and assess consensus universes.",
+      "category": "context-engineering",
       "tags": [
-        "single-cell",
-        "ml"
+        "workflow"
       ],
       "path": "public/geniml",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
@@ -885,30 +885,30 @@
     },
     {
       "name": "geopandas",
-      "description": "Python library for working with geospatial vector data including shapefiles, GeoJSON, and GeoPackage files. Use when working with geographic data for spatial analysis, geometric operations, coordinate transformations, spatial joins, overlay operations, choropleth mapping, or any task involving reading/writing/analyzing vector geographic data. Supports PostGIS databases, interactive maps, and integration with matplotlib/folium/cartopy. Use for tasks like buffer analysis, spatial joins between datasets, dissolving boundaries, clipping data, calculating areas/distances, reprojecting coordinate systems, creating maps, or converting between spatial file formats.",
-      "category": "data-visualization",
+      "description": "Guidance and local audit tools for Python workflows that directly use GeoPandas GeoSeries, GeoDataFrame, spatial operations, or vector-data I/O.",
+      "category": "machine-learning",
       "tags": [
         "python",
-        "database"
+        "workflow"
       ],
       "path": "public/geopandas",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
       "name": "get-available-resources",
-      "description": "This skill should be used at the start of any computationally intensive scientific task to detect and report available system resources (CPU cores, GPUs, memory, disk space). It creates a JSON file with resource information and strategic recommendations that inform computational approach decisions such as whether to use parallel processing (joblib, multiprocessing), out-of-core computing (Dask, Zarr), GPU acceleration (PyTorch, JAX), or memory-efficient strategies. Use this skill before running analyses, training models, processing large datasets, or any task where resource constraints matter.",
+      "description": "Detects host inventory and effective CPU, memory, disk, scheduler, container, and accelerator limits when a user asks for resource-aware planning or before a clearly resource-sensitive local workload. Produces a redacted JSON snapshot and conservative planning helpers without stress tests or assuming visible host hardware is usable.",
       "category": "lab-automation",
       "tags": [],
       "path": "public/get-available-resources",
-      "hasReferences": false,
+      "hasReferences": true,
       "hasScripts": true,
       "hasAssets": false
     },
     {
       "name": "gget",
-      "description": "Fast CLI/Python queries to 20+ bioinformatics databases. Use for quick lookups: gene info, BLAST searches, AlphaFold structures, enrichment analysis. Best for interactive exploration, simple queries. For batch processing or advanced BLAST use biopython; for multi-database Python workflows use bioservices.",
+      "description": "Queries 20+ bioinformatics resources through CLI/Python. Supports quick lookups of gene info, BLAST/BLAT, viral sequence downloads, PDB/mmCIF structures, G2P residue annotations, enrichment analysis, OpenTargets, COSMIC, CELLxGENE, and 8cube mouse specificity/expression data. Best for interactive exploration and simple queries. For batch processing or advanced BLAST use biopython; for multi-database Python workflows use bioservices.",
       "category": "bioinformatics",
       "tags": [
         "python",
@@ -946,16 +946,14 @@
     },
     {
       "name": "gtars",
-      "description": "High-performance toolkit for genomic interval analysis in Rust with Python bindings. Use when working with genomic regions, BED files, coverage tracks, overlap detection, tokenization for ML models, or fragment analysis in computational genomics and machine learning applications.",
-      "category": "machine-learning",
+      "description": "Supports Gtars for local genomic interval models and set algebra, overlaps and counts, consensus and coverage, tokenization, fragment processing, and refget/BEDbase planning across Python, Rust, and the CLI.",
+      "category": "context-engineering",
       "tags": [
-        "python",
-        "genomics",
-        "ml"
+        "python"
       ],
       "path": "public/gtars",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
@@ -982,7 +980,7 @@
     },
     {
       "name": "histolab",
-      "description": "Lightweight WSI tile extraction and preprocessing. Use for basic slide processing tissue detection, tile extraction, stain normalization for H&E images. Best for simple pipelines, dataset preparation, quick tile-based analysis. For advanced spatial proteomics, multiplexed imaging, or deep learning pipelines use pathml.",
+      "description": "Extracts and preprocesses whole-slide histology image tiles with Histolab. Use for WSI inspection, tissue masks, random/grid/score-based tile extraction, H&E stain normalization, and tile dataset preparation. For multiplexed imaging or deep learning inference pipelines, use pathml.",
       "category": "machine-learning",
       "tags": [
         "deep-learning"
@@ -1006,13 +1004,13 @@
     },
     {
       "name": "hypogenic",
-      "description": "Automated LLM-driven hypothesis generation and testing on tabular datasets. Use when you want to systematically explore hypotheses about patterns in empirical data (e.g., deception detection, content analysis). Combines literature insights with data-driven hypothesis testing. For manual hypothesis formulation use hypothesis-generation; for creative ideation use scientific-brainstorming.",
-      "category": "scientific-writing",
+      "description": "Plans and audits use of ChicagoHAI HypoGeniC/HypoRefine for LLM-assisted hypothesis generation from labeled text datasets. Use for the `hypogenic` package, its task configs, hypothesis banks, or HypoBench datasets—not for manual hypothesis formulation or scientific validation.",
+      "category": "lab-automation",
       "tags": [],
       "path": "public/hypogenic",
       "hasReferences": true,
-      "hasScripts": false,
-      "hasAssets": false
+      "hasScripts": true,
+      "hasAssets": true
     },
     {
       "name": "hypothesis-generation",
@@ -1075,10 +1073,11 @@
     },
     {
       "name": "labarchive-integration",
-      "description": "Electronic lab notebook API integration. Access notebooks, manage entries/attachments, backup notebooks, integrate with Protocols.io/Jupyter/REDCap, for programmatic ELN workflows.",
+      "description": "Integrates with the official LabArchives ELN REST-like API and Inventory API v1. Supports regional endpoint selection, signed-request construction, user authorization and UID flows, local LA container validation, and verified LabArchives integration workflows.",
       "category": "lab-automation",
       "tags": [
         "api",
+        "rest",
         "workflow"
       ],
       "path": "public/labarchive-integration",
@@ -1088,10 +1087,9 @@
     },
     {
       "name": "lamindb",
-      "description": "This skill should be used when working with LaminDB, an open-source data framework for biology that makes data queryable, traceable, reproducible, and FAIR. Use when managing biological datasets (scRNA-seq, spatial, flow cytometry, etc.), tracking computational workflows, curating and validating data with biological ontologies, building data lakehouses, or ensuring data lineage and reproducibility in biological research. Covers data management, annotation, ontologies (genes, cell types, diseases, tissues), schema validation, integrations with workflow managers (Nextflow, Snakemake) and MLOps platforms (W&B, MLflow), and deployment strategies.",
-      "category": "bioinformatics",
+      "description": "Manages biological datasets and models with LaminDB, including artifact registration, lineage tracking, schema validation, Bionty ontology annotation, query/search, collections, branches, storage, and workflow integrations. Use for reproducible biological data curation or a LaminDB lakehouse.",
+      "category": "drug-discovery",
       "tags": [
-        "rna",
         "workflow"
       ],
       "path": "public/lamindb",
@@ -1101,14 +1099,15 @@
     },
     {
       "name": "latchbio-integration",
-      "description": "Latch platform for bioinformatics workflows. Build pipelines with Latch SDK, @workflow/@task decorators, deploy serverless workflows, LatchFile/LatchDir, Nextflow/Snakemake integration.",
+      "description": "Builds, registers, debugs, and operates bioinformatics workflows on Latch using the Python SDK, CLI, Latch Data and Registry, Nextflow, Snakemake, programmatic execution, and Latch MCP. Use when authoring or deploying Latch workflows, configuring resources or interfaces, moving data, integrating Registry, or launching and monitoring runs.",
       "category": "bioinformatics",
       "tags": [
+        "python",
         "workflow"
       ],
       "path": "public/latchbio-integration",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
@@ -1155,30 +1154,30 @@
     },
     {
       "name": "matchms",
-      "description": "Spectral similarity and compound identification for metabolomics. Use for comparing mass spectra, computing similarity scores (cosine, modified cosine), and identifying unknown compounds from spectral libraries. Best for metabolite identification, spectral matching, library searching. For full LC-MS/MS proteomics pipelines use pyopenms.",
-      "category": "agent-workflow",
+      "description": "Processes, cleans, compares, and searches tandem mass spectra with matchms. Use for MS/MS file I/O, metadata harmonization, peak filtering, spectral similarity, library matching, score matrices, and molecular-similarity networks. Use pyopenms instead for LC-MS feature detection or proteomics pipelines.",
+      "category": "drug-discovery",
       "tags": [],
       "path": "public/matchms",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
       "name": "matlab",
-      "description": "MATLAB and GNU Octave numerical computing for matrix operations, data analysis, visualization, and scientific computing. Use when writing MATLAB/Octave scripts for linear algebra, signal processing, image processing, differential equations, optimization, statistics, or creating scientific visualizations. Also use when the user needs help with MATLAB syntax, functions, or wants to convert between MATLAB and Python code. Scripts can be executed with MATLAB or the open-source GNU Octave interpreter.",
-      "category": "data-visualization",
+      "description": "Builds, reviews, migrates, and plans MATLAB or GNU Octave numerical workflows. Use for arrays, tabular/time data, tests, projects, graphics, MAT files, and explicit Python interoperability.",
+      "category": "lab-automation",
       "tags": [
         "python",
-        "visualization"
+        "workflow"
       ],
       "path": "public/matlab",
       "hasReferences": true,
-      "hasScripts": false,
-      "hasAssets": false
+      "hasScripts": true,
+      "hasAssets": true
     },
     {
       "name": "matplotlib",
-      "description": "Low-level plotting library for full customization. Use when you need fine-grained control over every plot element, creating novel plot types, or integrating with specific scientific workflows. Export to PNG/PDF/SVG for publication. For quick statistical plots use seaborn; for interactive plots use plotly; for publication-ready multi-panel figures with journal styling, use scientific-visualization.",
+      "description": "Creates and customizes scientific plots with Matplotlib. Used for fine-grained control over plot elements, novel plot types, and scientific workflows. Export to PNG/PDF/SVG for publication. For quick statistical plots use seaborn; for interactive plots use plotly; for publication-ready multi-panel figures with journal styling, use scientific-visualization.",
       "category": "data-visualization",
       "tags": [
         "rna",
@@ -1207,7 +1206,7 @@
     },
     {
       "name": "medchem",
-      "description": "Medicinal chemistry filters. Apply drug-likeness rules (Lipinski, Veber), PAINS filters, structural alerts, complexity metrics, for compound prioritization and library filtering.",
+      "description": "Applies medicinal chemistry filters for compound triage, using drug-likeness rules (Lipinski, Veber, CNS), structural alert catalogs (PAINS, NIBR, ChEMBL), complexity metrics, and the medchem query language for library filtering.",
       "category": "drug-discovery",
       "tags": [
         "drug-discovery"
@@ -1233,11 +1232,10 @@
     },
     {
       "name": "modal",
-      "description": "Run Python code in the cloud with serverless containers, GPUs, and autoscaling. Use when deploying ML models, running batch processing jobs, scheduling compute-intensive tasks, or serving APIs that require GPU acceleration or dynamic scaling.",
+      "description": "Modal is a serverless cloud platform for running Python on demand, including on-demand GPUs. Use when deploying or serving AI/ML models, running GPU-accelerated workloads (training, fine-tuning, inference), serving web endpoints, scheduling batch jobs, or scaling Python code to cloud containers with the Modal SDK.",
       "category": "agent-workflow",
       "tags": [
-        "python",
-        "api"
+        "python"
       ],
       "path": "public/modal",
       "hasReferences": true,
@@ -1246,9 +1244,11 @@
     },
     {
       "name": "molfeat",
-      "description": "Molecular featurization for ML (100+ featurizers). ECFP, MACCS, descriptors, pretrained models (ChemBERTa), convert SMILES to features, for QSAR and molecular ML.",
+      "description": "Featurizes small molecules with Molfeat for QSAR/QSPR, chemical similarity, virtual screening, and molecular ML. Covers ECFP/MACCS fingerprints, RDKit descriptors, pharmacophores, pretrained embeddings, configuration persistence, and molecule-to-label alignment.",
       "category": "drug-discovery",
-      "tags": [],
+      "tags": [
+        "molecule"
+      ],
       "path": "public/molfeat",
       "hasReferences": true,
       "hasScripts": false,
@@ -1256,7 +1256,7 @@
     },
     {
       "name": "networkx",
-      "description": "Comprehensive toolkit for creating, analyzing, and visualizing complex networks and graphs in Python. Use when working with network/graph data structures, analyzing relationships between entities, computing graph algorithms (shortest paths, centrality, clustering), detecting communities, generating synthetic networks, or visualizing network topologies. Applicable to social networks, biological networks, transportation systems, citation networks, and any domain involving pairwise relationships.",
+      "description": "Creates, analyzes, and visualizes complex networks and graphs in Python with NetworkX. Use when working with network/graph data structures, computing graph algorithms (shortest paths, centrality, clustering), detecting communities, generating synthetic networks (random, scale-free, small-world), reading/writing graph file formats, or drawing network topologies. Common applications include social, biological, transportation, and citation networks.",
       "category": "data-visualization",
       "tags": [
         "python"
@@ -1268,12 +1268,15 @@
     },
     {
       "name": "neurokit2",
-      "description": "Comprehensive biosignal processing toolkit for analyzing physiological data including ECG, EEG, EDA, RSP, PPG, EMG, and EOG signals. Use this skill when processing cardiovascular signals, brain activity, electrodermal responses, respiratory patterns, muscle activity, or eye movements. Applicable for heart rate variability analysis, event-related potentials, complexity measures, autonomic nervous system assessment, psychophysiology research, and multi-modal physiological signal integration.",
-      "category": "design-art",
-      "tags": [],
+      "description": "Builds and audits reproducible NeuroKit2 research workflows for physiological time-series preprocessing, event/interval analysis, multimodal alignment, variability, and complexity. Use when code imports neurokit2 or needs its current APIs, schemas, and method-aware validation—not for diagnosis or device validation.",
+      "category": "drug-discovery",
+      "tags": [
+        "api",
+        "workflow"
+      ],
       "path": "public/neurokit2",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
@@ -1320,15 +1323,15 @@
     },
     {
       "name": "omero-integration",
-      "description": "Microscopy data management platform. Access images via Python, retrieve datasets, analyze pixels, manage ROIs/annotations, batch processing, for high-content screening and microscopy workflows.",
-      "category": "agent-workflow",
+      "description": "Inspects and automates microscopy data workflows against OMERO.server with omero-py, BlitzGateway, OMERO CLI, tables, annotations, ROIs, rendering, and documented OMERO.web APIs. Use this skill for scoped OMERO inventory, metadata export, import/export planning, or reviewed write workflows.",
+      "category": "document-processing",
       "tags": [
-        "python",
+        "api",
         "workflow"
       ],
       "path": "public/omero-integration",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
@@ -1368,10 +1371,12 @@
     },
     {
       "name": "opentrons-integration",
-      "description": "Official Opentrons Protocol API for OT-2 and Flex robots. Use when writing protocols specifically for Opentrons hardware with full access to Protocol API v2 features. Best for production Opentrons protocols, official API compatibility. For multi-vendor automation or broader equipment control use pylabrobot.",
-      "category": "scientific-writing",
+      "description": "Authors, reviews, migrates, simulates, and troubleshoots official Opentrons Python Protocol API v2 protocols for Flex and OT-2 robots. Use for robot-specific liquid handling, deck and labware setup, pipettes, modules, runtime parameters, liquid classes, and Opentrons App analysis. Use pylabrobot instead when one workflow must support multiple robot vendors.",
+      "category": "lab-automation",
       "tags": [
-        "api"
+        "python",
+        "api",
+        "workflow"
       ],
       "path": "public/opentrons-integration",
       "hasReferences": true,
@@ -1400,12 +1405,14 @@
     },
     {
       "name": "pathml",
-      "description": "Full-featured computational pathology toolkit. Use for advanced WSI analysis including multiplexed immunofluorescence (CODEX, Vectra), nucleus segmentation, tissue graph construction, and ML model training on pathology data. Supports 160+ slide formats. For simple tile extraction from H&E slides, histolab may be simpler.",
-      "category": "lab-automation",
-      "tags": [],
+      "description": "Supports local computational pathology research with PathML: slide loading and tiling, preprocessing and QC, h5path storage, multiplex quantification, spatial graphs, and bounded model inference. Use for whole-slide H&E, CODEX, Vectra, Mesmer, HoVer-Net, and HACTNet workflows.",
+      "category": "agent-workflow",
+      "tags": [
+        "workflow"
+      ],
       "path": "public/pathml",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
@@ -1444,9 +1451,11 @@
     },
     {
       "name": "pennylane",
-      "description": "Hardware-agnostic quantum ML framework with automatic differentiation. Use when training quantum circuits via gradients, building hybrid quantum-classical models, or needing device portability across IBM/Google/Rigetti/IonQ. Best for variational algorithms (VQE, QAOA), quantum neural networks, and integration with PyTorch/JAX/TensorFlow. For hardware-specific optimizations use qiskit (IBM) or cirq (Google); for open quantum systems use qutip.",
-      "category": "machine-learning",
+      "description": "Builds and differentiates PennyLane quantum circuits, hybrid PyTorch or JAX models, molecular VQE and QAOA workflows. Use for variational quantum algorithms, quantum machine learning, simulator validation, and moving validated circuits to provider plugins. For hardware-specific compilation use qiskit or cirq; for open-system dynamics use qutip.",
+      "category": "drug-discovery",
       "tags": [
+        "ml",
+        "workflow",
         "quantum"
       ],
       "path": "public/pennylane",
@@ -1480,9 +1489,11 @@
     },
     {
       "name": "polars",
-      "description": "Fast in-memory DataFrame library for datasets that fit in RAM. Use when pandas is too slow but data still fits in memory. Lazy evaluation, parallel execution, Apache Arrow backend. Best for 1-100GB datasets, ETL pipelines, faster pandas replacement. For larger-than-RAM data use dask or vaex.",
+      "description": "High-performance DataFrame library for Python ETL, analytics, and pandas migration. It supports expression-based data manipulation with lazy query optimization, parallel execution, streaming out-of-core processing, Arrow interoperability, and optional GPU execution.",
       "category": "machine-learning",
-      "tags": [],
+      "tags": [
+        "python"
+      ],
       "path": "public/polars",
       "hasReferences": true,
       "hasScripts": false,
@@ -1520,16 +1531,15 @@
     },
     {
       "name": "protocolsio-integration",
-      "description": "Integration with protocols.io API for managing scientific protocols. This skill should be used when working with protocols.io to search, create, update, or publish protocols; manage protocol steps and materials; handle discussions and comments; organize workspaces; upload and manage files; or integrate protocols.io functionality into workflows. Applicable for protocol discovery, collaborative protocol development, experiment tracking, lab protocol management, and scientific documentation.",
+      "description": "Reads, validates, and safely exports protocols.io data with current official REST/MCP contracts, or creates non-executing mutation plans. The bundled client makes bounded official-host GET requests only with explicit --execute. Use only for tasks explicitly targeting protocols.io or an exact protocols.io protocol version.",
       "category": "lab-automation",
       "tags": [
-        "api",
-        "workflow"
+        "rest"
       ],
       "path": "public/protocolsio-integration",
       "hasReferences": true,
-      "hasScripts": false,
-      "hasAssets": false
+      "hasScripts": true,
+      "hasAssets": true
     },
     {
       "name": "pubchem-database",
@@ -1563,9 +1573,11 @@
     },
     {
       "name": "pufferlib",
-      "description": "High-performance reinforcement learning framework optimized for speed and scale. Use when you need fast parallel training, vectorized environments, multi-agent systems, or integration with game environments (Atari, Procgen, NetHack). Achieves 2-10x speedups over standard implementations. For quick prototyping or standard algorithm implementations with extensive documentation, use stable-baselines3 instead.",
+      "description": "Version-aware guidance for PufferLib reinforcement-learning environments, vectorization, policies, PuffeRL training, evaluation, and safe checkpoint review. Covers the native 5.0 build and environment API, published 3.0.0 Gymnasium/PettingZoo adaptation, and a pinned historical 4.0 profile.",
       "category": "machine-learning",
-      "tags": [],
+      "tags": [
+        "api"
+      ],
       "path": "public/pufferlib",
       "hasReferences": true,
       "hasScripts": true,
@@ -1573,11 +1585,13 @@
     },
     {
       "name": "pydeseq2",
-      "description": "Differential gene expression analysis (Python DESeq2). Identify DE genes from bulk RNA-seq counts, Wald tests, FDR correction, volcano/MA plots, for RNA-seq analysis.",
+      "description": "Performs bulk RNA-seq differential expression analysis with PyDESeq2, including count validation, formula designs, explicit contrasts, Wald tests, FDR correction, coefficient-matched LFC shrinkage, and result visualization. Use for PyDESeq2 or Python DESeq2 workflows with biological replicates.",
       "category": "bioinformatics",
       "tags": [
         "python",
-        "rna"
+        "rna",
+        "visualization",
+        "workflow"
       ],
       "path": "public/pydeseq2",
       "hasReferences": true,
@@ -1586,13 +1600,9 @@
     },
     {
       "name": "pydicom",
-      "description": "Python library for working with DICOM (Digital Imaging and Communications in Medicine) files. Use this skill when reading, writing, or modifying medical imaging data in DICOM format, extracting pixel data from medical images (CT, MRI, X-ray, ultrasound), anonymizing DICOM files, working with DICOM metadata and tags, converting DICOM images to other formats, handling compressed DICOM data, or processing medical imaging datasets. Applies to tasks involving medical image analysis, PACS systems, radiology workflows, and healthcare imaging applications.",
-      "category": "clinical-medical",
-      "tags": [
-        "python",
-        "git",
-        "workflow"
-      ],
+      "description": "Reads, inspects, writes, transforms, and preflights local DICOM datasets and pixel data. Applies to DICOM metadata, transfer syntaxes, compression plugins, frames, private elements, JSON, and bounded de-identification review.",
+      "category": "context-engineering",
+      "tags": [],
       "path": "public/pydicom",
       "hasReferences": true,
       "hasScripts": true,
@@ -1600,35 +1610,30 @@
     },
     {
       "name": "pyhealth",
-      "description": "Comprehensive healthcare AI toolkit for developing, testing, and deploying machine learning models with clinical data. This skill should be used when working with electronic health records (EHR), clinical prediction tasks (mortality, readmission, drug recommendation), medical coding systems (ICD, NDC, ATC), physiological signals (EEG, ECG), healthcare datasets (MIMIC-III/IV, eICU, OMOP), or implementing deep learning models for healthcare applications (RETAIN, SafeDrug, Transformer, GNN).",
-      "category": "drug-discovery",
-      "tags": [
-        "drug-discovery",
-        "ml",
-        "deep-learning"
-      ],
+      "description": "Builds and validates PyHealth clinical machine-learning pipelines for EHR, signals, imaging, and medical codes. Use for PyHealth dataset loading, MIMIC-III/IV, eICU or OMOP prediction tasks, patient-level evaluation, mortality/readmission/length-of-stay modeling, medication recommendation, sleep staging, Trainer checkpoints, and ICD/ATC/NDC/RxNorm mapping.",
+      "category": "clinical-medical",
+      "tags": [],
       "path": "public/pyhealth",
       "hasReferences": true,
       "hasScripts": false,
-      "hasAssets": false
+      "hasAssets": true
     },
     {
       "name": "pylabrobot",
-      "description": "Vendor-agnostic lab automation framework. Use when controlling multiple equipment types (Hamilton, Tecan, Opentrons, plate readers, pumps) or needing unified programming across different vendors. Best for complex workflows, multi-vendor setups, simulation. For Opentrons-only protocols with official API, opentrons-integration may be simpler.",
+      "description": "Develops and reviews PyLabRobot lab-automation resources, liquid-handling plans, offline simulations, and supported-device integrations. Supports PyLabRobot protocols and API questions; keep physical execution behind an explicit operator safety gate.",
       "category": "lab-automation",
       "tags": [
         "api",
-        "workflow",
         "simulation"
       ],
       "path": "public/pylabrobot",
       "hasReferences": true,
-      "hasScripts": false,
-      "hasAssets": false
+      "hasScripts": true,
+      "hasAssets": true
     },
     {
       "name": "pymatgen",
-      "description": "Materials science toolkit. Crystal structures (CIF, POSCAR), phase diagrams, band structure, DOS, Materials Project integration, format conversion, for computational materials science.",
+      "description": "Analyzes, validates, converts, and transforms materials structures and computed materials data with pymatgen. Use for local phase diagrams, symmetry sensitivity, electronic-structure I/O, and bounded Materials Project queries.",
       "category": "agent-workflow",
       "tags": [],
       "path": "public/pymatgen",
@@ -1637,8 +1642,8 @@
       "hasAssets": false
     },
     {
-      "name": "pymc-bayesian-modeling",
-      "description": "Bayesian modeling with PyMC. Build hierarchical models, MCMC (NUTS), variational inference, LOO/WAIC comparison, posterior checks, for probabilistic programming and inference.",
+      "name": "pymc",
+      "description": "Builds and checks Bayesian models with PyMC, including hierarchical models, NUTS MCMC, variational inference, mutable-data predictions, posterior predictive checks, diagnostics, and PSIS-LOO model comparison. Use for probabilistic modeling and uncertainty inference in PyMC.",
       "category": "agent-workflow",
       "tags": [],
       "path": "public/pymc",
@@ -1648,8 +1653,8 @@
     },
     {
       "name": "pymoo",
-      "description": "Multi-objective optimization framework. NSGA-II, NSGA-III, MOEA/D, Pareto fronts, constraint handling, benchmarks (ZDT, DTLZ), for engineering design and optimization problems.",
-      "category": "design-art",
+      "description": "Solves and validates single-, multi-, and many-objective optimization with pymoo, including NSGA-II, NSGA-III, MOEA/D, constraints, Pareto approximations, reference directions, and ZDT/DTLZ benchmarks for engineering and research problems.",
+      "category": "agent-workflow",
       "tags": [],
       "path": "public/pymoo",
       "hasReferences": true,
@@ -1658,33 +1663,37 @@
     },
     {
       "name": "pyopenms",
-      "description": "Complete mass spectrometry analysis platform. Use for proteomics workflows feature detection, peptide identification, protein quantification, and complex LC-MS/MS pipelines. Supports extensive file formats and algorithms. Best for proteomics, comprehensive MS data processing. For simple spectral comparison and metabolite ID use matchms.",
-      "category": "agent-workflow",
+      "description": "Processes mass spectrometry data with pyOpenMS. Supports proteomics and metabolomics workflows—feature detection, peptide/protein identification, label-free quantification, adduct/accurate-mass annotation, and complex LC-MS/MS pipelines. Supports extensive file formats and algorithms. For simple spectral comparison and small-molecule library matching use matchms.",
+      "category": "drug-discovery",
       "tags": [
         "protein",
+        "molecule",
         "workflow"
       ],
       "path": "public/pyopenms",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
       "name": "pysam",
-      "description": "Genomic file toolkit. Read/write SAM/BAM/CRAM alignments, VCF/BCF variants, FASTA/FASTQ sequences, extract regions, calculate coverage, for NGS data processing pipelines.",
-      "category": "bioinformatics",
-      "tags": [],
+      "description": "Provides Python/HTSlib workflows for genomic files. Used when reading, querying, filtering, or writing SAM/BAM/CRAM, VCF/BCF, FASTA/FASTQ, or tabix data with pysam, including pileup, coverage, indexing, and CRAM references.",
+      "category": "scientific-writing",
+      "tags": [
+        "python",
+        "workflow"
+      ],
       "path": "public/pysam",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
       "name": "pytdc",
-      "description": "Therapeutics Data Commons. AI-ready drug discovery datasets (ADME, toxicity, DTI), benchmarks, scaffold splits, molecular oracles, for therapeutic ML and pharmacological prediction.",
+      "description": "Provides Therapeutics Data Commons workflows through PyTDC for registry discovery, dataset access, task-aware splits, evaluator metrics, benchmark groups, and bounded molecular-oracle scoring. Use when working with TDC therapeutic ML datasets or benchmarks.",
       "category": "drug-discovery",
       "tags": [
-        "drug-discovery"
+        "workflow"
       ],
       "path": "public/pytdc",
       "hasReferences": true,
@@ -1693,7 +1702,7 @@
     },
     {
       "name": "pytorch-lightning",
-      "description": "Deep learning framework (PyTorch Lightning). Organize PyTorch code into LightningModules, configure Trainers for multi-GPU/TPU, implement data pipelines, callbacks, logging (W&B, TensorBoard), distributed training (DDP, FSDP, DeepSpeed), for scalable neural network training.",
+      "description": "Deep learning framework (PyTorch Lightning / lightning package). Organize PyTorch code into LightningModules, configure Trainers for multi-GPU/TPU, implement data pipelines, callbacks, logging (W&B, TensorBoard, MLflow), distributed training (DDP, FSDP, DeepSpeed), for scalable neural network training.",
       "category": "machine-learning",
       "tags": [
         "deep-learning"
@@ -1705,7 +1714,7 @@
     },
     {
       "name": "qiskit",
-      "description": "IBM quantum computing framework. Use when targeting IBM Quantum hardware, working with Qiskit Runtime for production workloads, or needing IBM optimization tools. Best for IBM hardware execution, quantum error mitigation, and enterprise quantum computing. For Google hardware use cirq; for gradient-based quantum ML use pennylane; for open quantum system simulations use qutip.",
+      "description": "Builds, simulates, transpiles, and executes quantum circuits with Qiskit and IBM Quantum Runtime. Use for Qiskit 2.x circuits and operators, V2 Sampler or Estimator primitives, target-aware transpilation, local or noisy simulation, IBM QPU execution, Runtime sessions or batches, error mitigation, and Qiskit ecosystem packages.",
       "category": "quantum-computing",
       "tags": [
         "quantum",
@@ -1713,7 +1722,7 @@
       ],
       "path": "public/qiskit",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
@@ -1728,15 +1737,15 @@
     },
     {
       "name": "qutip",
-      "description": "Quantum physics simulation library for open quantum systems. Use when studying master equations, Lindblad dynamics, decoherence, quantum optics, or cavity QED. Best for physics research, open system dynamics, and educational simulations. NOT for circuit-based quantum computing—use qiskit, cirq, or pennylane for quantum algorithms and hardware execution.",
+      "description": "Simulate and audit closed and open quantum-system models with QuTiP 5, including deterministic, trajectory, steady-state, spectral, and phase-space workflows. Use for local quantum-dynamics work where physical assumptions, dimensions, and numerical convergence must be explicit.",
       "category": "quantum-computing",
       "tags": [
-        "quantum",
-        "simulation"
+        "workflow",
+        "quantum"
       ],
       "path": "public/qutip",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
@@ -1809,14 +1818,14 @@
     },
     {
       "name": "rowan",
-      "description": "Cloud-based quantum chemistry platform with Python API. Preferred for computational chemistry workflows including pKa prediction, geometry optimization, conformer searching, molecular property calculations, protein-ligand docking (AutoDock Vina), and AI protein cofolding (Chai-1, Boltz-1/2). Use when tasks involve quantum chemistry calculations, molecular property prediction, DFT or semiempirical methods, neural network potentials (AIMNet2), protein-ligand binding predictions, or automated computational chemistry pipelines. Provides cloud compute resources with no local setup required.",
+      "description": "Rowan is a cloud-native molecular modeling and medicinal-chemistry workflow platform with a Python API. Use for pKa and macropKa prediction, conformer and tautomer ensembles, docking and analogue docking, protein-ligand cofolding, MSA generation, molecular dynamics, permeability, descriptor workflows, and related small-molecule or protein modeling tasks. Ideal for programmatic batch screening, multi-step chemistry pipelines, and workflows that would otherwise require maintaining local HPC/GPU infrastructure.",
       "category": "drug-discovery",
       "tags": [
         "python",
         "api",
         "protein",
-        "workflow",
-        "quantum"
+        "molecule",
+        "workflow"
       ],
       "path": "public/rowan",
       "hasReferences": true,
@@ -1825,12 +1834,11 @@
     },
     {
       "name": "scanpy",
-      "description": "Standard single-cell RNA-seq analysis pipeline. Use for QC, normalization, dimensionality reduction (PCA/UMAP/t-SNE), clustering, differential expression, and visualization. Best for exploratory scRNA-seq analysis with established workflows. For deep learning models use scvi-tools; for data format questions use anndata.",
+      "description": "Performs Scanpy single-cell RNA-seq QC, normalization, HVG selection, PCA/UMAP/t-SNE, clustering, exploratory marker ranking, pseudobulk preparation, visualization, and Seurat or SingleCellExperiment RDS conversion to h5ad. Applies to established exploratory scRNA-seq workflows with explicit count and expression provenance; complementary skills cover scvi-tools models and AnnData format details.",
       "category": "bioinformatics",
       "tags": [
         "rna",
         "single-cell",
-        "deep-learning",
         "visualization",
         "workflow"
       ],
@@ -1841,22 +1849,22 @@
     },
     {
       "name": "scholar-evaluation",
-      "description": "Systematically evaluate scholarly work using the ScholarEval framework, providing structured assessment across research quality dimensions including problem formulation, methodology, analysis, and writing with quantitative scoring and actionable feedback.",
-      "category": "scientific-writing",
+      "description": "Provides qualitative-first, evidence-traceable developmental review of scholarly works and audit low-stakes research-assessment rubrics with optional local quality controls. Never use for ranking people or consequential decisions.",
+      "category": "agent-workflow",
       "tags": [],
       "path": "public/scholar-evaluation",
       "hasReferences": true,
       "hasScripts": true,
-      "hasAssets": false
+      "hasAssets": true
     },
     {
       "name": "scientific-brainstorming",
-      "description": "Creative research ideation and exploration. Use for open-ended brainstorming sessions, exploring interdisciplinary connections, challenging assumptions, or identifying research gaps. Best for early-stage research planning when you do not have specific observations yet. For formulating testable hypotheses from data use hypothesis-generation.",
-      "category": "agent-workflow",
+      "description": "Facilitates evidence-aware scientific ideation with independent generation, structured discussion, explicit assumptions, transparent evaluation, adversarial review, and decision logs. Use for early-stage research brainstorming or prioritizing candidate directions; hand off empirical validation, study design, ethics or regulatory review, and clinical questions to appropriate experts or skills.",
+      "category": "clinical-medical",
       "tags": [],
       "path": "public/scientific-brainstorming",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
@@ -1893,7 +1901,7 @@
     },
     {
       "name": "scientific-visualization",
-      "description": "Meta-skill for publication-ready figures. Use when creating journal submission figures requiring multi-panel layouts, significance annotations, error bars, colorblind-safe palettes, and specific journal formatting (Nature, Science, Cell). Orchestrates matplotlib/seaborn/plotly with publication styles. For quick exploration use seaborn or plotly directly.",
+      "description": "Creates and audits truthful, accessible, publication-ready scientific figures with Matplotlib, Seaborn, or Plotly. Use it for figure design, multi-panel layouts, uncertainty and missing-data displays, color/contrast review, image metadata validation, and journal export planning.",
       "category": "data-visualization",
       "tags": [
         "rna",
@@ -1928,7 +1936,7 @@
     },
     {
       "name": "scikit-learn",
-      "description": "Machine learning in Python with scikit-learn. Use when working with supervised learning (classification, regression), unsupervised learning (clustering, dimensionality reduction), model evaluation, hyperparameter tuning, preprocessing, or building ML pipelines. Provides comprehensive reference documentation for algorithms, preprocessing techniques, pipelines, and best practices.",
+      "description": "Supports machine learning in Python with scikit-learn. Applies when working with supervised learning (classification, regression), unsupervised learning (clustering, dimensionality reduction), model evaluation, hyperparameter tuning, preprocessing, or building ML pipelines. Provides comprehensive reference documentation for algorithms, preprocessing techniques, pipelines, and best practices.",
       "category": "machine-learning",
       "tags": [
         "python",
@@ -1941,23 +1949,22 @@
     },
     {
       "name": "scikit-survival",
-      "description": "Comprehensive toolkit for survival analysis and time-to-event modeling in Python using scikit-survival. Use this skill when working with censored survival data, performing time-to-event analysis, fitting Cox models, Random Survival Forests, Gradient Boosting models, or Survival SVMs, evaluating survival predictions with concordance index or Brier score, handling competing risks, or implementing any survival analysis workflow with the scikit-survival library.",
+      "description": "Builds, evaluates, and audits right-censored or competing-risk survival workflows with scikit-survival, including leakage-safe preprocessing, model selection, probability prediction, and censoring-aware metrics.",
       "category": "agent-workflow",
       "tags": [
-        "python",
-        "rest",
         "workflow"
       ],
       "path": "public/scikit-survival",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
       "name": "scvi-tools",
-      "description": "Deep generative models for single-cell omics. Use when you need probabilistic batch correction (scVI), transfer learning, differential expression with uncertainty, or multi-modal integration (TOTALVI, MultiVI). Best for advanced modeling, batch effects, multimodal data. For standard analysis pipelines use scanpy.",
+      "description": "Fits probabilistic models for single-cell omics, including scVI batch integration, scANVI annotation, totalVI CITE-seq, MultiVI RNA/ATAC integration, and posterior differential expression. Use for generative modeling, reference mapping, multimodal analysis, or model-based uncertainty; use scanpy for standard preprocessing and exploratory analysis.",
       "category": "bioinformatics",
       "tags": [
+        "rna",
         "single-cell"
       ],
       "path": "public/scvi-tools",
@@ -1967,7 +1974,7 @@
     },
     {
       "name": "seaborn",
-      "description": "Statistical visualization with pandas integration. Use for quick exploration of distributions, relationships, and categorical comparisons with attractive defaults. Best for box plots, violin plots, pair plots, heatmaps. Built on matplotlib. For interactive plots use plotly; for publication styling use scientific-visualization.",
+      "description": "Creates Seaborn statistical visualizations with pandas integration for distributions, relationships, categorical comparisons, regression displays, pair plots, and heatmaps. Supports function and objects interfaces with explicit aggregation, uncertainty, and missing-data handling. Best suited to static exploratory plots; plotly covers interactive figures and scientific-visualization covers publication styling.",
       "category": "data-visualization",
       "tags": [
         "visualization"
@@ -1989,24 +1996,21 @@
     },
     {
       "name": "shap",
-      "description": "Model interpretability and explainability using SHAP (SHapley Additive exPlanations). Use this skill when explaining machine learning model predictions, computing feature importance, generating SHAP plots (waterfall, beeswarm, bar, scatter, force, heatmap), debugging models, analyzing model bias or fairness, comparing models, or implementing explainable AI. Works with tree-based models (XGBoost, LightGBM, Random Forest), deep learning (TensorFlow, PyTorch), linear models, and any black-box model.",
-      "category": "machine-learning",
+      "description": "Explain and audit machine-learning predictions with SHAP. Use for selecting SHAP explainers and maskers, computing and validating feature attributions, handling multi-output explanations, and producing local or global SHAP visualizations.",
+      "category": "data-visualization",
       "tags": [
-        "rest",
-        "ml",
-        "deep-learning"
+        "visualization"
       ],
       "path": "public/shap",
       "hasReferences": true,
-      "hasScripts": false,
+      "hasScripts": true,
       "hasAssets": false
     },
     {
       "name": "simpy",
-      "description": "Process-based discrete-event simulation framework in Python. Use this skill when building simulations of systems with processes, queues, resources, and time-based events such as manufacturing systems, service operations, network traffic, logistics, or any system where entities interact with shared resources over time.",
+      "description": "Builds, inspects, tests, and analyzes bounded process-based discrete-event simulations with SimPy. Use for event scheduling, resource queues, interrupts, monitoring, independent replications, warm-up, and reproducible output analysis.",
       "category": "scientific-computing",
       "tags": [
-        "python",
         "simulation"
       ],
       "path": "public/simpy",
@@ -2038,11 +2042,9 @@
     },
     {
       "name": "stable-baselines3",
-      "description": "Production-ready reinforcement learning algorithms (PPO, SAC, DQN, TD3, DDPG, A2C) with scikit-learn-like API. Use for standard RL experiments, quick prototyping, and well-documented algorithm implementations. Best for single-agent RL with Gymnasium environments. For high-performance parallel training, multi-agent systems, or custom vectorized environments, use pufferlib instead.",
+      "description": "Trains and evaluates single-agent reinforcement learning with Stable Baselines3 (PPO, SAC, DQN, TD3, DDPG, A2C), Gymnasium custom environments, vectorized rollouts, callbacks, and checkpoint normalization. Applies to reproducible RL experiments, continuous control, discrete actions, and SB3-Contrib recurrent or masked policies.",
       "category": "machine-learning",
-      "tags": [
-        "api"
-      ],
+      "tags": [],
       "path": "public/stable-baselines3",
       "hasReferences": true,
       "hasScripts": true,
@@ -2050,9 +2052,12 @@
     },
     {
       "name": "statistical-analysis",
-      "description": "Guided statistical analysis with test selection and reporting. Use when you need help choosing appropriate tests for your data, assumption checking, power analysis, and APA-formatted results. Best for academic research reporting, test selection guidance. For implementing specific models programmatically use statsmodels.",
+      "description": "Guided statistical analysis for research data - test selection, assumption checking, effect sizes, power analysis, Bayesian alternatives, and APA-formatted reporting. Use whenever a user wants to compare groups, test a hypothesis, analyze experimental or survey data, check statistical assumptions, compute required sample sizes, or write up results - even if they never name a specific test. Covers t-tests, ANOVA, chi-square, correlation, regression, non-parametric and Bayesian methods. For low-level model APIs, see the statsmodels and pymc skills.",
       "category": "agent-workflow",
-      "tags": [],
+      "tags": [
+        "api",
+        "rna"
+      ],
       "path": "public/statistical-analysis",
       "hasReferences": true,
       "hasScripts": true,
@@ -2060,8 +2065,8 @@
     },
     {
       "name": "statsmodels",
-      "description": "Statistical models library for Python. Use when you need specific model classes (OLS, GLM, mixed models, ARIMA) with detailed diagnostics, residuals, and inference. Best for econometrics, time series, rigorous inference with coefficient tables. For guided statistical test selection with APA reporting use statistical-analysis.",
-      "category": "agent-workflow",
+      "description": "Fits and diagnoses Python statistical models including OLS, GLM, discrete and mixed models, ARIMA and SARIMAX. Supports coefficient inference, marginal effects, model comparison and time series forecasting with explicit design and uncertainty checks. Used for econometrics and statistical modeling; for guided test selection with APA reporting, see statistical-analysis.",
+      "category": "design-art",
       "tags": [
         "python"
       ],
@@ -2096,11 +2101,9 @@
     },
     {
       "name": "sympy",
-      "description": "Use this skill when working with symbolic mathematics in Python. This skill should be used for symbolic computation tasks including solving equations algebraically, performing calculus operations (derivatives, integrals, limits), manipulating algebraic expressions, working with matrices symbolically, physics calculations, number theory problems, geometry computations, and generating executable code from mathematical expressions. Apply this skill when the user needs exact symbolic results rather than numerical approximations, or when working with mathematical formulas that contain variables and parameters.",
+      "description": "Performs exact symbolic mathematics with SymPy for algebra, calculus, equation solving, symbolic linear algebra, physics, and lambdify or LaTeX code generation. Use when a task needs symbolic results, explicit assumptions, or exact arithmetic; use NumPy or SciPy for purely numerical workloads.",
       "category": "scientific-computing",
-      "tags": [
-        "python"
-      ],
+      "tags": [],
       "path": "public/sympy",
       "hasReferences": true,
       "hasScripts": false,
@@ -2160,12 +2163,13 @@
     },
     {
       "name": "torchdrug",
-      "description": "PyTorch-native graph neural networks for molecules and proteins. Use when building custom GNN architectures for drug discovery, protein modeling, or knowledge graph reasoning. Best for custom model development, protein property prediction, retrosynthesis. For pre-trained models and diverse featurizers use deepchem; for benchmark datasets use pytdc.",
+      "description": "Builds and troubleshoots TorchDrug 0.2.1 workflows for molecular graphs, property prediction, self-supervised pretraining, molecule generation, retrosynthesis, protein representation learning, and knowledge graph reasoning. Use when code imports torchdrug or needs its datasets, models, tasks, or Engine.",
       "category": "drug-discovery",
       "tags": [
         "protein",
         "drug-discovery",
-        "molecule"
+        "molecule",
+        "workflow"
       ],
       "path": "public/torchdrug",
       "hasReferences": true,
@@ -2174,8 +2178,8 @@
     },
     {
       "name": "transformers",
-      "description": "This skill should be used when working with pre-trained transformer models for natural language processing, computer vision, audio, or multimodal tasks. Use for text generation, classification, question answering, translation, summarization, image classification, object detection, speech recognition, and fine-tuning models on custom datasets.",
-      "category": "agent-workflow",
+      "description": "Hugging Face Transformers for loading Hub models, running pipeline inference, text generation, and Trainer fine-tuning on NLP, vision, audio, and multimodal tasks. Applies when working with AutoModel, pipelines, tokenizers, generation configs, or TrainingArguments within Transformers.",
+      "category": "context-engineering",
       "tags": [],
       "path": "public/transformers",
       "hasReferences": true,
@@ -2194,10 +2198,10 @@
     },
     {
       "name": "umap-learn",
-      "description": "UMAP dimensionality reduction. Fast nonlinear manifold learning for 2D/3D visualization, clustering preprocessing (HDBSCAN), supervised/parametric UMAP, for high-dimensional data.",
-      "category": "data-visualization",
+      "description": "Applies UMAP-learn to nonlinear dimensionality reduction, 2D/3D embeddings, clustering preprocessing, supervised or semi-supervised UMAP, DensMAP, AlignedUMAP, and Parametric UMAP workflows.",
+      "category": "agent-workflow",
       "tags": [
-        "visualization"
+        "workflow"
       ],
       "path": "public/umap-learn",
       "hasReferences": true,
@@ -2258,10 +2262,9 @@
     },
     {
       "name": "vaex",
-      "description": "Use this skill for processing and analyzing large tabular datasets (billions of rows) that exceed available RAM. Vaex excels at out-of-core DataFrame operations, lazy evaluation, fast aggregations, efficient visualization of big data, and machine learning on large datasets. Apply when users need to work with large CSV/HDF5/Arrow/Parquet files, perform fast statistics on massive datasets, create visualizations of big data, or build ML pipelines that do not fit in memory.",
-      "category": "machine-learning",
+      "description": "Processes large tabular scientific datasets with Vaex expressions, filtered views, streamed statistics, binned visualizations, and file conversion. Use for larger-than-RAM HDF5, Arrow, CSV, or Parquet analysis, virtual feature engineering, or Vaex ML preprocessing; distinguishes these operations from estimators and conversions that materialize data.",
+      "category": "data-visualization",
       "tags": [
-        "ml",
         "visualization"
       ],
       "path": "public/vaex",
@@ -2404,7 +2407,7 @@
     },
     {
       "name": "zarr-python",
-      "description": "Chunked N-D arrays for cloud storage. Compressed arrays, parallel I/O, S3/GCS integration, NumPy/Dask/Xarray compatible, for large-scale scientific computing pipelines.",
+      "description": "Stores and queries chunked N-D scientific arrays with Zarr-Python 3, including codecs, sharding, S3/GCS storage, and NumPy/Dask/Xarray integration. Use for array layout, bounded I/O, format migration, or scientific metadata preservation.",
       "category": "agent-workflow",
       "tags": [
         "python"
