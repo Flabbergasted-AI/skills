@@ -1,12 +1,12 @@
 # Pymoo Algorithms Reference
 
-Comprehensive reference for optimization algorithms available in pymoo.
+Reference for pymoo 0.6.2. Selection guidance is heuristic; compare seeds at matched evaluation budgets. Continuous defaults do not automatically support every variable type.
 
 ## Single-Objective Optimization Algorithms
 
 ### Genetic Algorithm (GA)
 **Purpose:** General-purpose single-objective evolutionary optimization
-**Best for:** Continuous, discrete, or mixed-variable problems
+**Best for:** Continuous problems with default operators; discrete types require compatible operators
 **Algorithm type:** (μ+λ) genetic algorithm
 
 **Key parameters:**
@@ -47,6 +47,37 @@ algorithm = GA(pop_size=100, eliminate_duplicates=True)
 **Purpose:** Simplex-based optimization
 **Best for:** Local optimization of continuous functions
 
+### MixedVariableGA
+**Purpose:** Single-objective optimization with mixed variable types
+**Best for:** Problems with continuous, integer, binary, and categorical variables
+
+**Usage:**
+```python
+from pymoo.core.mixed import MixedVariableGA
+from pymoo.core.variable import Real, Integer, Choice, Binary
+
+# Define problem with vars dict (see mixed-variable docs)
+algorithm = MixedVariableGA(pop_size=20)
+```
+
+For multi-objective mixed-variable problems, pass a survival operator:
+```python
+from pymoo.operators.survival.rank_and_crowding import RankAndCrowding
+algorithm = MixedVariableGA(pop_size=20, survival=RankAndCrowding())
+```
+
+### Optuna (Mixed-Variable SOO)
+**Purpose:** Single-objective mixed-variable search via Optuna wrapper
+**Best for:** Hyperparameter-style mixed search when Optuna's TPE/samplers are preferred
+
+**Usage:**
+```python
+from pymoo.algorithms.soo.nonconvex.optuna import Optuna
+algorithm = Optuna()
+```
+
+Requires Optuna installed separately: `uv pip install optuna`
+
 ## Multi-Objective Optimization Algorithms
 
 ### NSGA-II (Non-dominated Sorting Genetic Algorithm II)
@@ -78,6 +109,27 @@ algorithm = NSGA2(pop_size=100)
 - Need for distributed solutions across Pareto front
 - Standard multi-objective benchmark
 
+### SPEA2 (Strength Pareto Evolutionary Algorithm 2)
+**Purpose:** Multi-objective optimization using strength and density survival
+**Best for:** Bi- and tri-objective problems; alternative to NSGA-II for strength/density selection
+**Selection strategy:** Strength-based fitness + k-nearest-neighbor density estimation
+
+**Key features:**
+- Strength/density survival in the current population; no separate persistent external archive is configured by this constructor
+- Strength value measures how many solutions a point dominates
+- Improved in pymoo 0.6.1.6
+
+**Usage:**
+```python
+from pymoo.algorithms.moo.spea2 import SPEA2
+algorithm = SPEA2(pop_size=100)
+```
+
+**When to use:**
+- 2-3 objectives
+- Prefer strength/density survival over crowding distance
+- Compare against NSGA-II on benchmark problems
+
 ### NSGA-III
 **Purpose:** Many-objective optimization (4+ objectives)
 **Best for:** Problems with 4 or more objectives requiring uniform Pareto front coverage
@@ -100,14 +152,14 @@ algorithm = NSGA2(pop_size=100)
 from pymoo.algorithms.moo.nsga3 import NSGA3
 from pymoo.util.ref_dirs import get_reference_directions
 
-ref_dirs = get_reference_directions("das-dennis", n_dim=4, n_partitions=12)
+ref_dirs = get_reference_directions("das-dennis", 4, n_partitions=3)  # n_dim is positional
 algorithm = NSGA3(ref_dirs=ref_dirs)
 ```
 
 **NSGA-II vs NSGA-III:**
 - Use NSGA-II for 2-3 objectives
 - Use NSGA-III for 4+ objectives
-- NSGA-III provides more uniform distribution
+- NSGA-III aims to spread candidates over chosen directions; coverage is not guaranteed
 - NSGA-II has lower computational overhead
 
 ### R-NSGA-II (Reference Point Based NSGA-II)
@@ -120,7 +172,9 @@ algorithm = NSGA3(ref_dirs=ref_dirs)
 
 ### MOEA/D (Multi-Objective Evolutionary Algorithm based on Decomposition)
 **Purpose:** Decomposition-based multi-objective optimization
-**Best for:** Problems where decomposition into scalar subproblems is effective
+**Best for:** Unconstrained problems where decomposition into scalar subproblems is effective
+
+Supply `ref_dirs` explicitly (the constructor uses their count). The 0.6.2 implementation rejects constraints. Choose `n_neighbors` no greater than the direction count and compatible with parent selection. Transforming constraints into objectives changes the problem and requires final feasibility checks.
 
 ### AGE-MOEA
 **Purpose:** Adaptive geometry estimation
@@ -164,17 +218,21 @@ algorithm = NSGA3(ref_dirs=ref_dirs)
 - Use CMA-ES for difficult/noisy landscapes
 
 **For multi-objective problems:**
-- 2-3 objectives: NSGA-II
+- 2-3 objectives: NSGA-II or SPEA2
 - 4+ objectives: NSGA-III
 - Preference articulation: R-NSGA-II
 - Decomposition-friendly: MOEA/D
 - Hypervolume focus: SMS-EMOA
 
 **For constrained problems:**
-- Feasibility-based survival selection (works with most algorithms)
+- Check algorithm support: feasibility-based survival is common, but MOEA/D rejects constrained problems
 - Heavy constraints: SRES/ISRES
 - Penalty methods for algorithm compatibility
 
 **For dynamic problems:**
 - Time-varying: D-NSGA-II
 - Historical knowledge useful: KGB-DMOEA
+
+For Das-Dennis directions, `get_reference_directions("das-dennis", m, n_partitions=p)` creates `C(p+m-1,m-1)` points on the simplex. With five objectives, p=3 gives 35 directions whereas p=12 gives 1820; NSGA-III defaults its population to this count. Reference directions are not feasible decision vectors or guaranteed Pareto points. NSGA-III also works with two/three objectives; four objectives is a routing heuristic, not an API minimum.
+
+Reviewed 2026-10-01 against [algorithm catalogue](https://pymoo.org/algorithms/list.html), [NSGA-III](https://pymoo.org/algorithms/moo/nsga3.html), [MOEA/D](https://pymoo.org/algorithms/moo/moead.html), [mixed variables](https://pymoo.org/customization/mixed.html), and released source. GA/DE/PSO, mixed/Optuna, NSGA-II/III, and MOEA/D received bounded native checks; the other algorithms are documentation/source-reviewed choices, not performance-validated recommendations.
