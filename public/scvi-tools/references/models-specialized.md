@@ -1,408 +1,137 @@
-# Specialized Modality Models
-
-This document covers models for specialized single-cell data modalities in scvi-tools.
-
-## MethylVI / MethylANVI (Methylation Analysis)
-
-**Purpose**: Analysis of single-cell bisulfite sequencing (scBS-seq) data for DNA methylation.
-
-**Key Features**:
-- Models methylation patterns at single-cell resolution
-- Handles sparsity in methylation data
-- Batch correction for methylation experiments
-- Label transfer (MethylANVI) for cell type annotation
-
-**When to Use**:
-- Analyzing scBS-seq or similar methylation data
-- Studying DNA methylation patterns across cell types
-- Integrating methylation data across batches
-- Cell type annotation based on methylation profiles
-
-**Data Requirements**:
-- Methylation count matrices (methylated vs. total reads per CpG site)
-- Format: Cells × CpG sites with methylation ratios or counts
-
-### MethylVI (Unsupervised)
-
-**Basic Usage**:
-```python
-import scvi
-
-# Setup methylation data
-scvi.model.METHYLVI.setup_anndata(
-    adata,
-    layer="methylation_counts",  # Methylation data
-    batch_key="batch"
-)
-
-model = scvi.model.METHYLVI(adata)
-model.train()
-
-# Get latent representation
-latent = model.get_latent_representation()
-
-# Get normalized methylation values
-normalized_meth = model.get_normalized_methylation()
-```
-
-### MethylANVI (Semi-supervised with cell types)
-
-**Basic Usage**:
-```python
-# Setup with cell type labels
-scvi.model.METHYLANVI.setup_anndata(
-    adata,
-    layer="methylation_counts",
-    batch_key="batch",
-    labels_key="cell_type",
-    unlabeled_category="Unknown"
-)
-
-model = scvi.model.METHYLANVI(adata)
-model.train()
-
-# Predict cell types
-predictions = model.predict()
-```
-
-**Key Parameters**:
-- `n_latent`: Latent dimensionality
-- `region_factors`: Model region-specific effects
-
-**Use Cases**:
-- Epigenetic heterogeneity analysis
-- Cell type identification via methylation
-- Integration with gene expression data (separate analysis)
-- Differential methylation analysis
-
-## CytoVI (Flow and Mass Cytometry)
-
-**Purpose**: Batch correction and integration of flow cytometry and mass cytometry (CyTOF) data.
-
-**Key Features**:
-- Handles antibody-based protein measurements
-- Corrects batch effects in cytometry data
-- Enables integration across experiments
-- Designed for high-dimensional protein panels
-
-**When to Use**:
-- Analyzing flow cytometry or CyTOF data
-- Integrating cytometry experiments across batches
-- Batch correction for protein panels
-- Cross-study cytometry integration
-
-**Data Requirements**:
-- Protein expression matrix (cells × proteins)
-- Flow cytometry or CyTOF measurements
-- Batch/experiment annotations
-
-**Basic Usage**:
-```python
-scvi.model.CYTOVI.setup_anndata(
-    adata,
-    protein_expression_obsm_key="protein_expression",
-    batch_key="batch"
-)
-
-model = scvi.model.CYTOVI(adata)
-model.train()
-
-# Get batch-corrected representation
-latent = model.get_latent_representation()
-
-# Get normalized protein values
-normalized = model.get_normalized_expression()
-```
-
-**Key Parameters**:
-- `n_latent`: Latent space dimensionality
-- `n_layers`: Network depth
-
-**Typical Workflow**:
-```python
-import scanpy as sc
-
-# 1. Load cytometry data
-adata = sc.read_h5ad("cytof_data.h5ad")
-
-# 2. Train CytoVI
-scvi.model.CYTOVI.setup_anndata(
-    adata,
-    protein_expression_obsm_key="protein",
-    batch_key="experiment"
-)
-model = scvi.model.CYTOVI(adata)
-model.train()
-
-# 3. Get batch-corrected values
-latent = model.get_latent_representation()
-adata.obsm["X_CytoVI"] = latent
-
-# 4. Downstream analysis
-sc.pp.neighbors(adata, use_rep="X_CytoVI")
-sc.tl.umap(adata)
-sc.tl.leiden(adata)
-
-# 5. Visualize batch correction
-sc.pl.umap(adata, color=["batch", "leiden"])
-```
-
-## SysVI (Systems-level Integration)
-
-**Purpose**: Batch effect correction with emphasis on preserving biological variation.
-
-**Key Features**:
-- Specialized batch integration approach
-- Preserves biological signals while removing technical effects
-- Designed for large-scale integration studies
-
-**When to Use**:
-- Large-scale multi-batch integration
-- Need to preserve subtle biological variation
-- Systems-level analysis across many studies
-
-**Basic Usage**:
-```python
-scvi.model.SYSVI.setup_anndata(
-    adata,
-    layer="counts",
-    batch_key="batch"
-)
-
-model = scvi.model.SYSVI(adata)
-model.train()
-
-latent = model.get_latent_representation()
-```
-
-## Decipher (Trajectory Inference)
-
-**Purpose**: Trajectory inference and pseudotime analysis for single-cell data.
-
-**Key Features**:
-- Learns cellular trajectories and differentiation paths
-- Pseudotime estimation
-- Accounts for uncertainty in trajectory structure
-- Compatible with scVI embeddings
-
-**When to Use**:
-- Studying cellular differentiation
-- Time-course or developmental datasets
-- Understanding cell state transitions
-- Identifying branching points in development
-
-**Basic Usage**:
-```python
-# Typically used after scVI for embeddings
-scvi_model = scvi.model.SCVI(adata)
-scvi_model.train()
-
-# Decipher for trajectory
-scvi.model.DECIPHER.setup_anndata(adata)
-decipher_model = scvi.model.DECIPHER(adata, scvi_model)
-decipher_model.train()
-
-# Get pseudotime
-pseudotime = decipher_model.get_pseudotime()
-adata.obs["pseudotime"] = pseudotime
-```
-
-**Visualization**:
-```python
-import scanpy as sc
-
-# Plot pseudotime on UMAP
-sc.pl.umap(adata, color="pseudotime", cmap="viridis")
-
-# Gene expression along pseudotime
-sc.pl.scatter(adata, x="pseudotime", y="gene_of_interest")
-```
-
-## peRegLM (Peak Regulatory Linear Model)
-
-**Purpose**: Linking chromatin accessibility to gene expression for regulatory analysis.
-
-**Key Features**:
-- Links ATAC-seq peaks to gene expression
-- Identifies regulatory relationships
-- Works with paired multiome data
-
-**When to Use**:
-- Multiome data (RNA + ATAC from same cells)
-- Understanding gene regulation
-- Linking peaks to target genes
-- Regulatory network construction
-
-**Basic Usage**:
-```python
-# Requires paired RNA + ATAC data
-scvi.model.PEREGLM.setup_anndata(
-    multiome_adata,
-    rna_layer="counts",
-    atac_layer="atac_counts"
-)
-
-model = scvi.model.PEREGLM(multiome_adata)
-model.train()
-
-# Get peak-gene links
-peak_gene_links = model.get_regulatory_links()
-```
-
-## Model-Specific Best Practices
-
-### MethylVI/MethylANVI
-1. **Sparsity**: Methylation data is inherently sparse; model accounts for this
-2. **CpG selection**: Filter CpGs with very low coverage
-3. **Biological interpretation**: Consider genomic context (promoters, enhancers)
-4. **Integration**: For multi-omics, analyze separately then integrate results
-
-### CytoVI
-1. **Protein QC**: Remove low-quality or uninformative proteins
-2. **Compensation**: Ensure proper spectral compensation before analysis
-3. **Batch design**: Include biological and technical replicates
-4. **Controls**: Use control samples to validate batch correction
-
-### SysVI
-1. **Sample size**: Designed for large-scale integration
-2. **Batch definition**: Carefully define batch structure
-3. **Biological validation**: Verify biological signals preserved
-
-### Decipher
-1. **Start point**: Define trajectory start cells if known
-2. **Branching**: Specify expected number of branches
-3. **Validation**: Use known markers to validate pseudotime
-4. **Integration**: Works well with scVI embeddings
-
-## Integration with Other Models
-
-Many specialized models work well in combination:
-
-**Methylation + Expression**:
-```python
-# Analyze separately, then integrate
-methylvi_model = scvi.model.METHYLVI(meth_adata)
-scvi_model = scvi.model.SCVI(rna_adata)
-
-# Integrate results at analysis level
-# E.g., correlate methylation and expression patterns
-```
-
-**Cytometry + CITE-seq**:
-```python
-# CytoVI for flow/CyTOF
-cyto_model = scvi.model.CYTOVI(cyto_adata)
-
-# totalVI for CITE-seq
-cite_model = scvi.model.TOTALVI(cite_adata)
-
-# Compare protein measurements across platforms
-```
-
-**ATAC + RNA (Multiome)**:
-```python
-# MultiVI for joint analysis
-multivi_model = scvi.model.MULTIVI(multiome_adata)
-
-# peRegLM for regulatory links
-pereglm_model = scvi.model.PEREGLM(multiome_adata)
-```
-
-## Choosing Specialized Models
-
-### Decision Tree
-
-1. **What data modality?**
-   - Methylation → MethylVI/MethylANVI
-   - Flow/CyTOF → CytoVI
-   - Trajectory → Decipher
-   - Multi-batch integration → SysVI
-   - Regulatory links → peRegLM
-
-2. **Do you have labels?**
-   - Yes → MethylANVI (methylation)
-   - No → MethylVI (methylation)
-
-3. **What's your main goal?**
-   - Batch correction → CytoVI, SysVI
-   - Trajectory/pseudotime → Decipher
-   - Peak-gene links → peRegLM
-   - Methylation patterns → MethylVI/ANVI
-
-## Example: Complete Methylation Analysis
+# Methylation, cytometry, system integration and trajectories
+
+Targets scvi-tools 1.5.1. Specialized examples are illustrative and source-verified;
+see SKILL.md for the narrower set of native synthetic checks performed.
+
+## METHYLVI and METHYLANVI
+
+Both models require **MuData**. Their `setup_anndata` methods raise
+`NotImplementedError`. Each methylation context (for example `mCG`, `mCH`) is a
+modality containing a cells-by-regions matrix with two layers: methylated cytosine
+counts and total coverage counts. Require integer `0 <= mc <= cov`, shared cell
+order and unique region IDs. Zero coverage means no observation, not an observed
+unmethylated region; methylation ratios cannot replace the two count arrays.
 
 ```python
 import scvi
+from mudata import MuData
+
+# mcg_adata.layers['mc'] and ['cov'] have already been validated.
+mdata = MuData({"mCG": mcg_adata})
+mdata.obs["batch"] = mcg_adata.obs["batch"].reindex(mdata.obs_names)
+scvi.external.METHYLVI.setup_mudata(
+    mdata, mc_layer="mc", cov_layer="cov",
+    methylation_contexts=["mCG"], batch_key="batch",
+)
+methylvi = scvi.external.METHYLVI(mdata)
+methylvi.train()
+mdata.obsm["X_MethylVI"] = methylvi.get_latent_representation()
+methylation_by_context = methylvi.get_normalized_methylation()
+mcg_estimates = methylvi.get_normalized_methylation(context="mCG")
+```
+
+The first methylation result is a dictionary keyed by context; specifying `context`
+returns that context's array/DataFrame. Region/coverage QC must use coverage,
+not the number of methylated counts, or it preferentially removes hypomethylated
+regions. Default likelihood is beta-binomial; binomial is also supported. The
+relevant dispersion setting is `region`/`region-cell`, not `region_factors`.
+
+```python
+# Use a separate prepared MuData object for the semi-supervised example.
+scvi.external.METHYLANVI.setup_mudata(
+    labeled_mdata, mc_layer="mc", cov_layer="cov",
+    methylation_contexts=["mCG"], labels_key="cell_type",
+    unlabeled_category="Unknown", batch_key="batch",
+)
+methylanvi = scvi.external.METHYLANVI(labeled_mdata)
+methylanvi.train()
+labels = methylanvi.predict()
+probabilities = methylanvi.predict(soft=True)
+```
+
+Put label/batch columns in global `mdata.obs`, or explicitly map those arguments
+to the modality holding them through `modalities`. For a fitted methylation model,
+`differential_methylation(groupby=..., group1=..., group2=..., mode='change')`
+returns context-specific results and uses methylation differences, not RNA LFCs.
+Annotation and region tests require independent validation and biological replicates.
+
+## CYTOVI
+
+CYTOVI registers transformed cytometry intensities from `.X` or `layer`, not a
+TOTALVI-style `protein_expression_obsm_key`. Apply compensation/unmixing, instrument
+QC and an assay-appropriate transform (for example arcsinh with a recorded cofactor)
+before modeling. Default normal likelihood accepts transformed continuous values;
+beta likelihood requires suitable bounded values and care at distribution boundaries.
+
+```python
+scvi.external.CYTOVI.setup_anndata(
+    cyto_adata, layer="transformed", batch_key="batch", sample_key="sample",
+)
+cyto = scvi.external.CYTOVI(cyto_adata, protein_likelihood="normal")
+cyto.train()
+cyto_adata.obsm["X_CytoVI"] = cyto.get_latent_representation()
+corrected_intensities = cyto.get_normalized_expression()
+```
+
+Partially overlapping panels need measurement masks, shared markers and appropriate
+controls. Use the documented `scvi.external.cytovi` preprocessing utilities;
+do not treat missing panel markers as measured zeros. Version 1.5.1 fixes a beta
+likelihood NaN issue for merged masked panels. Assess retained biological signal
+and agreement in control samples, not batch mixing alone.
+
+## SysVI
+
+SysVI is intended for substantial cross-system effects (for example protocol or
+model-system differences). It models approximately normal inputs, commonly
+library-normalized and log1p-transformed RNA, rather than raw RNA counts.
+
+```python
 import scanpy as sc
 
-# 1. Load methylation data
-meth_adata = sc.read_h5ad("methylation_data.h5ad")
-
-# 2. QC: filter low-coverage CpG sites
-sc.pp.filter_genes(meth_adata, min_cells=10)
-
-# 3. Setup MethylVI
-scvi.model.METHYLVI.setup_anndata(
-    meth_adata,
-    layer="methylation",
-    batch_key="batch"
+# sys_adata starts with measured counts; preserve before transforming.
+sys_adata.layers["counts"] = sys_adata.X.copy()
+sc.pp.normalize_total(sys_adata, target_sum=1e4)
+sc.pp.log1p(sys_adata)
+sys_adata.layers["log_normalized"] = sys_adata.X.copy()
+scvi.external.SysVI.setup_anndata(
+    sys_adata, layer="log_normalized", batch_key="system",
 )
-
-# 4. Train model
-model = scvi.model.METHYLVI(meth_adata, n_latent=15)
-model.train(max_epochs=400)
-
-# 5. Get latent representation
-latent = model.get_latent_representation()
-meth_adata.obsm["X_MethylVI"] = latent
-
-# 6. Clustering
-sc.pp.neighbors(meth_adata, use_rep="X_MethylVI")
-sc.tl.umap(meth_adata)
-sc.tl.leiden(meth_adata)
-
-# 7. Differential methylation
-dm_results = model.differential_methylation(
-    groupby="leiden",
-    group1="0",
-    group2="1"
-)
-
-# 8. Save
-model.save("methylvi_model")
-meth_adata.write("methylation_analyzed.h5ad")
+sysvi = scvi.external.SysVI(sys_adata)
+sysvi.train()
+sys_adata.obsm["X_SysVI"] = sysvi.get_latent_representation()
 ```
 
-## External Tools Integration
+Tune cycle-consistency strength with biological-preservation checks and seeds;
+more correction is not always better. A system covariate is treated differently
+from auxiliary covariates. Gene orthology and shared feature definitions require
+explicit decisions for cross-species data. SysVI is not a guarantee that confounded
+or nonoverlapping biological states can be aligned safely.
 
-Some specialized models are available as external packages:
+## Decipher
 
-**SOLO** (doublet detection):
 ```python
-from scvi.external import SOLO
-
-solo = SOLO.from_scvi_model(scvi_model)
-solo.train()
-doublets = solo.predict()
+scvi.external.Decipher.setup_anndata(adata, layer="counts")
+decipher = scvi.external.Decipher(adata)
+decipher.train()
+adata.obsm["X_decipher"] = decipher.get_latent_representation()
 ```
 
-**scArches** (reference mapping):
-```python
-from scvi.external import SCARCHES
+Decipher learns its own low-dimensional representation from counts. It does not
+consume an SCVI embedding as the same input, and fitting alone does not return
+validated pseudotime. Its trajectory utilities require a specified trajectory
+and cluster annotation; evaluate alternative roots/branches and independent time
+or lineage evidence. UMAP on its latent representation is a visualization, not a
+trajectory inference validation.
 
-# For transfer learning and query-to-reference mapping
-```
+SOLO, CellAssign and AmortizedLDA are covered in
+[models-scrna-seq.md](models-scrna-seq.md); reference mapping is in
+[workflows.md](workflows.md). Separate models' latent coordinates are not directly
+comparable across assays without a justified correspondence or integration method.
 
-These external tools extend scvi-tools functionality for specific use cases.
-
-## Summary Table
-
-| Model | Data Type | Primary Use | Supervised? |
-|-------|-----------|-------------|-------------|
-| MethylVI | Methylation | Unsupervised analysis | No |
-| MethylANVI | Methylation | Cell type annotation | Semi |
-| CytoVI | Cytometry | Batch correction | No |
-| SysVI | scRNA-seq | Large-scale integration | No |
-| Decipher | scRNA-seq | Trajectory inference | No |
-| peRegLM | Multiome | Peak-gene links | No |
-| SOLO | scRNA-seq | Doublet detection | Semi |
+Sources: [METHYLVI](https://github.com/scverse/scvi-tools/blob/1.5.1/src/scvi/external/methylvi/_methylvi_model.py),
+[METHYLANVI](https://github.com/scverse/scvi-tools/blob/1.5.1/src/scvi/external/methylvi/_methylanvi_model.py),
+[methylation outputs](https://github.com/scverse/scvi-tools/blob/1.5.1/src/scvi/external/methylvi/_base_components.py),
+[CYTOVI](https://github.com/scverse/scvi-tools/blob/1.5.1/src/scvi/external/cytovi/_model.py),
+[cytometry assumptions](https://github.com/scverse/scvi-tools/blob/1.5.1/docs/user_guide/models/cytovi.md),
+[SysVI](https://github.com/scverse/scvi-tools/blob/1.5.1/docs/user_guide/models/sysvi.md),
+[Decipher](https://github.com/scverse/scvi-tools/blob/1.5.1/src/scvi/external/decipher/_model.py).

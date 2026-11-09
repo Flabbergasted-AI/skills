@@ -1,168 +1,203 @@
-# GPU Acceleration on Modal
+# Modal GPU Compute
 
-## Quick Start
+Reviewed against SDK 1.6.0, the [GPU guide](https://modal.com/docs/guide/gpu),
+[multi-node guide](https://modal.com/docs/guide/multi-node-clusters) and
+[RTX PRO release](https://modal.com/blog/product-updates-rtx-pro-6000-command-k-sandbox-fs-api-and-more).
+GPU allocation and model workloads were not executed. A payment method is required.
 
-Run functions on GPUs with the `gpu` parameter:
+## Table of Contents
 
-```python
-import modal
+- [Available GPUs](#available-gpus)
+- [Requesting GPUs](#requesting-gpus)
+- [GPU Selection Guide](#gpu-selection-guide)
+- [Multi-GPU](#multi-gpu)
+- [GPU Fallback Chains](#gpu-fallback-chains)
+- [Auto-Upgrades](#auto-upgrades)
+- [Multi-GPU Training](#multi-gpu-training)
 
-image = modal.Image.debian_slim().pip_install("torch")
-app = modal.App(image=image)
+## Available GPUs
 
-@app.function(gpu="A100")
-def run():
-    import torch
-    assert torch.cuda.is_available()
-```
+| GPU | VRAM | Max per Container | Best For |
+|-----|------|-------------------|----------|
+| T4 | 16 GB | 8 | Budget inference, small models |
+| L4 | 24 GB | 8 | Inference, video processing |
+| A10 | 24 GB | 4 | Inference, fine-tuning small models |
+| L40S | 48 GB | 8 | Inference (best cost/perf), medium models |
+| A100-40GB | 40 GB | 8 | Training, large model inference |
+| A100-80GB | 80 GB | 8 | Training, large models |
+| RTX-PRO-6000 | 96 GB | Confirm workspace capacity | Rendering, inference |
+| H100 | 80 GB | 8 | Large-scale training, fast inference |
+| H200 | 141 GB | 8 | Very large models, training |
+| B200 | 192 GB | 8 | Largest models, maximum throughput |
+| B200+ | 192 or 288 GB | 8 | B200 or B300, B200 pricing |
+| B300 | 288 GB | 8 | Large models, CUDA 13.1+ |
 
-## Available GPU Types
+## Requesting GPUs
 
-Modal supports the following GPUs:
-
-- `T4` - Entry-level GPU
-- `L4` - Balanced performance and cost
-- `A10` - Up to 4 GPUs, 96 GB total
-- `A100` - 40GB or 80GB variants
-- `A100-40GB` - Specific 40GB variant
-- `A100-80GB` - Specific 80GB variant
-- `L40S` - 48 GB, excellent for inference
-- `H100` / `H100!` - Top-tier Hopper architecture
-- `H200` - Improved Hopper with more memory
-- `B200` - Latest Blackwell architecture
-
-See https://modal.com/pricing for pricing.
-
-## GPU Count
-
-Request multiple GPUs per container with `:n` syntax:
-
-```python
-@app.function(gpu="H100:8")
-def run_llama_405b():
-    # 8 H100 GPUs available
-    ...
-```
-
-Supported counts:
-- B200, H200, H100, A100, L4, T4, L40S: up to 8 GPUs (up to 1,536 GB)
-- A10: up to 4 GPUs (up to 96 GB)
-
-Note: Requesting >2 GPUs may result in longer wait times.
-
-## GPU Selection Guide
-
-**For Inference (Recommended)**: Start with L40S
-- Excellent cost/performance
-- 48 GB memory
-- Good for LLaMA, Stable Diffusion, etc.
-
-**For Training**: Consider H100 or A100
-- High compute throughput
-- Large memory for batch processing
-
-**For Memory-Bound Tasks**: H200 or A100-80GB
-- More memory capacity
-- Better for large models
-
-## B200 GPUs
-
-NVIDIA's flagship Blackwell chip:
-
-```python
-@app.function(gpu="B200:8")
-def run_deepseek():
-    # Most powerful option
-    ...
-```
-
-## H200 and H100 GPUs
-
-Hopper architecture GPUs with excellent software support:
+### Basic Request
 
 ```python
 @app.function(gpu="H100")
 def train():
-    ...
+    import torch
+    assert torch.cuda.is_available()
+    print(f"Using: {torch.cuda.get_device_name(0)}")
 ```
 
-### Automatic H200 Upgrades
-
-Modal may upgrade `gpu="H100"` to H200 at no extra cost. H200 provides:
-- 141 GB memory (vs 80 GB for H100)
-- 4.8 TB/s bandwidth (vs 3.35 TB/s)
-
-To avoid automatic upgrades (e.g., for benchmarking):
-```python
-@app.function(gpu="H100!")
-def benchmark():
-    ...
-```
-
-## A100 GPUs
-
-Ampere architecture with 40GB or 80GB variants:
+### String Shorthand
 
 ```python
-# May be automatically upgraded to 80GB
-@app.function(gpu="A100")
-def qwen_7b():
-    ...
-
-# Specific variants
-@app.function(gpu="A100-40GB")
-def model_40gb():
-    ...
-
-@app.function(gpu="A100-80GB")
-def llama_70b():
-    ...
+gpu="T4"           # Single T4
+gpu="A100-80GB"    # Single A100 80GB
+gpu="H100:4"       # Four H100s
 ```
 
-## GPU Fallbacks
+### Case-Insensitive Strings
 
-Specify multiple GPU types with fallback:
+GPU strings are case-insensitive, so `gpu="h100"` and `gpu="H100"` are equivalent.
+
+> **Deprecation:** The legacy `modal.gpu.*` objects (e.g. `modal.gpu.H100(count=2)`) are deprecated as of v0.73.31. Always configure GPUs with strings — use `gpu="H100:2"` for multiple GPUs and `gpu="A100-80GB"` for the 80 GB A100.
+
+## GPU Selection Guide
+
+### For Inference
+
+These are starting points, not fit guarantees: account for precision/quantization,
+weights, activations, KV cache and batch/context length. A 70B BF16 model needs
+about 140 GB for weights alone and does not fit on one 80 GB H100.
+
+| Model Size | Recommended GPU | Why |
+|-----------|----------------|-----|
+| < 7B params | T4, L4 | Cost-effective, sufficient VRAM |
+| 7B-13B params | L40S | Best cost/performance, 48 GB VRAM |
+| 13B-70B params | A100-80GB, H100 | Large VRAM, fast memory bandwidth |
+| 70B+ params | H100:2+, H200, B200 | Multi-GPU or very large VRAM |
+
+### For Training
+
+| Task | Recommended GPU |
+|------|----------------|
+| Fine-tuning (LoRA) | L40S, A100-40GB |
+| Full fine-tuning small models | A100-80GB |
+| Full fine-tuning large models | H100:4+, H200 |
+| Pre-training | H100:8, B200:8 |
+
+### General Recommendation
+
+L40S is the best default for inference workloads — it offers an excellent trade-off of cost and performance with 48 GB of GPU RAM.
+
+## Multi-GPU
+
+Request multiple GPUs by appending `:count`:
 
 ```python
-@app.function(gpu=["H100", "A100-40GB:2"])
-def run_on_80gb():
-    # Tries H100 first, falls back to 2x A100-40GB
+@app.function(gpu="H100:4")
+def distributed():
+    import torch
+    print(f"GPUs available: {torch.cuda.device_count()}")
+    # All 4 GPUs are on the same physical machine
+```
+
+- Up to 8 GPUs for most types (up to 4 for A10)
+- All GPUs attach to the same physical machine
+- Requesting more than 2 GPUs may result in longer wait times
+- Maximum listed single-node VRAM: 8 x B300 = 2,304 GB
+
+## GPU Fallback Chains
+
+Specify a prioritized list of GPU types:
+
+```python
+@app.function(gpu=["H100", "A100-80GB", "L40S"])
+def flexible():
+    # Modal tries H100 first, then A100-80GB, then L40S
     ...
 ```
 
-Modal respects ordering and allocates most preferred available GPU.
+Useful for reducing queue times when a specific GPU isn't available.
+
+## Auto-Upgrades
+
+### H100 → H200
+
+Modal may automatically upgrade H100 requests to H200 at no extra cost. To prevent this:
+
+```python
+@app.function(gpu="H100!")  # Exclamation mark prevents auto-upgrade
+def must_use_h100():
+    ...
+```
+
+### A100 → A100-80GB
+
+`gpu="A100"` requests may be upgraded to 80GB at no extra cost.
+Use `gpu="A100-40GB"` when you specifically require the 40GB variant.
+
+### B200+
+
+`gpu="B200+"` allows Modal to run on B200 or B300 GPUs at B200 pricing.
+Both `B200+` and direct `B300` requests require a stack compatible with CUDA 13.1+.
 
 ## Multi-GPU Training
 
-Modal supports multi-GPU training on a single node. Multi-node training is in closed beta.
+Modal 1.6 adds `@modal.clustered(size=N)` and `modal.Cluster.from_context()` for
+multi-node Functions and Servers. The dedicated current guide supersedes the older
+GPU page's private-beta wording. Clustered jobs require full GPU nodes (e.g. H100:8),
+not CPU-only jobs or partial H100:4 nodes; verify workspace availability before use.
+The snippets below are single-node launcher templates, not tested training jobs.
 
-### PyTorch Example
-
-For frameworks that re-execute entrypoints, use subprocess or specific strategies:
+### PyTorch DDP Example
 
 ```python
-@app.function(gpu="A100:2")
-def train():
+# train.py must implement distributed training and read torchrun's rank variables.
+image = (
+    modal.Image.debian_slim(python_version="3.11")
+    .uv_pip_install("torch")
+    .add_local_file("train.py", "/root/train.py")
+)
+
+@app.function(gpu="H100:4", image=image, timeout=86400)
+def train_distributed():
     import subprocess
-    import sys
-    subprocess.run(
-        ["python", "train.py"],
-        stdout=sys.stdout,
-        stderr=sys.stderr,
-        check=True,
-    )
+    subprocess.run([
+        "torchrun", "--standalone", "--nnodes=1", "--nproc-per-node=4",
+        "/root/train.py",
+    ], check=True)
 ```
 
-For PyTorch Lightning, set strategy to `ddp_spawn` or `ddp_notebook`.
+Requesting four GPUs does not start four Python workers. The launcher establishes
+`RANK`, `WORLD_SIZE` and `LOCAL_RANK`; initialize the process group inside `train.py`.
 
-## Performance Considerations
+### PyTorch Lightning
 
-**Memory-Bound vs Compute-Bound**:
-- Running models with small batch sizes is memory-bound
-- Newer GPUs have faster arithmetic than memory access
-- Speedup from newer hardware may not justify cost for memory-bound workloads
+When using frameworks that re-execute Python entrypoints (like PyTorch Lightning), either:
 
-**Optimization**:
-- Use batching when possible
-- Consider L40S before jumping to H100/B200
-- Profile to identify bottlenecks
+1. Use a strategy supported by the installed Lightning release (the Modal guide lists `ddp_spawn` / `ddp_notebook`)
+2. Or run training as a subprocess
+
+```python
+@app.function(gpu="H100:4", image=image)
+def train():
+    import subprocess
+    subprocess.run(["python", "train_script.py"], check=True)
+```
+
+### Hugging Face Accelerate
+
+Install `accelerate` in the Image and include `train.py` with `add_local_file`.
+
+```python
+@app.function(gpu="A100-80GB:4", image=image)
+def finetune():
+    import subprocess
+    subprocess.run([
+        "accelerate", "launch",
+        "--num_processes", "4",
+        "train.py"
+    ], check=True)
+```
+
+> **Security:** These launchers use fixed, hardcoded argument lists. Never build the
+> `subprocess` argument list from unsanitized user input. If a workload needs
+> user-supplied values (e.g. hyperparameters), validate them against an allowlist or
+> pass them as files / environment variables rather than as command arguments.
