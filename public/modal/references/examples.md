@@ -1,433 +1,333 @@
-# Common Patterns for Scientific Computing
+# Modal Common Examples
 
-## Machine Learning Model Inference
+Reviewed against Modal 1.6.0. These are **illustrative cloud workload templates**:
+SDK registration and selected local handlers were checked, but container builds,
+GPU jobs, weights and database writes were not executed. Package pins are examples,
+not a validated combined environment. Resolve a lockfile per workload and record the
+model revision, hardware, seeds and input provenance before a scientific run.
+External helpers such as `transform()` are application-defined.
 
-### Basic Model Serving
+## LLM Inference Service (vLLM)
 
 ```python
 import modal
 
-app = modal.App("ml-inference")
+app = modal.App("vllm-service")
 
 image = (
-    modal.Image.debian_slim()
-    .uv_pip_install("torch", "transformers")
+    modal.Image.debian_slim(python_version="3.11")
+    .uv_pip_install("vllm==0.21.0", "fastapi[standard]==0.136.3")
 )
 
-@app.cls(
-    image=image,
-    gpu="L40S",
-)
-class Model:
+@app.cls(gpu="H100", image=image, max_containers=1)
+class LLMService:
     @modal.enter()
-    def load_model(self):
-        from transformers import AutoModel, AutoTokenizer
-        self.model = AutoModel.from_pretrained("bert-base-uncased")
-        self.tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+    def load(self):
+        from vllm import LLM
+        self.llm = LLM(model="Qwen/Qwen3-8B", max_model_len=4096)
 
     @modal.method()
-    def predict(self, text: str):
-        inputs = self.tokenizer(text, return_tensors="pt")
-        outputs = self.model(**inputs)
-        return outputs.last_hidden_state.mean(dim=1).tolist()
+    def generate(self, prompt: str, max_tokens: int = 512) -> str:
+        from vllm import SamplingParams
+        params = SamplingParams(max_tokens=max_tokens, temperature=0.7)
+        outputs = self.llm.generate([prompt], sampling_params=params)
+        return outputs[0].outputs[0].text
 
-@app.local_entrypoint()
-def main():
-    model = Model()
-    result = model.predict.remote("Hello world")
-    print(result)
+    @modal.fastapi_endpoint(method="POST", requires_proxy_auth=True)
+    def api(self, request: dict):
+        text = self.generate.local(request["prompt"], request.get("max_tokens", 512))
+        return {"text": text}
 ```
 
-### Model Serving with Volume
+[vLLM `LLM.generate`](https://docs.vllm.ai/en/latest/serving/offline_inference/) uses
+`SamplingParams`; `max_tokens` is not a `generate()` keyword. This template accepts
+a preformatted completion prompt. Apply the model's chat template for chat messages.
+Use your Proxy Token to call the endpoint. A 70B BF16 model does not fit one H100;
+GPU capacity must include weights and KV cache, not just parameter count.
+
+## Image Generation (Flux)
 
 ```python
-volume = modal.Volume.from_name("models", create_if_missing=True)
-MODEL_PATH = "/models"
+import modal
 
-@app.cls(
-    image=image,
-    gpu="A100",
-    volumes={MODEL_PATH: volume}
+app = modal.App("image-gen")
+
+image = (
+    modal.Image.debian_slim(python_version="3.11")
+    .uv_pip_install(
+        "diffusers==0.38.0",
+        "torch==2.12.0",
+        "transformers==5.9.0",
+        "accelerate==1.13.0",
+    )
 )
-class ModelServer:
+
+vol = modal.Volume.from_name("flux-weights", create_if_missing=True)
+
+@app.cls(gpu="L40S", image=image, volumes={"/models": vol})
+class ImageGenerator:
     @modal.enter()
     def load(self):
         import torch
-        self.model = torch.load(f"{MODEL_PATH}/model.pt")
-        self.model.eval()
+        from diffusers import FluxPipeline
+        self.pipe = FluxPipeline.from_pretrained(
+            "black-forest-labs/FLUX.1-schnell",
+            torch_dtype=torch.bfloat16,
+            cache_dir="/models",
+        ).to("cuda")
+        vol.commit()
 
     @modal.method()
-    def infer(self, data):
-        import torch
-        with torch.no_grad():
-            return self.model(torch.tensor(data)).tolist()
+    def generate(self, prompt: str) -> bytes:
+        image = self.pipe(prompt, num_inference_steps=4, guidance_scale=0.0).images[0]
+        import io
+        buf = io.BytesIO()
+        image.save(buf, format="PNG")
+        return buf.getvalue()
 ```
 
-## Batch Processing
+## Speech Transcription (Whisper)
 
-### Parallel Data Processing
+The audio path must exist inside the container. Upload it to the named Volume
+first; passing a local laptop path does not transfer audio.
 
 ```python
-@app.function(
-    image=modal.Image.debian_slim().uv_pip_install("pandas", "numpy"),
-    cpu=2.0,
-    memory=8192
+import modal
+
+app = modal.App("transcription")
+
+image = (
+    modal.Image.debian_slim(python_version="3.11")
+    .apt_install("ffmpeg")
+    .uv_pip_install("openai-whisper==20250625", "torch==2.12.0")
 )
-def process_batch(batch_id: int):
-    import pandas as pd
 
-    # Load batch
-    df = pd.read_csv(f"s3://bucket/batch_{batch_id}.csv")
+audio_vol = modal.Volume.from_name("audio-data", create_if_missing=True)
 
-    # Process
-    result = df.apply(lambda row: complex_calculation(row), axis=1)
-
-    # Save result
-    result.to_csv(f"s3://bucket/results_{batch_id}.csv")
-
-    return batch_id
-
-@app.local_entrypoint()
-def main():
-    # Process 100 batches in parallel
-    results = list(process_batch.map(range(100)))
-    print(f"Processed {len(results)} batches")
-```
-
-### Batch Processing with Progress
-
-```python
-@app.function()
-def process_item(item_id: int):
-    # Expensive processing
-    result = compute_something(item_id)
-    return result
-
-@app.local_entrypoint()
-def main():
-    items = list(range(1000))
-
-    print(f"Processing {len(items)} items...")
-    results = []
-    for i, result in enumerate(process_item.map(items)):
-        results.append(result)
-        if (i + 1) % 100 == 0:
-            print(f"Completed {i + 1}/{len(items)}")
-
-    print("All items processed!")
-```
-
-## Data Analysis Pipeline
-
-### ETL Pipeline
-
-```python
-volume = modal.Volume.from_name("data-pipeline")
-DATA_PATH = "/data"
-
-@app.function(
-    image=modal.Image.debian_slim().uv_pip_install("pandas", "polars"),
-    volumes={DATA_PATH: volume},
-    cpu=4.0,
-    memory=16384
-)
-def extract_transform_load():
-    import polars as pl
-
-    # Extract
-    raw_data = pl.read_csv(f"{DATA_PATH}/raw/*.csv")
-
-    # Transform
-    transformed = (
-        raw_data
-        .filter(pl.col("value") > 0)
-        .group_by("category")
-        .agg([
-            pl.col("value").mean().alias("avg_value"),
-            pl.col("value").sum().alias("total_value")
-        ])
-    )
-
-    # Load
-    transformed.write_parquet(f"{DATA_PATH}/processed/data.parquet")
-    volume.commit()
-
-    return transformed.shape
-
-@app.function(schedule=modal.Cron("0 2 * * *"))
-def daily_pipeline():
-    result = extract_transform_load.remote()
-    print(f"Processed data shape: {result}")
-```
-
-## GPU-Accelerated Computing
-
-### Distributed Training
-
-```python
-@app.function(
-    gpu="A100:2",
-    image=modal.Image.debian_slim().uv_pip_install("torch", "accelerate"),
-    timeout=7200,
-)
-def train_model():
-    import torch
-    from torch.nn.parallel import DataParallel
-
-    # Load data
-    train_loader = get_data_loader()
-
-    # Initialize model
-    model = MyModel()
-    model = DataParallel(model)
-    model = model.cuda()
-
-    # Train
-    optimizer = torch.optim.Adam(model.parameters())
-    for epoch in range(10):
-        for batch in train_loader:
-            loss = train_step(model, batch, optimizer)
-            print(f"Epoch {epoch}, Loss: {loss}")
-
-    return "Training complete"
-```
-
-### GPU Batch Inference
-
-```python
-@app.function(
-    gpu="L40S",
-    image=modal.Image.debian_slim().uv_pip_install("torch", "transformers")
-)
-def batch_inference(texts: list[str]):
-    from transformers import pipeline
-
-    classifier = pipeline("sentiment-analysis", device=0)
-    results = classifier(texts, batch_size=32)
-
-    return results
-
-@app.local_entrypoint()
-def main():
-    # Process 10,000 texts
-    texts = load_texts()
-
-    # Split into chunks of 100
-    chunks = [texts[i:i+100] for i in range(0, len(texts), 100)]
-
-    # Process in parallel on multiple GPUs
-    all_results = []
-    for results in batch_inference.map(chunks):
-        all_results.extend(results)
-
-    print(f"Processed {len(all_results)} texts")
-```
-
-## Scientific Computing
-
-### Molecular Dynamics Simulation
-
-```python
-@app.function(
-    image=modal.Image.debian_slim().apt_install("openmpi-bin").uv_pip_install("mpi4py", "numpy"),
-    cpu=16.0,
-    memory=65536,
-    timeout=7200,
-)
-def run_simulation(config: dict):
-    import numpy as np
-
-    # Initialize system
-    positions = initialize_positions(config["n_particles"])
-    velocities = initialize_velocities(config["temperature"])
-
-    # Run MD steps
-    for step in range(config["n_steps"]):
-        forces = compute_forces(positions)
-        velocities += forces * config["dt"]
-        positions += velocities * config["dt"]
-
-        if step % 1000 == 0:
-            energy = compute_energy(positions, velocities)
-            print(f"Step {step}, Energy: {energy}")
-
-    return positions, velocities
-```
-
-### Distributed Monte Carlo
-
-```python
-@app.function(cpu=2.0)
-def monte_carlo_trial(trial_id: int, n_samples: int):
-    import random
-
-    count = sum(1 for _ in range(n_samples)
-                if random.random()**2 + random.random()**2 <= 1)
-
-    return count
-
-@app.local_entrypoint()
-def estimate_pi():
-    n_trials = 100
-    n_samples_per_trial = 1_000_000
-
-    # Run trials in parallel
-    results = list(monte_carlo_trial.map(
-        range(n_trials),
-        [n_samples_per_trial] * n_trials
-    ))
-
-    total_count = sum(results)
-    total_samples = n_trials * n_samples_per_trial
-
-    pi_estimate = 4 * total_count / total_samples
-    print(f"Estimated π = {pi_estimate}")
-```
-
-## Data Processing with Volumes
-
-### Image Processing Pipeline
-
-```python
-volume = modal.Volume.from_name("images")
-IMAGE_PATH = "/images"
-
-@app.function(
-    image=modal.Image.debian_slim().uv_pip_install("Pillow", "numpy"),
-    volumes={IMAGE_PATH: volume}
-)
-def process_image(filename: str):
-    from PIL import Image
-    import numpy as np
-
-    # Load image
-    img = Image.open(f"{IMAGE_PATH}/raw/{filename}")
-
-    # Process
-    img_array = np.array(img)
-    processed = apply_filters(img_array)
-
-    # Save
-    result_img = Image.fromarray(processed)
-    result_img.save(f"{IMAGE_PATH}/processed/{filename}")
-
-    return filename
-
-@app.function(volumes={IMAGE_PATH: volume})
-def process_all_images():
-    import os
-
-    # Get all images
-    filenames = os.listdir(f"{IMAGE_PATH}/raw")
-
-    # Process in parallel
-    results = list(process_image.map(filenames))
-
-    volume.commit()
-    return f"Processed {len(results)} images"
-```
-
-## Web API for Scientific Computing
-
-```python
-image = modal.Image.debian_slim().uv_pip_install("fastapi[standard]", "numpy", "scipy")
-
-@app.function(image=image)
-@modal.fastapi_endpoint(method="POST")
-def compute_statistics(data: dict):
-    import numpy as np
-    from scipy import stats
-
-    values = np.array(data["values"])
-
-    return {
-        "mean": float(np.mean(values)),
-        "median": float(np.median(values)),
-        "std": float(np.std(values)),
-        "skewness": float(stats.skew(values)),
-        "kurtosis": float(stats.kurtosis(values))
-    }
-```
-
-## Scheduled Data Collection
-
-```python
-@app.function(
-    schedule=modal.Cron("*/30 * * * *"),  # Every 30 minutes
-    secrets=[modal.Secret.from_name("api-keys")],
-    volumes={"/data": modal.Volume.from_name("sensor-data")}
-)
-def collect_sensor_data():
-    import requests
-    import json
-    from datetime import datetime
-
-    # Fetch from API
-    response = requests.get(
-        "https://api.example.com/sensors",
-        headers={"Authorization": f"Bearer {os.environ['API_KEY']}"}
-    )
-
-    data = response.json()
-
-    # Save with timestamp
-    timestamp = datetime.now().isoformat()
-    with open(f"/data/{timestamp}.json", "w") as f:
-        json.dump(data, f)
-
-    volume.commit()
-
-    return f"Collected {len(data)} sensor readings"
-```
-
-## Best Practices
-
-### Use Classes for Stateful Workloads
-
-```python
-@app.cls(gpu="A100")
-class ModelService:
+@app.cls(gpu="T4", image=image, volumes={"/audio": audio_vol})
+class Transcriber:
     @modal.enter()
-    def setup(self):
-        # Load once, reuse across requests
-        self.model = load_heavy_model()
+    def load(self):
+        import whisper
+        self.model = whisper.load_model("large-v3")
 
     @modal.method()
-    def predict(self, x):
-        return self.model(x)
+    def transcribe(self, audio_path: str) -> dict:
+        audio_vol.reload()
+        return self.model.transcribe(audio_path)
 ```
 
-### Batch Similar Workloads
+## Batch Data Processing
 
 ```python
-@app.function()
-def process_many(items: list):
-    # More efficient than processing one at a time
-    return [process(item) for item in items]
+import modal
+
+app = modal.App("batch-processor")
+
+image = modal.Image.debian_slim().uv_pip_install("pandas", "pyarrow")
+vol = modal.Volume.from_name("batch-data", create_if_missing=True)
+
+@app.function(image=image, volumes={"/data": vol}, cpu=4.0, memory=8192)
+def process_chunk(chunk_id: int) -> dict:
+    import pandas as pd
+    from pathlib import Path
+    from uuid import uuid4
+    vol.reload()
+    df = pd.read_parquet(f"/data/input/chunk_{chunk_id:04d}.parquet")
+    result = df.groupby("category").agg({"value": ["sum", "mean", "count"]})
+    output_dir = Path("/data/output") / uuid4().hex
+    output_dir.mkdir(parents=True)
+    output = output_dir / f"result_{chunk_id:04d}.parquet"
+    result.to_parquet(output)
+    vol.commit()
+    return {"chunk_id": chunk_id, "rows": len(df), "output": str(output)}
+
+@app.local_entrypoint()
+def main():
+    chunk_ids = list(range(500))
+    results = list(process_chunk.map(chunk_ids))
+    total = sum(r["rows"] for r in results)
+    print(f"Processed {total} total rows across {len(results)} chunks")
 ```
 
-### Use Volumes for Large Datasets
+## Web Scraping at Scale
 
 ```python
-# Store large datasets in volumes, not in image
-volume = modal.Volume.from_name("dataset")
+import modal
 
-@app.function(volumes={"/data": volume})
-def train():
-    data = load_from_volume("/data/training.parquet")
-    model = train_model(data)
+app = modal.App("scraper")
+
+image = modal.Image.debian_slim().uv_pip_install("httpx", "beautifulsoup4")
+
+@app.function(image=image, retries=3, timeout=60)
+def scrape_url(url: str) -> dict:
+    import httpx
+    from bs4 import BeautifulSoup
+    response = httpx.get(url, follow_redirects=True, timeout=30)
+    response.raise_for_status()
+    soup = BeautifulSoup(response.text, "html.parser")
+    return {
+        "url": url,
+        "title": soup.title.string if soup.title else None,
+        "text": soup.get_text()[:5000],
+    }
+
+@app.local_entrypoint()
+def main():
+    urls = ["https://example.com", "https://example.org"]  # Your URL list
+    results = list(scrape_url.map(urls))
+    for r in results:
+        print(f"{r['url']}: {r['title']}")
 ```
 
-### Profile Before Scaling to GPUs
+## Protein Structure Prediction
 
 ```python
-# Test on CPU first
-@app.function(cpu=4.0)
-def test_pipeline():
-    ...
+import modal
 
-# Then scale to GPU if needed
-@app.function(gpu="A100")
-def gpu_pipeline():
-    ...
+app = modal.App("protein-folding")
+
+image = (
+    modal.Image.debian_slim(python_version="3.11")
+    .uv_pip_install("chai-lab")
+)
+
+vol = modal.Volume.from_name("protein-data", create_if_missing=True)
+
+@app.function(gpu="A100-80GB", image=image, volumes={"/data": vol}, timeout=3600)
+def fold_protein(sequence: str) -> list[str]:
+    from pathlib import Path
+    from uuid import uuid4
+    from chai_lab.chai1 import run_inference
+    if not sequence or any(c not in "ACDEFGHIKLMNPQRSTVWY" for c in sequence):
+        raise ValueError("Provide one non-empty canonical protein sequence")
+    run_dir = Path("/data/runs") / uuid4().hex
+    run_dir.mkdir(parents=True)
+    fasta = run_dir / "input.fasta"
+    fasta.write_text(f">protein|name=target\n{sequence}\n")
+    candidates = run_inference(
+        fasta_file=fasta,
+        output_dir=run_dir / "predictions",
+        use_msa_server=False,
+        use_templates_server=False,
+        seed=42,
+        device="cuda:0",
+    )
+    vol.commit()
+    return [str(path) for path in candidates.cif_paths]
 ```
+
+The [Chai API](https://github.com/chaidiscovery/chai-lab/blob/main/chai_lab/chai1.py)
+accepts `Path` objects and returns `StructureCandidates`, not an output filename.
+Server-based MSA/template search is disabled here; enabling it sends sequence data
+to another service. Predicted structures and confidence scores require scientific
+validation; they are not experimental evidence.
+
+## Scheduled ETL Pipeline
+
+```python
+import modal
+
+app = modal.App("etl")
+
+image = modal.Image.debian_slim().uv_pip_install("pandas", "sqlalchemy", "psycopg2-binary")
+
+@app.function(
+    image=image,
+    schedule=modal.Cron("0 3 * * *"),  # 3 AM UTC daily
+    secrets=[modal.Secret.from_name("database-creds")],
+    timeout=7200,
+)
+def daily_etl():
+    import os
+    import pandas as pd
+    from sqlalchemy import create_engine
+
+    source = create_engine(os.environ["SOURCE_DB"])
+    dest = create_engine(os.environ["DEST_DB"])
+
+    df = pd.read_sql("SELECT * FROM events WHERE date = CURRENT_DATE - 1", source)
+    df = transform(df)
+    # Illustrative append: add a date/run key and transactional upsert in production
+    # so redeploys, retries or manual reruns cannot duplicate observations.
+    df.to_sql("daily_summary", dest, if_exists="append", index=False)
+    print(f"Loaded {len(df)} rows")
+```
+
+## FastAPI with GPU Model
+
+```python
+import modal
+
+app = modal.App("api-with-gpu")
+
+image = (
+    modal.Image.debian_slim(python_version="3.11")
+    .uv_pip_install("fastapi[standard]==0.136.3", "sentence-transformers==5.5.1", "torch==2.12.0")
+)
+
+@app.cls(gpu="L40S", image=image, min_containers=1)
+class EmbeddingService:
+    @modal.enter()
+    def load(self):
+        from sentence_transformers import SentenceTransformer
+        self.model = SentenceTransformer("all-MiniLM-L6-v2", device="cuda")
+
+    @modal.asgi_app(requires_proxy_auth=True)
+    def serve(self):
+        from fastapi import FastAPI
+        api = FastAPI()
+
+        @api.post("/embed")
+        def embed(request: dict):
+            embeddings = self.model.encode(request["texts"])
+            return {"embeddings": embeddings.tolist()}
+
+        @api.get("/health")
+        async def health():
+            return {"status": "ok"}
+
+        return api
+```
+
+## Document OCR Job Queue
+
+```python
+import modal
+
+app = modal.App("ocr-queue")
+
+image = modal.Image.debian_slim().uv_pip_install("pytesseract", "Pillow").apt_install("tesseract-ocr")
+vol = modal.Volume.from_name("ocr-data", create_if_missing=True)
+
+@app.function(image=image, volumes={"/data": vol})
+def ocr_page(image_path: str) -> str:
+    import pytesseract
+    from PIL import Image
+    vol.reload()
+    with Image.open(image_path) as img:
+        return pytesseract.image_to_string(img)
+
+@app.function(volumes={"/data": vol})
+def process_document(doc_id: str):
+    import os
+    from uuid import uuid4
+    if not doc_id or any(c not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-" for c in doc_id):
+        raise ValueError("Invalid document ID")
+    vol.reload()
+    pages = sorted(os.listdir(f"/data/docs/{doc_id}/"))
+    paths = [f"/data/docs/{doc_id}/{p}" for p in pages]
+    texts = list(ocr_page.map(paths))
+    full_text = "\n\n".join(texts)
+    os.makedirs("/data/results", exist_ok=True)
+    output = f"/data/results/{doc_id}-{uuid4().hex}.txt"
+    with open(output, "w") as f:
+        f.write(full_text)
+    vol.commit()
+    return {"doc_id": doc_id, "pages": len(texts), "output": output}
+```
+
+Additional upstream contracts reviewed: [FLUX](https://huggingface.co/docs/diffusers/api/pipelines/flux),
+[Whisper](https://github.com/openai/whisper), [Sentence Transformers](https://sbert.net/docs/quickstart.html).
+For pretrained weights, verify licensing/access and pin revisions; the GPU examples
+remain unexecuted and do not establish numerical reproducibility or performance.
